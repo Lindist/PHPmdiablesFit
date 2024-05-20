@@ -40,6 +40,7 @@ require_once 'connect.php';
     <div id = "inout">
         <a href="signinForm.php" class="btn btn-outline-primary">Login</a>
         <a href="signupForm.php" class="btn btn-primary">Signup</a>
+        <a href="menuhome/home.html" class="btn btn-secondary">Back</a>
     </div>
     <script type="text/javascript">
         let x = document.getElementById("inout");
