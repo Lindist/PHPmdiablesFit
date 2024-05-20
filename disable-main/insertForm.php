@@ -44,6 +44,10 @@ while($row = mysqli_fetch_assoc($result))
 $arr1=implode(",",$data1);
 
 $id = $_GET['user_id'];
+if(isset($_GET['admin']))
+{
+    $admin = $_GET['admin'];
+}
 
 ?>
 <!DOCTYPE html>
@@ -72,6 +76,7 @@ $id = $_GET['user_id'];
         <hr>
         <form action="insertData.php" method="POST">
             <input type="hidden" name="user_id" value="<?php echo $id; ?>">
+            <input type="hidden" name="admin_id" value="<?php echo $admin; ?>">
             <div class="form-group">
                 <label for="team_name">ชื่อทีม</label>
                 <input type="text" name="team_name" class="form-control">

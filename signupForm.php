@@ -36,7 +36,7 @@ require_once 'connect.php';
 }
 </style>
 </head>
-<body>
+<body class="container">
     <div id = "inout">
         <a href="signinForm.php" class="btn btn-outline-primary">Login</a>
         <a href="signupForm.php" class="btn btn-primary">Signup</a>
@@ -46,7 +46,7 @@ require_once 'connect.php';
         x.style.textAlign="right";
         x.style.marginTop="2%";
         x.style.marginRight="2%";
-    </script>
+        </script>
     <div class="margin">
     <div class="container">
         <h3 class="mt-4">สมัครสมาชิก</h3>

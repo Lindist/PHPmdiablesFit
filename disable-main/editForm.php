@@ -3,6 +3,15 @@
 require('dbconnect.php');
 $detail_id = $_GET["detail_id"];
 $user_id = $_GET["user_id"];
+
+if(isset($_GET['admin']))
+{
+    $admin = $_GET['admin'];
+}else
+{
+    $admin = 0;
+}
+
 $sql = "SELECT * FROM tb_detail WHERE detail_id = $detail_id";
 $result = mysqli_query($connect, $sql);
 
@@ -71,6 +80,7 @@ while($row2 = mysqli_fetch_assoc($result1))
         <hr>
         <form action="updateData.php" method="POST">
         <input type="hidden" name="id" value="<?php echo $user_id; ?>">
+        <input type="hidden" name="admin_id" value="<?php echo $admin; ?>">
 
         <input type="hidden" value="<?php echo $row["detail_id"]; ?>" name="detail_id"> <!-- hide id -->
 
@@ -123,7 +133,7 @@ while($row2 = mysqli_fetch_assoc($result1))
             <div class="question my-1">
                 <label for="detail_care" class="fs-5">คุณมีผู้แลรึเปล่า?</label>
                 <?php
-                if ($row['detail_care'] == "Yes") {
+                if ($row['detail_care'] == "ใช่") {
                     echo '<input class="coupon_question form-check-input scale-1 mx-1" type="checkbox" name="detail_care" value="1" checked>';
                 } else {
                     echo '<input class="coupon_question form-check-input scale-1 mx-1" type="checkbox" name="detail_care" value="1">';

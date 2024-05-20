@@ -9,7 +9,13 @@ $count = mysqli_num_rows($result);
 $order = 1;
 
 ?>
-
+<?php 
+require('connect.php');
+if(isset($_GET['admin_id']))
+{
+    $ida = $_GET['admin_id'];
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -38,28 +44,28 @@ $order = 1;
       </div>
       <ul class="nav-list">
         <li>
-          <a href="home.php">
+          <a href="home.php?admin_id=<?php echo $ida; ?>">
             <i class="bx bx-user"></i>
             <span class="links_name">Admin</span>
           </a>
           <span class="tooltip">Admin</span>
         </li>
         <li>
-          <a href="member_tb.php">
+          <a href="member_tb.php?admin_id=<?php echo $ida; ?>">
           <i class='bx bx-table'></i>
             <span class="links_name">Member Table</span>
           </a>
           <span class="tooltip">Member Table</span>
         </li>
         <li>
-          <a href="detail_tb1.php">
+          <a href="detail_tb1.php?admin_id=<?php echo $ida; ?>">
           <i class='bx bx-table'></i>
             <span class="links_name">Detail Table_1</span>
           </a>
           <span class="tooltip">Detail Table_1</span>
         </li>
         <li>
-          <a href="detail_tb2.php">
+          <a href="detail_tb2.php?admin_id=<?php echo $ida; ?>">
           <i class='bx bx-table'></i>
             <span class="links_name">Detail Table_2</span>
           </a>
@@ -103,8 +109,9 @@ $order = 1;
                     <th class="border border-gray-300 px-4 py-2 text-center">lastname</th>
                     <th class="border border-gray-300 px-4 py-2 text-center">age</th>
                     <th class="border border-gray-300 px-4 py-2 text-center">gender</th>
-                    <th class="border border-gray-300 px-4 py-2 text-center">แก้ไข</th>
-                    <th class="border border-gray-300 px-4 py-2 text-center">ลบ</th>
+                    <th class="border border-gray-300 px-4 py-2 text-center">email</th>
+                    <!-- <th class="border border-gray-300 px-4 py-2 text-center">แก้ไข</th>
+                    <th class="border border-gray-300 px-4 py-2 text-center">ลบ</th> -->
                 </tr>
             </thead>
             <tbody>
@@ -115,12 +122,13 @@ $order = 1;
                     <td class="border border-gray-300 px-4 py-2 text-center"><?php echo $row["lastname"] ?></td>
                     <td class="border border-gray-300 px-4 py-2 text-center"><?php echo $row["age"] ?></td>
                     <td class="border border-gray-300 px-4 py-2 text-center"><?php echo $row["gender"] ?></td>
-                    <td class="border border-gray-300 px-4 py-2 text-center">
-                        <a href="editForm.php?id=<?php echo $row["id"] ?>" class="bg-blue-500 text-white rounded px-2 py-1"><i class="fa-solid fa-pen-to-square"></i></a>
+                    <td class="border border-gray-300 px-4 py-2 text-center"><?php echo $row["email"] ?></td>
+                    <!-- <td class="border border-gray-300 px-4 py-2 text-center">
+                        <a href="editForm.php?id=<?php //echo $row["id"] ?>" class="bg-blue-500 text-white rounded px-2 py-1"><i class="fa-solid fa-pen-to-square"></i></a>
                     </td>
                     <td class="border border-gray-300 px-4 py-2 text-center">
-                        <a href="deletemember.php?id=<?php echo $row["id"] ?>" class="bg-red-500 text-white rounded px-2 py-1" onclick="return confirm('คุณต้องการลบข้อมูลหรือไม่')"><i class="fa-solid fa-trash"></i></a>
-                    </td>
+                        <a href="deletemember.php?id=<?php //echo $row["id"] ?>" class="bg-red-500 text-white rounded px-2 py-1" onclick="return confirm('คุณต้องการลบข้อมูลหรือไม่')"><i class="fa-solid fa-trash"></i></a>
+                    </td> -->
                 </tr>
             <?php } ?>
             </tbody>
@@ -130,7 +138,7 @@ $order = 1;
                 <b>ไม่มีข้อมูล!!</b>
             </div>
         <?php } ?>
-        <a href="insert_memberform.php" class="bg-green-500 text-white rounded inline-block mt-4 p-2 mr-1">เพิ่มข้อมูล</a>
+        <a href="http://localhost:8080/PHPmdiablesFit/signupForm.php" class="bg-green-500 text-white rounded inline-block mt-4 p-2 mr-1">Sign up</a>
     </div>
     </section>
 

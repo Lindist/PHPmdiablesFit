@@ -1,7 +1,10 @@
 <?php 
-$admin_id = $_GET['admin_id'];
+require('connect.php');
+if(isset($_GET['admin_id']))
+{
+    $ida = $_GET['admin_id'];
+}
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -29,28 +32,28 @@ $admin_id = $_GET['admin_id'];
       </div>
       <ul class="nav-list">
         <li>
-          <a href="home.php">
+          <a href="home.php?admin_id=<?php echo $ida; ?>">
             <i class="bx bx-user"></i>
             <span class="links_name">Admin</span>
           </a>
           <span class="tooltip">Admin</span>
         </li>
         <li>
-          <a href="member_tb.php">
+          <a href="member_tb.php?admin_id=<?php echo $ida; ?>">
           <i class='bx bx-table'></i>
             <span class="links_name">Member Table</span>
           </a>
           <span class="tooltip">Member Table</span>
         </li>
         <li>
-          <a href="detail_tb1.php">
+          <a href="detail_tb1.php?admin_id=<?php echo $ida; ?>">
           <i class='bx bx-table'></i>
             <span class="links_name">Detail Table_1</span>
           </a>
           <span class="tooltip">Detail Table_1</span>
         </li>
         <li>
-          <a href="detail_tb2.php">
+          <a href="detail_tb2.php?admin_id=<?php echo $ida; ?>">
           <i class='bx bx-table'></i>
             <span class="links_name">Detail Table_2</span>
           </a>

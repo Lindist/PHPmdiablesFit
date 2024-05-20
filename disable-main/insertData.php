@@ -6,6 +6,7 @@ require('dbconnect.php');
 
 $team_name = $_POST['team_name'];
 $id = $_POST['user_id'];
+$admin = $_POST['admin_id'];
 $detail_date = $_POST['detail_date'];
 $detail_address = $_POST['detail_address'];
 $detail_idp = $_POST['detail_idp'];
@@ -46,13 +47,23 @@ $result = mysqli_query($connect, $sql);
 
 
 if($result) {
-    echo "บันทึกข้อมูลเรียบร้อย";
-    echo "<a href='index.php'>กลับหน้าแรก<a>";
-    echo "<script>";
-    echo "alert('บันทึกข้อมูลเสร็จสิ้น!');";
-    // echo "window.location = 'index.php';";
-    echo "location.href='index.php?user_id='+ ".$id;
-    echo "</script>";
+    if($admin == 1)
+    {
+        echo "<script>";
+        echo "alert('ลบข้อมูลเสร็จสิ้น!');";
+        // echo "window.location = 'index.php';";
+        echo "location.href='home.php?admin_id='+ ".$id;
+        echo "</script>";
+    }else{
+
+        echo "ลบข้อมูลเรียบร้อย";
+        echo "<a href='index.php'>กลับหน้าแรก<a>";
+        echo "<script>";
+        echo "alert('ลบข้อมูลเสร็จสิ้น!');";
+        // echo "window.location = 'index.php';";
+        echo "location.href='index.php?user_id='+ ".$id;
+        echo "</script>";
+    }
 } else {
     echo mysqli_error($connect);
 }

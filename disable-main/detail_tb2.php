@@ -7,9 +7,15 @@ $result = mysqli_query($connect, $sql);
 
 $count = mysqli_num_rows($result);
 $order = 1;
-
+$btn = 0;
 ?>
-
+<?php 
+require('connect.php');
+if(isset($_GET['admin_id']))
+{
+    $ida = $_GET['admin_id'];
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -38,28 +44,28 @@ $order = 1;
       </div>
       <ul class="nav-list">
         <li>
-          <a href="home.php">
+          <a href="home.php?admin_id=<?php echo $ida; ?>">
             <i class="bx bx-user"></i>
             <span class="links_name">Admin</span>
           </a>
           <span class="tooltip">Admin</span>
         </li>
         <li>
-          <a href="member_tb.php">
+          <a href="member_tb.php?admin_id=<?php echo $ida; ?>">
           <i class='bx bx-table'></i>
             <span class="links_name">Member Table</span>
           </a>
           <span class="tooltip">Member Table</span>
         </li>
         <li>
-          <a href="detail_tb1.php">
+          <a href="detail_tb1.php?admin_id=<?php echo $ida; ?>">
           <i class='bx bx-table'></i>
             <span class="links_name">Detail Table_1</span>
           </a>
           <span class="tooltip">Detail Table_1</span>
         </li>
         <li>
-          <a href="detail_tb2.php">
+          <a href="detail_tb2.php?admin_id=<?php echo $ida; ?>">
           <i class='bx bx-table'></i>
             <span class="links_name">Detail Table_2</span>
           </a>
@@ -105,6 +111,11 @@ $order = 1;
                     <th class="border border-gray-300 px-4 py-2 text-center">detail_care_tel</th>
                     <th class="border border-gray-300 px-4 py-2 text-center">detail_line</th>
                     <th class="border border-gray-300 px-4 py-2 text-center">detail_facebook</th>
+                    <?php if(isset($ida))
+                    { ?>
+                    <th class="border border-gray-300 px-4 py-2 text-center">แก้ไข</th>
+                    <th class="border border-gray-300 px-4 py-2 text-center">ลบ</th>
+                    <?php } ?>
                 </tr>
             </thead>
             <tbody>
@@ -117,6 +128,18 @@ $order = 1;
                     <td class="border border-gray-300 px-4 py-2 text-center"><?php echo $row["detail_care_tel"] ?></td>
                     <td class="border border-gray-300 px-4 py-2 text-center"><?php echo $row["detail_line"] ?></td>
                     <td class="border border-gray-300 px-4 py-2 text-center"><?php echo $row["detail_facebook"] ?></td>
+                    <?php if(isset($ida) && $row["id"] == $ida)
+                    { ?>
+                    <td class="border border-gray-300 px-4 py-2 text-center">
+                        <a href="editForm.php?detail_id=<?php echo $row["detail_id"] ?>&user_id=<?php echo $ida; ?>&admin=1" class="bg-blue-500 text-white rounded px-2 py-1"><i class="fa-solid fa-pen-to-square"></i></a>
+                    </td>
+                    <td class="border border-gray-300 px-4 py-2 text-center">
+                        <a href="deleteQueryString.php?detail_id=<?php echo $row["detail_id"] ?>&user_id=<?php echo $ida; ?>&admin=1" class="bg-red-500 text-white rounded px-2 py-1" onclick="return confirm('คุณต้องการลบข้อมูลหรือไม่')"><i class="fa-solid fa-trash"></i></a>
+                    </td>
+                    <?php $btn = 0; ?>
+                    <?php }else { ?>
+                        <?php $btn = 1; ?>
+                    <?php } ?>
                 </tr>
             <?php } ?>
             </tbody>
@@ -126,7 +149,10 @@ $order = 1;
                 <b>ไม่มีข้อมูล!!</b>
             </div>
         <?php } ?>
-        <a href="insertForm.php" class="bg-green-500 text-white rounded inline-block mt-4 p-2 mr-1">เพิ่มข้อมูล</a>
+        <?php if($btn == 1)
+        { ?>
+        <a href="insertForm.php?user_id=<?php echo $ida; ?>&admin=1" class="bg-green-500 text-white rounded inline-block mt-4 p-2 mr-1">เพิ่มข้อมูล</a>
+        <?php } ?>
     </div>
     </section>
 

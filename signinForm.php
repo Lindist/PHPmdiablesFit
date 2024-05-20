@@ -36,7 +36,7 @@ require_once 'connect.php';
 }
 </style>
 </head>
-<body>
+<body class="container">
     <div id = "inout">
             <a href="signinForm.php" class="btn btn-outline-primary">Login</a>
             <a href="signupForm.php" class="btn btn-primary">Signup</a>
