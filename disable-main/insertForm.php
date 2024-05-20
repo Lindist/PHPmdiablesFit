@@ -43,7 +43,7 @@ while($row = mysqli_fetch_assoc($result))
 }
 $arr1=implode(",",$data1);
 
-$id = $_GET['user_id'];
+// $id = $_GET['user_id'];
 
 ?>
 <!DOCTYPE html>
