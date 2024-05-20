@@ -37,7 +37,17 @@ require_once 'connect.php';
 </style>
 </head>
 <body>
-
+    <div id = "inout">
+        <a href="signinForm.php" class="btn btn-outline-primary">Login</a>
+        <a href="signupForm.php" class="btn btn-primary">Signup</a>
+    </div>
+    <script type="text/javascript">
+        let x = document.getElementById("inout");
+        x.style.textAlign="right";
+        x.style.marginTop="2%";
+        x.style.marginRight="2%";
+    </script>
+    <div class="margin">
     <div class="container">
         <h3 class="mt-4">สมัครสมาชิก</h3>
         <hr>
@@ -114,6 +124,7 @@ require_once 'connect.php';
         <hr>
         <p>เป็นสมาชิกแล้วใช่ไหม คลิ๊กที่นี่เพื่อ <a href="signinForm.php">เข้าสู่ระบบ</a></p>
     </div>
-    
+    </div>
+    <script src="margin.js" ></script>
 </body>
 </html>
