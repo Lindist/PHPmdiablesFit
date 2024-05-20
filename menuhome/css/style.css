@@ -57,7 +57,7 @@ body{
         border-bottom: none;
     }
 
-    .nav  ul  li {
+    .nav  ul > li {
         text-align: center;
     }
 
