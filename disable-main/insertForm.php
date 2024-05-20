@@ -43,11 +43,15 @@ while($row = mysqli_fetch_assoc($result))
 }
 $arr1=implode(",",$data1);
 
+<<<<<<< HEAD
 $id = $_GET['user_id'];
 if(isset($_GET['admin']))
 {
     $admin = $_GET['admin'];
 }
+=======
+// $id = $_GET['user_id'];
+>>>>>>> 98cb16c43b8101f787a706c912333f97453ff513
 
 ?>
 <!DOCTYPE html>

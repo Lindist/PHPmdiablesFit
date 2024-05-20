@@ -1,0 +1,67 @@
+<?php
+
+require('dbconnect.php');
+$id = $_GET["id"];
+
+$sql = "SELECT * FROM tb_member WHERE id = $id";
+$result = mysqli_query($connect, $sql);
+
+$row = mysqli_fetch_assoc($result);
+
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>แก้ไขข้อมูล</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300&display=swap');
+        body {
+            font-family: "Kanit", sans-serif;
+            font-weight: 300;
+            font-style: normal;
+        }
+    </style>
+</head>
+<body class="p-3 mb-2 bg-gray-100">
+    <div class="container mx-auto overflow-x-auto p-6 bg-white rounded shadow-md">
+
+        <h2 class="text-center text-2xl font-bold">แบบฟอร์มแก้ไขข้อมูล member</h2>
+        <hr class="my-4">
+        <form action="updateData.php" method="POST">
+
+            <input type="hidden" value="<?php echo $row["id"]; ?>" name="id"> <!-- hide id -->
+
+            <div class="mb-4">
+                <label for="firstname" class="block font-medium text-gray-700">firstname</label>
+                <input type="text" name="firstname" class="mt-1 p-2 bg-white text-1xl border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md focus:ring-1" value="<?php echo $row["firstname"]; ?>">
+            </div>
+            <div class="mb-4">
+                <label for="lastname" class="block font-medium text-gray-700">lastname</label>
+                <input type="text" name="lastname" class="mt-1 p-2 bg-white text-1xl border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md focus:ring-1" value="<?php echo $row["lastname"]; ?>">
+            </div>
+            <div class="mb-4">
+                <label for="age" class="block font-medium text-gray-700">age</label>
+                <input type="text" name="age" class="mt-1 p-2 bg-white text-1xl border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md focus:ring-1" value="<?php echo $row["age"]; ?>">
+            </div>
+            <div class="mb-4">
+                <label for="gender" class="block font-medium text-gray-700">gender</label>
+                <input type="text" name="gender" class="mt-1 p-2 bg-white text-1xl border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md focus:ring-1" value="<?php echo $row["gender"]; ?>">
+            </div>
+            <div class="mb-4">
+                <label for="email" class="block font-medium text-gray-700">email</label>
+                <input type="text" name="email" class="mt-1 p-2 bg-white text-1xl border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md focus:ring-1" value="<?php echo $row["email"]; ?>">
+            </div>
+
+            <div class="flex items-center space-x-2 mt-4">
+                <input type="submit" value="บันทึกข้อมูล" class="bg-green-500 text-white rounded inline-block p-2">
+                <input type="reset" value="ล้างข้อมูล" class="bg-red-500 text-white rounded inline-block p-2">
+                <a href="member_tb.php" class="bg-blue-500 text-white rounded inline-block p-2">กลับหน้าแรก</a>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

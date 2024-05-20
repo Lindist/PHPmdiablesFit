@@ -6,7 +6,9 @@ if(isset($_GET['user_id']))
     $user_id = $_GET['user_id'];
 }
 
-$sql = "SELECT * FROM tb_detail ORDER BY detail_id ASC";
+$id = $user_id;
+
+$sql = "SELECT * FROM tb_detail WHERE id LIKE '%$id%' ORDER BY id ASC";
 $result = mysqli_query($connect, $sql);
 
 $count = mysqli_num_rows($result);
@@ -66,11 +68,11 @@ $value = 0;
         <h1 class="text-center">Disable Table</h1>
         <hr>
         <div class="container mb-2">
-            <form action="searchData.php" class="d-flex" method="POST">
+            <!-- <form action="searchData.php" class="d-flex" method="POST">
                 <input type="hidden" name="user_id" value="<?php echo $user_id; ?>">
                 <input class="form-control me-2" type="search" name="tname" placeholder="ป้อนชื่อทีม">
                 <button class="btn btn-outline-info ml-1" type="send">Search</button>
-            </form>
+            </form> -->
         </div>
         <?php if ($count>0) { ?>
         <table class="table table-bordered">
@@ -88,7 +90,7 @@ $value = 0;
                     <th><center>detail_type</th>
                     <th><center>แก้ไข</th>
                     <th><center>ลบ</th>
-                    <th><center>ดูว่ามีผู้ดูแลมั้ย</center></th>
+                    <!-- <th><center>ดูว่ามีผู้ดูแลมั้ย</center></th> -->
                 </tr>
             </thead>
             <tbody>
