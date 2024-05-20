@@ -110,13 +110,8 @@ if(isset($_GET['admin_id']))
                     <th class="border border-gray-300 px-4 py-2 text-center">age</th>
                     <th class="border border-gray-300 px-4 py-2 text-center">gender</th>
                     <th class="border border-gray-300 px-4 py-2 text-center">email</th>
-<<<<<<< HEAD
-                    <!-- <th class="border border-gray-300 px-4 py-2 text-center">แก้ไข</th>
-                    <th class="border border-gray-300 px-4 py-2 text-center">ลบ</th> -->
-=======
                     <th class="border border-gray-300 px-4 py-2 text-center">แก้ไข</th>
                     <th class="border border-gray-300 px-4 py-2 text-center">ลบ</th>
->>>>>>> 98cb16c43b8101f787a706c912333f97453ff513
                 </tr>
             </thead>
             <tbody>
@@ -128,17 +123,12 @@ if(isset($_GET['admin_id']))
                     <td class="border border-gray-300 px-4 py-2 text-center"><?php echo $row["age"] ?></td>
                     <td class="border border-gray-300 px-4 py-2 text-center"><?php echo $row["gender"] ?></td>
                     <td class="border border-gray-300 px-4 py-2 text-center"><?php echo $row["email"] ?></td>
-<<<<<<< HEAD
-                    <!-- <td class="border border-gray-300 px-4 py-2 text-center">
-                        <a href="editForm.php?id=<?php //echo $row["id"] ?>" class="bg-blue-500 text-white rounded px-2 py-1"><i class="fa-solid fa-pen-to-square"></i></a>
-=======
                     <td class="border border-gray-300 px-4 py-2 text-center">
                         <a href="edit_memberform.php?id=<?php echo $row["id"] ?>" class="bg-blue-500 text-white rounded px-2 py-1"><i class="fa-solid fa-pen-to-square"></i></a>
->>>>>>> 98cb16c43b8101f787a706c912333f97453ff513
                     </td>
                     <td class="border border-gray-300 px-4 py-2 text-center">
                         <a href="deletemember.php?id=<?php //echo $row["id"] ?>" class="bg-red-500 text-white rounded px-2 py-1" onclick="return confirm('คุณต้องการลบข้อมูลหรือไม่')"><i class="fa-solid fa-trash"></i></a>
-                    </td> -->
+                    </td>
                 </tr>
             <?php } ?>
             </tbody>
@@ -148,11 +138,7 @@ if(isset($_GET['admin_id']))
                 <b>ไม่มีข้อมูล!!</b>
             </div>
         <?php } ?>
-<<<<<<< HEAD
-        <a href="http://localhost:8080/PHPmdiablesFit/signupForm.php" class="bg-green-500 text-white rounded inline-block mt-4 p-2 mr-1">Sign up</a>
-=======
         <!-- <a href="insert_memberform.php" class="bg-green-500 text-white rounded inline-block mt-4 p-2 mr-1">เพิ่มข้อมูล</a> -->
->>>>>>> 98cb16c43b8101f787a706c912333f97453ff513
     </div>
     </section>
 
