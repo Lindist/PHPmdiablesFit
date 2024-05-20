@@ -38,9 +38,6 @@ require_once 'connect.php';
 </head>
 <<<<<<< HEAD
 <body class="container">
-=======
-<body class="">
->>>>>>> 98cb16c43b8101f787a706c912333f97453ff513
     <div id = "inout">
             <a href="signinForm.php" class="btn btn-outline-primary">Login</a>
             <a href="signupForm.php" class="btn btn-primary">Signup</a>
