@@ -103,6 +103,7 @@ $order = 1;
                     <th class="border border-gray-300 px-4 py-2 text-center">lastname</th>
                     <th class="border border-gray-300 px-4 py-2 text-center">age</th>
                     <th class="border border-gray-300 px-4 py-2 text-center">gender</th>
+                    <th class="border border-gray-300 px-4 py-2 text-center">email</th>
                     <th class="border border-gray-300 px-4 py-2 text-center">แก้ไข</th>
                     <th class="border border-gray-300 px-4 py-2 text-center">ลบ</th>
                 </tr>
@@ -115,8 +116,9 @@ $order = 1;
                     <td class="border border-gray-300 px-4 py-2 text-center"><?php echo $row["lastname"] ?></td>
                     <td class="border border-gray-300 px-4 py-2 text-center"><?php echo $row["age"] ?></td>
                     <td class="border border-gray-300 px-4 py-2 text-center"><?php echo $row["gender"] ?></td>
+                    <td class="border border-gray-300 px-4 py-2 text-center"><?php echo $row["email"] ?></td>
                     <td class="border border-gray-300 px-4 py-2 text-center">
-                        <a href="editForm.php?id=<?php echo $row["id"] ?>" class="bg-blue-500 text-white rounded px-2 py-1"><i class="fa-solid fa-pen-to-square"></i></a>
+                        <a href="edit_memberform.php?id=<?php echo $row["id"] ?>" class="bg-blue-500 text-white rounded px-2 py-1"><i class="fa-solid fa-pen-to-square"></i></a>
                     </td>
                     <td class="border border-gray-300 px-4 py-2 text-center">
                         <a href="deletemember.php?id=<?php echo $row["id"] ?>" class="bg-red-500 text-white rounded px-2 py-1" onclick="return confirm('คุณต้องการลบข้อมูลหรือไม่')"><i class="fa-solid fa-trash"></i></a>
@@ -130,7 +132,7 @@ $order = 1;
                 <b>ไม่มีข้อมูล!!</b>
             </div>
         <?php } ?>
-        <a href="insert_memberform.php" class="bg-green-500 text-white rounded inline-block mt-4 p-2 mr-1">เพิ่มข้อมูล</a>
+        <!-- <a href="insert_memberform.php" class="bg-green-500 text-white rounded inline-block mt-4 p-2 mr-1">เพิ่มข้อมูล</a> -->
     </div>
     </section>
 

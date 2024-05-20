@@ -1,12 +1,12 @@
 <?php
 
-require('connect.php');
+require('dbconnect.php');
 
 $id = $_GET['id'];
 
 $sql = "DELETE FROM tb_member WHERE id = $id";
 
-$result = mysqli_query($conn, $sql);
+$result = mysqli_query($connect, $sql);
 
 if($result) {
     echo "<script>";
@@ -14,7 +14,7 @@ if($result) {
     echo "window.location = 'member_tb.php';";
     echo "</script>";
 } else {
-    echo mysqli_error($conn);
+    echo mysqli_error($connect);
 }
 
 ?>
