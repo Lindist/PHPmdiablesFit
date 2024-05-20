@@ -79,7 +79,7 @@ $value = 0;
             <thead>
                 <tr>
                     <th><center>detail_id</th>
-                    <th><center>team_name</th>
+                    <!-- <th><center>team_name</th> -->
                     <th><center>id</th>
                     <th><center>detail_date</th>
                     <th><center>detail_address</th>
@@ -98,7 +98,7 @@ $value = 0;
                 <tr>
                     <!-- <td><center><?php //echo $order++ ?></td> -->
                     <td><center><?php echo $row["detail_id"] ?></td>
-                    <td><center><?php echo $row["team_name"] ?></td>
+                    <!-- <td><center><?php echo $row["team_name"] ?></td> -->
                     <td><center><?php echo $row["id"]?></td>
                     <td><center><?php echo $row["detail_date"] ?></td>
                     <td><center><?php echo $row["detail_address"] ?></td>
