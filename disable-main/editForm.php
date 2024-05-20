@@ -121,7 +121,7 @@ while($row2 = mysqli_fetch_assoc($result1))
             </style>
 
             <div class="question my-1">
-                <label for="detail_care" class="fs-5">Do you have a coupon?</label>
+                <label for="detail_care" class="fs-5">คุณมีผู้แลรึเปล่า?</label>
                 <?php
                 if ($row['detail_care'] == "Yes") {
                     echo '<input class="coupon_question form-check-input scale-1 mx-1" type="checkbox" name="detail_care" value="1" checked>';

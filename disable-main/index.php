@@ -88,6 +88,7 @@ $value = 0;
                     <th><center>detail_type</th>
                     <th><center>แก้ไข</th>
                     <th><center>ลบ</th>
+                    <th><center>ดูว่ามีผู้ดูแลมั้ย</center></th>
                 </tr>
             </thead>
             <tbody>

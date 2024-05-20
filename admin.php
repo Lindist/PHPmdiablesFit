@@ -33,7 +33,7 @@
 
                 echo "<input type='hidden'  name='sendadminid' value='$admin_id' id='admin_id'>";
                 echo "<script>";
-                echo "location.href='disable-main/showforadmin.php?admin_id='+ document.getElementById('admin_id').value";
+                echo "location.href='disable-main/home.php?admin_id='+ document.getElementById('admin_id').value";
                 echo "</script>";
             }
         ?>

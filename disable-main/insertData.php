@@ -19,10 +19,11 @@ $detail_type = $_POST['detail_type'];
 if (isset($_POST['detail_care'])) {
     $detail_care = "ใช่";
 } else {
-    $detail_care = "ไม่";
+    $detail_care = "ไม่ใช่";
 }
 
 if ($detail_care == "No") {
+    $detail_care == "ไม่ใช่";
     $detail_care_name = "";
     $detail_care_lastname = "";    
     $detail_care_tell = "";
