@@ -76,7 +76,7 @@ while($row2 = mysqli_fetch_assoc($result1))
         <!-- <div align = "right">
             <a href="http://localhost:8080/PHPmdiablesFit/logout.php" target="_self" class="bg-red-500 text-white rounded inline-block p-2">Logout</a>
         </div> -->
-        <h2 class="text-center text-2xl font-bold">แบบฟอร์มแก้ไขข้อมูล</h2>
+        <h2 class="text-center text-2xl font-bold">แบบฟอร์มแก้ไขข้อมูล Detail</h2>
         <hr class="my-4">
         <form action="updateData.php" method="POST">
         <input type="hidden" name="id" value="<?php echo $user_id; ?>">
