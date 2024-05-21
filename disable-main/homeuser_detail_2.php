@@ -43,19 +43,26 @@ $order = 1;
         <i class="bx bx-menu" id="btn"></i>
       </div>
       <ul class="nav-list">
-        <li>
+      <li>
           <a href="homeuser_member.php?user_id=<?php echo $user_id; ?>">
             <i class="bx bx-user"></i>
-            <span class="links_name">User</span>
+            <span class="links_name">ข้อมูลผู้ใช้</span>
           </a>
-          <span class="tooltip">User</span>
+          <span class="tooltip">ข้อมูลผู้ใช้</span>
         </li>
         <li>
-          <a href="homeuser_detail.php?user_id=<?php echo $user_id; ?>">
+          <a href="homeuser_detail_1.php?user_id=<?php echo $user_id; ?>">
           <i class='bx bx-table'></i>
-            <span class="links_name">Detail</span>
+            <span class="links_name">รายละเอียดผู้พิการ</span>
           </a>
-          <span class="tooltip">Detail</span>
+          <span class="tooltip">รายละเอียดผู้พิการ</span>
+        </li>
+        <li>
+          <a href="homeuser_detail_2.php?user_id=<?php echo $user_id; ?>">
+          <i class='bx bx-table'></i>
+            <span class="links_name">รายละเอียดผู้ดูแล</span>
+          </a>
+          <span class="tooltip">รายละเอียดผู้ดูแล</span>
         </li>
         <li>
           <a href="#">
@@ -77,20 +84,13 @@ $order = 1;
       </ul>
     </div>
     <section class="home-section p-3 bg-slate-200">
-        <div class="container mx-auto overflow-x-auto p-6 bg-white rounded-3xl shadow-md text-center items-center">
+        <div class="container mx-auto overflow-x-auto p-6 bg-white rounded-3xl shadow-md text-center items-center mt-6">
             
-            <h1 class="text-center text-4xl font-bold my-14">ข้อมูลส่วนตัว</h1>
+            <h1 class="text-center text-3xl font-medium my-14">รายละเอียดผู้ดูแล</h1>
             <?php if ($count>0) { ?>
             <div class="text-center mt-10 mb-10">
                 <div class="inline-block text-2xl text-left leading-10">
                 <?php $row = mysqli_fetch_array($result, MYSQLI_BOTH); ?>
-                <p class="">ว/ด/ป เกิด : <?php echo $row["detail_date"] ?></p>
-                <p class="">ที่อยู่ : <?php echo $row["detail_address"] ?></p>
-                <p class="">รหัสบัตร ปปช : <?php echo $row["detail_idp"] ?></p>
-                <p class="">เบอร์ : <?php echo $row["detail_tel"] ?></p>
-                <p class="">อาชีพ : <?php echo $row["detail_occ"] ?></p>
-                <p class="">รายได้ : <?php echo $row["detail_salary"] ?></p>
-                <p class="">ประเภทความพิการ : <?php echo $row["detail_type"] ?></p>
                 <p class="">ผุ้ดูแล : <?php echo $row["detail_care"] ?></p>
                 <p class="">ชื่อผู้ดูแล : <?php echo $row["detail_care_name"] ?></p>
                 <p class="">นามสกุลผู้ดูแล : <?php echo $row["detail_care_lastname"] ?></p>
@@ -105,7 +105,7 @@ $order = 1;
                 <div class="text-center p-3 mt-10 bg-red-100 text-red-500 border border-red-300 rounded">
                     <b class="text-2xl">ไม่มีข้อมูล!!</b>
                 </div>
-                <a href="insertForm.php?user_id=<?php echo $user_id; ?>" class="text-xl bg-green-500 text-white rounded inline-block mt-10 mb-6 px-8 py-2">เพิ่มข้อมูล</a>
+                <!-- <a href="insertForm.php?user_id=<?php echo $user_id; ?>" class="text-xl bg-green-500 text-white rounded inline-block mt-10 mb-6 px-8 py-2">เพิ่มข้อมูล</a> -->
             <?php } ?>
 
         </div>

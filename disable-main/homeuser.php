@@ -36,16 +36,23 @@ if(isset($_GET['user_id']))
         <li>
           <a href="homeuser_member.php?user_id=<?php echo $user_id; ?>">
             <i class="bx bx-user"></i>
-            <span class="links_name">User</span>
+            <span class="links_name">ข้อมูลผู้ใช้</span>
           </a>
-          <span class="tooltip">User</span>
+          <span class="tooltip">ข้อมูลผู้ใช้</span>
         </li>
         <li>
           <a href="homeuser_detail.php?user_id=<?php echo $user_id; ?>">
           <i class='bx bx-table'></i>
-            <span class="links_name">Detail</span>
+            <span class="links_name">รายละเอียดผู้พิการ</span>
           </a>
-          <span class="tooltip">Detail</span>
+          <span class="tooltip">รายละเอียดผู้พิการ</span>
+        </li>
+        <li>
+          <a href="homeuser_detail.php?user_id=<?php echo $user_id; ?>">
+          <i class='bx bx-table'></i>
+            <span class="links_name">ผู้ดูแล</span>
+          </a>
+          <span class="tooltip">ผู้ดูแล</span>
         </li>
         <li>
           <a href="#">

@@ -1,25 +1,23 @@
 <?php 
-
 require('dbconnect.php');
-if(isset($_GET['user_id']))
+
+if(isset($_GET['admin_id']))
 {
-    $user_id = $_GET['user_id'];
+    $ida = $_GET['admin_id'];
 }
 
-$id = $user_id;
+$id = $ida;
 
 $sql = "SELECT * FROM tb_member WHERE id LIKE '%$id%' ORDER BY id ASC";
 $result = mysqli_query($connect, $sql);
 
 $count = mysqli_num_rows($result);
-$order = 1;
-
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8">
+    <link rel="shortcut icon" type="x-icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAAAclJREFUSEvFlutRxDAMhH2dQCVAJUAlQCVAJdAJdAL33Xg9iiPJTgYm/pN7RF7t6nkqB53TQbhlD/BVKeW2lMLzuzrO83MLiVlgQB5KKU/J5QJ/MQ6Fr4+AZwD7y+XAY6ZABgzoR5V0i4p6FwfuIvYRMKBfAzTFl3ejwzswX8U/AoYpCRQd4vhc/+Q5iv11f5EH/FoTaTZEM+q8Vebtzh4YlrAdHWIn+WZsVpL3wBFbDG0s+Y7c/HY/mYA4isOX0wOTUF6yKDup5Rsn/jjyfrZFUlWDV2Yt1hY4k6x3kMvlIKDKcIFFydlCZC+EDVJ7R4yQK2qNajaZ9JQWqiykzoCtMzjRl8eo/GTfytAyHtWjjD3gKDd69Q5j7ALP1CMMVs2gdrGse4k5IbokopV6pgNhI2McVUbP2ja8vkxGSWKbgDqcmsLIdqGUV5/ZVGoxOg+Gn8pYGT6qCttm3dUnGxKS2YKoRDK5h0OCGEYLgJoIZWdllfxROXrlFy57mff9wMBZ7zdl8kLiaEjYgv+L1cfdPrzp1HeaPcsed9gNxW3+oy1TRjhAgyCpomNHYz+tVjazwNYBPmsf01L/bwt9QnTfX1sZ70NxrH4Bd3txH4SHrqIAAAAASUVORK5CYII=">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home Page</title>
     <link rel="stylesheet" href="style.css">
@@ -36,33 +34,40 @@ $order = 1;
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   </head>
   <body>
-  <div class="sidebar">
+    <div class="sidebar">
       <div class="logo-details">
         <i class="bx bxs-layer icon"></i>
-        <div class="logo_name">User</div>
+        <div class="logo_name">Admin</div>
         <i class="bx bx-menu" id="btn"></i>
       </div>
       <ul class="nav-list">
         <li>
-          <a href="homeuser_member.php?user_id=<?php echo $user_id; ?>">
+          <a href="homeadmin.php?admin_id=<?php echo $ida; ?>">
             <i class="bx bx-user"></i>
-            <span class="links_name">ข้อมูลผู้ใช้</span>
+            <span class="links_name">Admin</span>
           </a>
-          <span class="tooltip">ข้อมูลผู้ใช้</span>
+          <span class="tooltip">Admin</span>
         </li>
         <li>
-          <a href="homeuser_detail_1.php?user_id=<?php echo $user_id; ?>">
+          <a href="member_tb.php?admin_id=<?php echo $ida; ?>">
           <i class='bx bx-table'></i>
-            <span class="links_name">รายละเอียดผู้พิการ</span>
+            <span class="links_name">ตารางผู้ใช้</span>
           </a>
-          <span class="tooltip">รายละเอียดผู้พิการ</span>
+          <span class="tooltip">ตารางผู้ใช้</span>
         </li>
         <li>
-          <a href="homeuser_detail_2.php?user_id=<?php echo $user_id; ?>">
+          <a href="detail_tb1.php?admin_id=<?php echo $ida; ?>">
           <i class='bx bx-table'></i>
-            <span class="links_name">รายละเอียดผู้ดูแล</span>
+            <span class="links_name">ตารางผู้พิการ</span>
           </a>
-          <span class="tooltip">รายละเอียดผู้ดูแล</span>
+          <span class="tooltip">ตารางผู้พิการ</span>
+        </li>
+        <li>
+          <a href="detail_tb2.php?admin_id=<?php echo $ida; ?>">
+          <i class='bx bx-table'></i>
+            <span class="links_name">ตารางผู้ดูแล</span>
+          </a>
+          <span class="tooltip">ตารางผู้ดูแล</span>
         </li>
         <li>
           <a href="#">
@@ -75,8 +80,8 @@ $order = 1;
           <div class="profile-details">
             <img src="https://i.pinimg.com/564x/8b/16/7a/8b167af653c2399dd93b952a48740620.jpg" alt="profileImg" />
             <div class="name_job">
-              <div class="name">user</div>
-              <div class="job">userinterface</div>
+              <div class="name">Admin_1</div>
+              <div class="job">Web designer</div>
             </div>
           </div>
           <i class="bx bx-log-out" id="log_out" onclick="Logout();"></i>

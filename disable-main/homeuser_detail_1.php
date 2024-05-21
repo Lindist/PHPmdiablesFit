@@ -8,7 +8,7 @@ if(isset($_GET['user_id']))
 
 $id = $user_id;
 
-$sql = "SELECT * FROM tb_member WHERE id LIKE '%$id%' ORDER BY id ASC";
+$sql = "SELECT * FROM tb_detail WHERE id LIKE '%$id%' ORDER BY id ASC";
 $result = mysqli_query($connect, $sql);
 
 $count = mysqli_num_rows($result);
@@ -43,7 +43,7 @@ $order = 1;
         <i class="bx bx-menu" id="btn"></i>
       </div>
       <ul class="nav-list">
-        <li>
+      <li>
           <a href="homeuser_member.php?user_id=<?php echo $user_id; ?>">
             <i class="bx bx-user"></i>
             <span class="links_name">ข้อมูลผู้ใช้</span>
@@ -86,26 +86,28 @@ $order = 1;
     <section class="home-section p-3 bg-slate-200">
         <div class="container mx-auto overflow-x-auto p-6 bg-white rounded-3xl shadow-md text-center items-center mt-6">
             
-            <h1 class="text-center text-3xl font-medium my-14">ข้อมูลผู้ใช้</h1>
+            <h1 class="text-center text-3xl font-medium my-14">รายละเอียดผู้พิการ</h1>
             <?php if ($count>0) { ?>
             <div class="text-center mt-10 mb-10">
                 <div class="inline-block text-2xl text-left leading-10">
                 <?php $row = mysqli_fetch_array($result, MYSQLI_BOTH); ?>
-                <p class="">ชื่อจริง : <?php echo $row["firstname"] ?></p>
-                <p class="">นามสกุล : <?php echo $row["lastname"] ?></p>
-                <p class="">อายุ : <?php echo $row["age"] ?></p>
-                <p class="">เพศ : <?php echo $row["gender"] ?></p>
-                <p class="">สถานะผู้ใช้งาน : <?php echo $row["urole"] ?></p>
-                <p class="">เบอร์โทรศัพท์ : <?php echo $row["number"] ?></p>
+                <p class="">ว/ด/ป เกิด : <?php echo $row["detail_date"] ?></p>
+                <p class="">ที่อยู่ : <?php echo $row["detail_address"] ?></p>
+                <p class="">รหัสบัตร ประชาชน : <?php echo $row["detail_idp"] ?></p>
+                <p class="">เบอร์โทรศัพท์ : <?php echo $row["detail_tel"] ?></p>
+                <p class="">อาชีพ : <?php echo $row["detail_occ"] ?></p>
+                <p class="">รายได้ : <?php echo $row["detail_salary"] ?></p>
+                <p class="">ประเภทความพิการ : <?php echo $row["detail_type"] ?></p>
+                <p class="">ผุ้ดูแล : <?php echo $row["detail_care"] ?></p>
                 </div>
             </div>
-            <a href="edit_memberform.php?user_id=<?php echo $user_id; ?>" class="text-xl bg-yellow-400 text-black rounded inline-block mt-18 mb-24 px-8 py-2">แก้ไขข้อมูล</a>
+            <a href="editForm.php?user_id=<?php echo $user_id; ?>" class="text-xl bg-yellow-400 text-black rounded inline-block mt-18 mb-24 px-8 py-2">แก้ไขข้อมูล</a>
             <?php ?>
             <?php } else { ?>
                 <div class="text-center p-3 mt-10 bg-red-100 text-red-500 border border-red-300 rounded">
                     <b class="text-2xl">ไม่มีข้อมูล!!</b>
                 </div>
-                <a href="#" class="text-xl bg-green-500 text-white rounded inline-block mt-10 mb-6 px-8 py-2">เพิ่มข้อมูล</a>
+                <a href="insertForm.php?user_id=<?php echo $user_id; ?>" class="text-xl bg-green-500 text-white rounded inline-block mt-10 mb-6 px-8 py-2">เพิ่มข้อมูล</a>
             <?php } ?>
 
         </div>

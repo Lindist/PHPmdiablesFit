@@ -46,7 +46,7 @@ if(isset($_GET['admin_id']))
       </div>
       <ul class="nav-list">
         <li>
-          <a href="home.php?admin_id=<?php echo $ida; ?>">
+          <a href="homeadmin.php?admin_id=<?php echo $ida; ?>">
             <i class="bx bx-user"></i>
             <span class="links_name">Admin</span>
           </a>
@@ -55,23 +55,23 @@ if(isset($_GET['admin_id']))
         <li>
           <a href="member_tb.php?admin_id=<?php echo $ida; ?>">
           <i class='bx bx-table'></i>
-            <span class="links_name">Member Table</span>
+            <span class="links_name">ตารางผู้ใช้</span>
           </a>
-          <span class="tooltip">Member Table</span>
+          <span class="tooltip">ตารางผู้ใช้</span>
         </li>
         <li>
           <a href="detail_tb1.php?admin_id=<?php echo $ida; ?>">
           <i class='bx bx-table'></i>
-            <span class="links_name">Detail Table_1</span>
+            <span class="links_name">ตารางผู้พิการ</span>
           </a>
-          <span class="tooltip">Detail Table_1</span>
+          <span class="tooltip">ตารางผู้พิการ</span>
         </li>
         <li>
           <a href="detail_tb2.php?admin_id=<?php echo $ida; ?>">
           <i class='bx bx-table'></i>
-            <span class="links_name">Detail Table_2</span>
+            <span class="links_name">ตารางผู้ดูแล</span>
           </a>
-          <span class="tooltip">Detail Table_2</span>
+          <span class="tooltip">ตารางผู้ดูแล</span>
         </li>
         <li>
           <a href="#">
@@ -94,7 +94,7 @@ if(isset($_GET['admin_id']))
     </div>
     <section class="home-section">
     <div class="container mx-auto overflow-x-auto p-6 bg-white rounded shadow-md">
-        <h1 class="text-center text-2xl font-bold">Disable Table_2</h1>
+        <h1 class="text-center text-2xl font-medium">ตารางผู้ดูแล</h1>
         <hr class="my-4">
         <div class="mb-3">
             <form action="searchdetail_tb2.php" class="flex space-x-2" method="POST">
