@@ -8,6 +8,7 @@ $result = mysqli_query($connect, $sql);
 $count = mysqli_num_rows($result);
 $order = 1;
 $btn = 0;
+$btn2 = 0;
 ?>
 <?php 
 require('connect.php');
@@ -149,10 +150,12 @@ if(isset($_GET['admin_id']))
             <div class="text-center p-3 mt-4 bg-red-100 text-red-500 border border-red-300 rounded">
                 <b>ไม่มีข้อมูล!!</b>
             </div>
+            <?php $btn2 = 1; ?>
         <?php } ?>
-        <?php if($btn == 1)
+        <?php if($btn == 1 || $btn2 == 1)
         { ?>
         <a href="insertForm.php?user_id=<?php echo $ida; ?>&admin=1" class="bg-green-500 text-white rounded inline-block mt-4 p-2 mr-1">เพิ่มข้อมูล</a>
+        <?php $btn2 = 0; ?>
         <?php } ?>
     </div>
     </section>

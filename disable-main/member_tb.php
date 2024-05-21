@@ -111,8 +111,8 @@ if(isset($_GET['admin_id']))
                     <th class="border border-gray-300 px-4 py-2 text-center">age</th>
                     <th class="border border-gray-300 px-4 py-2 text-center">gender</th>
                     <th class="border border-gray-300 px-4 py-2 text-center">email</th>
-                    <th class="border border-gray-300 px-4 py-2 text-center">แก้ไข</th>
-                    <th class="border border-gray-300 px-4 py-2 text-center">ลบ</th>
+                    <!-- <th class="border border-gray-300 px-4 py-2 text-center">แก้ไข</th>
+                    <th class="border border-gray-300 px-4 py-2 text-center">ลบ</th> -->
                 </tr>
             </thead>
             <tbody>
@@ -124,12 +124,12 @@ if(isset($_GET['admin_id']))
                     <td class="border border-gray-300 px-4 py-2 text-center"><?php echo $row["age"] ?></td>
                     <td class="border border-gray-300 px-4 py-2 text-center"><?php echo $row["gender"] ?></td>
                     <td class="border border-gray-300 px-4 py-2 text-center"><?php echo $row["email"] ?></td>
-                    <td class="border border-gray-300 px-4 py-2 text-center">
+                    <!-- <td class="border border-gray-300 px-4 py-2 text-center">
                         <a href="edit_memberform.php?id=<?php echo $row["id"] ?>" class="bg-blue-500 text-white rounded px-2 py-1"><i class="fa-solid fa-pen-to-square"></i></a>
                     </td>
                     <td class="border border-gray-300 px-4 py-2 text-center">
                         <a href="deletemember.php?id=<?php //echo $row["id"] ?>" class="bg-red-500 text-white rounded px-2 py-1" onclick="return confirm('คุณต้องการลบข้อมูลหรือไม่')"><i class="fa-solid fa-trash"></i></a>
-                    </td>
+                    </td> -->
                 </tr>
             <?php } ?>
             </tbody>
@@ -139,7 +139,7 @@ if(isset($_GET['admin_id']))
                 <b>ไม่มีข้อมูล!!</b>
             </div>
         <?php } ?>
-        <!-- <a href="insert_memberform.php" class="bg-green-500 text-white rounded inline-block mt-4 p-2 mr-1">เพิ่มข้อมูล</a> -->
+        <!-- <a href="http://localhost:8080/PHPmdiablesFit/signupForm.php" class="bg-green-500 text-white rounded inline-block mt-4 p-2 mr-1">เพิ่มข้อมูล</a> -->
     </div>
     </section>
 
