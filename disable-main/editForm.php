@@ -87,12 +87,12 @@ while($row2 = mysqli_fetch_assoc($result1))
         <!-- <div class="mb-4">
                 <label for="id" class="block font-medium text-gray-700">id</label>
                 <select name="id" class="mt-1 p-2 bg-white text-1xl border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md focus:ring-1">
-                    <option value="<?php echo $row["id"]; ?>"><?php echo $row["id"]; ?></option>
+                    <option value="<?php //echo $row["id"]; ?>"><?php //echo $row["id"]; ?></option>
                     <?php
-                        for($i = 0; $i < $count; $i++) {
-                            $rowm = mysqli_fetch_array($result_member, MYSQLI_BOTH);
-                            echo "<option value=".$rowm["id"].">$rowm[0]</option>";
-                        }
+                       // for($i = 0; $i < $count; $i++) {
+                            //$rowm = mysqli_fetch_array($result_member, MYSQLI_BOTH);
+                            //echo "<option value=".$rowm["id"].">$rowm[0]</option>";
+                        //}
                     ?>
                 </select>
             </div> -->
