@@ -2,8 +2,6 @@
 
 require('dbconnect.php');
 
-
-
 $team_name = $_POST['team_name'];
 $id = $_POST['user_id'];
 $admin = $_POST['admin_id'];
@@ -15,16 +13,13 @@ $detail_occ = $_POST['detail_occ'];
 $detail_salary = $_POST['detail_salary'];
 $detail_type = $_POST['detail_type'];
 
-// $sql = "INSERT INTO tb_detail (team_name, id, detail_date, detail_address, detail_idp, detail_tel, detail_occ, detail_salary, detail_type, detail_care, detail_care_name, detail_care_lastname, detail_care_tel, detail_line, detail_facebook)
-// VALUES ('$team_name', '$id', '$detail_date', '$detail_address', '$detail_idp', '$detail_tel', '$detail_occ', '$detail_salary', '$detail_type', '', '', '', '', '', '');"
 if (isset($_POST['detail_care'])) {
-    $detail_care = "ใช่";
+    $detail_care = "มี";
 } else {
-    $detail_care = "ไม่ใช่";
+    $detail_care = "ไม่มี";
 }
 
-if ($detail_care == "No") {
-    $detail_care == "ไม่ใช่";
+if ($detail_care == "ไม่มี") {
     $detail_care_name = "";
     $detail_care_lastname = "";    
     $detail_care_tell = "";
@@ -39,8 +34,8 @@ if ($detail_care == "No") {
 }
 
 
-$sql = "INSERT INTO tb_detail (team_name, id, detail_date, detail_address, detail_idp, detail_tel, detail_occ, detail_salary, detail_type, detail_care, detail_care_name, detail_care_lastname, detail_care_tel, detail_line, detail_facebook) VALUES
-    ('$team_name', '$id', '$detail_date', '$detail_address', '$detail_idp', '$detail_tel', '$detail_occ', '$detail_salary', '$detail_type', '$detail_care', '$detail_care_name', '$detail_care_lastname', '$detail_care_tel', '$detail_line', '$detail_facebook')";
+$sql = "INSERT INTO tb_detail (id, detail_date, detail_address, detail_idp, detail_tel, detail_occ, detail_salary, detail_type, detail_care, detail_care_name, detail_care_lastname, detail_care_tel, detail_line, detail_facebook) VALUES
+    ('$id', '$detail_date', '$detail_address', '$detail_idp', '$detail_tel', '$detail_occ', '$detail_salary', '$detail_type', '$detail_care', '$detail_care_name', '$detail_care_lastname', '$detail_care_tel', '$detail_line', '$detail_facebook')";
 $result = mysqli_query($connect, $sql);
 
 
@@ -52,7 +47,7 @@ if($result) {
         echo "<script>";
         echo "alert('ลบข้อมูลเสร็จสิ้น!');";
         // echo "window.location = 'index.php';";
-        echo "location.href='home.php?admin_id='+ ".$id;
+        echo "location.href='homeuser_detail.php?admin_id='+ ".$id;
         echo "</script>";
     }else{
 
@@ -61,7 +56,7 @@ if($result) {
         echo "<script>";
         echo "alert('ลบข้อมูลเสร็จสิ้น!');";
         // echo "window.location = 'index.php';";
-        echo "location.href='index.php?user_id='+ ".$id;
+        echo "location.href='homeuser_detail.php?user_id='+ ".$id;
         echo "</script>";
     }
 } else {

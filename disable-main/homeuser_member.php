@@ -1,15 +1,25 @@
 <?php 
-require('connect.php');
+
+require('dbconnect.php');
 if(isset($_GET['user_id']))
 {
     $user_id = $_GET['user_id'];
 }
+
+$id = $user_id;
+
+$sql = "SELECT * FROM tb_member WHERE id LIKE '%$id%' ORDER BY id ASC";
+$result = mysqli_query($connect, $sql);
+
+$count = mysqli_num_rows($result);
+$order = 1;
+
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8">
-    <link rel="shortcut icon" type="x-icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAAAclJREFUSEvFlutRxDAMhH2dQCVAJUAlQCVAJdAJdAL33Xg9iiPJTgYm/pN7RF7t6nkqB53TQbhlD/BVKeW2lMLzuzrO83MLiVlgQB5KKU/J5QJ/MQ6Fr4+AZwD7y+XAY6ZABgzoR5V0i4p6FwfuIvYRMKBfAzTFl3ejwzswX8U/AoYpCRQd4vhc/+Q5iv11f5EH/FoTaTZEM+q8Vebtzh4YlrAdHWIn+WZsVpL3wBFbDG0s+Y7c/HY/mYA4isOX0wOTUF6yKDup5Rsn/jjyfrZFUlWDV2Yt1hY4k6x3kMvlIKDKcIFFydlCZC+EDVJ7R4yQK2qNajaZ9JQWqiykzoCtMzjRl8eo/GTfytAyHtWjjD3gKDd69Q5j7ALP1CMMVs2gdrGse4k5IbokopV6pgNhI2McVUbP2ja8vkxGSWKbgDqcmsLIdqGUV5/ZVGoxOg+Gn8pYGT6qCttm3dUnGxKS2YKoRDK5h0OCGEYLgJoIZWdllfxROXrlFy57mff9wMBZ7zdl8kLiaEjYgv+L1cfdPrzp1HeaPcsed9gNxW3+oy1TRjhAgyCpomNHYz+tVjazwNYBPmsf01L/bwt9QnTfX1sZ70NxrH4Bd3txH4SHrqIAAAAASUVORK5CYII=">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home Page</title>
     <link rel="stylesheet" href="style.css">
@@ -66,8 +76,32 @@ if(isset($_GET['user_id']))
         </li>
       </ul>
     </div>
-    <section class="home-section">
-        <h1 class="text-center text-2xl font-bold">User</h1>
+    <section class="home-section p-3 bg-slate-200">
+        <div class="container mx-auto overflow-x-auto p-6 bg-white rounded-3xl shadow-md text-center items-center">
+            
+            <h1 class="text-center text-4xl font-bold my-14">ข้อมูลส่วนตัว</h1>
+            <?php if ($count>0) { ?>
+            <div class="text-center mt-10 mb-10">
+                <div class="inline-block text-2xl text-left leading-10">
+                <?php $row = mysqli_fetch_array($result, MYSQLI_BOTH); ?>
+                <p class="">ชื่อจริง : <?php echo $row["firstname"] ?></p>
+                <p class="">นามสกุล : <?php echo $row["lastname"] ?></p>
+                <p class="">อายุ : <?php echo $row["age"] ?></p>
+                <p class="">เพศ : <?php echo $row["gender"] ?></p>
+                <p class="">สถานะผู้ใช้งาน : <?php echo $row["urole"] ?></p>
+                <p class="">อีเมล : <?php echo $row["email"] ?></p>
+                </div>
+            </div>
+            <a href="edit_memberform.php?user_id=<?php echo $user_id; ?>" class="text-xl bg-yellow-400 text-black rounded inline-block mt-18 mb-24 px-8 py-2">แก้ไขข้อมูล</a>
+            <?php ?>
+            <?php } else { ?>
+                <div class="text-center p-3 mt-10 bg-red-100 text-red-500 border border-red-300 rounded">
+                    <b class="text-2xl">ไม่มีข้อมูล!!</b>
+                </div>
+                <a href="#" class="text-xl bg-green-500 text-white rounded inline-block mt-10 mb-6 px-8 py-2">เพิ่มข้อมูล</a>
+            <?php } ?>
+
+        </div>
     </section>
 
     <script>

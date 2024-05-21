@@ -3,10 +3,8 @@
 require('dbconnect.php');
 
 $detail_id = $_POST['detail_id'];
-$team_name = $_POST['team_name']; 
 $id = $_POST['id'];
 $admin = $_POST['admin_id'];
-// $detail_date = date('detail_date', strtotime($_POST['detail_date']));
 $detail_date = $_POST['detail_date'];
 $detail_address = $_POST['detail_address'];
 $detail_idp = $_POST['detail_idp'];
@@ -16,17 +14,17 @@ $detail_salary = $_POST['detail_salary'];
 $detail_type = $_POST['detail_type'];
 
 if (isset($_POST['detail_care'])) {
-    $detail_care = "ใช่";
+    $detail_care = "มี";
 } else {
-    $detail_care = "ไม่ใช่";
+    $detail_care = "ไม่มี";
 }
 
-if ($detail_care == "ไม่ใช่") {
-    $detail_care_name = "";
-    $detail_care_lastname = "";    
-    $detail_care_tell = "";
-    $detail_line = "";
-    $detail_facebook = "";
+if ($detail_care == "ไม่มี") {
+    $detail_care_name = "-";
+    $detail_care_lastname = "-";    
+    $detail_care_tel = "-";
+    $detail_line = "-";
+    $detail_facebook = "-";
 } else {
     $detail_care_name = $_POST['detail_care_name'];
     $detail_care_lastname = $_POST['detail_care_lastname'];
@@ -36,7 +34,6 @@ if ($detail_care == "ไม่ใช่") {
 }
 
 $sql = "UPDATE tb_detail SET
-    team_name = '$team_name',
     id = '$id',
     detail_date = '$detail_date',
     detail_address = '$detail_address',
@@ -59,20 +56,24 @@ if($result) {
     if($admin == 1)
     {
         echo "แก้ไขข้อมูลเรียบร้อย";
-        echo "<a href='index.php'>กลับหน้าแรก<a>";
+        // echo "<a href='index.php'>กลับหน้าแรก<a>";
         echo "<script>";
         echo "alert('อัปเดตข้อมูลเสร็จสิ้น!');";
         // echo "window.location = 'index.php';";
-        echo "location.href='home.php?admin_id='+ ".$id;
+        echo "location.href='homeuser_detail.php?admin_id='+ ".$id;
         echo "</script>";
     }else{
 
         echo "แก้ไขข้อมูลเรียบร้อย";
-        echo "<a href='index.php'>กลับหน้าแรก<a>";
+        /* The line `echo "<a href='index.php'>กลับหน้าแรก<a>";` is generating a hyperlink in the PHP
+        code. When this line is executed, it will display a link with the text "กลับหน้าแรก" (which
+        means "Go back to the home page" in Thai) that points to the `index.php` page. This allows
+        users to easily navigate back to the home page by clicking on the link. */
+        // echo "<a href='index.php'>กลับหน้าแรก<a>"
         echo "<script>";
         echo "alert('อัปเดตข้อมูลเสร็จสิ้น!');";
         // echo "window.location = 'index.php';";
-        echo "location.href='index.php?user_id='+ ".$id;
+        echo "location.href='homeuser_detail.php?user_id='+ ".$id;
         echo "</script>";
     }
 } else {
