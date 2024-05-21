@@ -7,6 +7,9 @@ $id=$_GET['user_id'];
 if(isset($_GET['admin']))
 {
     $admin = $_GET['admin'];
+}else
+{
+    $admin = 0;
 }
 
 $sql = "DELETE FROM tb_detail WHERE detail_id = $detail_id";

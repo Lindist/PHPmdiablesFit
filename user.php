@@ -30,7 +30,7 @@
                 $row = $stmt->fetch(PDO::FETCH_ASSOC);
                 echo "<input type='hidden'  name='sendadminid' value='$user_id' id='user_id'>";
                 echo "<script>";
-                echo "location.href='disable-main/index.php?user_id='+ document.getElementById('user_id').value";
+                echo "location.href='disable-main/homeuser.php?user_id='+ document.getElementById('user_id').value";
                 echo "</script>";
             }
         ?>

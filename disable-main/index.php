@@ -59,26 +59,86 @@ $value = 0;
         }
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="p-3 mb-2">
     <div class="container">
-        <div align = "right">
+        <!-- <div align = "right">
             <a href="http://localhost:8080/PHPmdiablesFit/logout.php" target="_self" class="btn btn-danger">Logout</a>
-        </div>
+        </div> -->
+        <div class="sidebar">
+      <div class="logo-details">
+        <i class="bx bxs-layer icon"></i>
+        <div class="logo_name">User</div>
+        <i class="bx bx-menu" id="btn"></i>
+      </div>
+      <ul class="nav-list">
+        <li>
+          <a href="homeuser.php?user_id=<?php echo $user_id; ?>">
+            <i class="bx bx-user"></i>
+            <span class="links_name">User</span>
+          </a>
+          <span class="tooltip">User</span>
+        </li>
+        <li>
+          <a href="index.php?user_id=<?php echo $user_id; ?>">
+          <i class='bx bx-table'></i>
+            <span class="links_name">main</span>
+          </a>
+          <span class="tooltip">main</span>
+        </li>
+        <!-- <li>
+          <a href="insertForm.php?user_id=<?php //echo $user_id; ?>">
+          <i class='bx bx-table'></i>
+            <span class="links_name">insertForm</span>
+          </a>
+          <span class="tooltip">insertForm</span>
+        </li>
+        <li>
+          <a href="editForm.php?user_id=<?php //echo $user_id; ?>">
+          <i class='bx bx-table'></i>
+            <span class="links_name">editForm</span>
+          </a>
+          <span class="tooltip">editForm</span>
+        </li> -->
+        <li>
+          <a href="#">
+            <i class="bx bx-cog"></i>
+            <span class="links_name">Setting</span>
+          </a>
+          <span class="tooltip">Setting</span>
+        </li>
+        <li class="profile">
+          <div class="profile-details">
+            <img src="https://i.pinimg.com/564x/8b/16/7a/8b167af653c2399dd93b952a48740620.jpg" alt="profileImg" />
+            <div class="name_job">
+              <div class="name">user</div>
+              <div class="job">userinterface</div>
+            </div>
+          </div>
+          <i class="bx bx-log-out" id="log_out" onclick="Logout();"></i>
+        </li>
+      </ul>
+    </div>
+    <section class="home-section">
+        <div class = "container mx-auto overflow-x-auto p-6 bg-white rounded shadow-md">
+        <h1 class="text-center text-2xl font-bold">User</h1>
         <h1 class="text-center">Disable Table</h1>
         <hr>
         <div class="container mb-2">
             <!-- <form action="searchData.php" class="d-flex" method="POST">
-                <input type="hidden" name="user_id" value="<?php echo $user_id; ?>">
+                <input type="hidden" name="user_id" value="<?php //echo $user_id; ?>">
                 <input class="form-control me-2" type="search" name="tname" placeholder="ป้อนชื่อทีม">
                 <button class="btn btn-outline-info ml-1" type="send">Search</button>
             </form> -->
         </div>
         <?php if ($count>0) { ?>
-        <table class="table table-bordered">
-            <thead>
-                <tr>
-                    <th><center>detail_id</th>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th><center>detail_id</th>
                     <!-- <th><center>team_name</th> -->
                     <th><center>id</th>
                     <th><center>detail_date</th>
@@ -108,31 +168,62 @@ $value = 0;
                     <td><center><?php echo $row["detail_salary"] ?></td>
                     <td><center><?php echo $row["detail_type"] ?></td>
                     <td><center>
-                        <a href="editForm.php?detail_id=<?php echo $row["detail_id"]; ?>&user_id=<?php echo $user_id; ?>" class="btn btn-primary"><i class="fa-solid fa-pen-to-square"></i></a>
+                        <a href="editForm.php?detail_id=<?php echo $row["detail_id"]; ?>&user_id=<?php echo $user_id; ?>&admin=0" class="btn btn-primary"><i class="fa-solid fa-pen-to-square"></i></a>
                     </td>
                     <td><center>
-                        <a href="deleteQueryString.php?detail_id=<?php echo $row["detail_id"]; ?>&user_id=<?php echo $user_id; ?>" class="btn btn-danger" onclick="return confirm('คุณต้องการลบข้อมูลหรือไม่')"><i class="fa-solid fa-trash"></i></a>
+                        <a href="deleteQueryString.php?detail_id=<?php echo $row["detail_id"]; ?>&user_id=<?php echo $user_id; ?>&admin=0" class="btn btn-danger" onclick="return confirm('คุณต้องการลบข้อมูลหรือไม่')"><i class="fa-solid fa-trash"></i></a>
                     </td>
                 </tr>
                 <?php for($i=0;$i<count($data);$i++) { ?>
-                        <?php if($data[$i] == $row["id"]) { ?>
-                            <?php $value++; ?>
-                    <?php } ?>
-                <?php } ?>
-            <?php } ?>
-            </tbody>
-        </table>
-        <?php } else { ?>
-            <div class="alert alert-danger" role="alert">
-                <b><center>ไม่มีข้อมูล!!<center><b>
+                    <?php if($data[$i] == $row["id"]) { ?>
+                        <?php $value++; ?>
+                        <?php } ?>
+                        <?php } ?>
+                        <?php } ?>
+                    </tbody>
+                </table>
+                <?php } else { ?>
+    <div class="alert alert-danger" role="alert">
+        <b><center>ไม่มีข้อมูล!!<center><b>
             </div>
-        <?php } ?>  
+            <?php } ?>      
+            <?php if($value == 0) { ?>
+                <a href="insertForm.php?user_id=<?php echo $user_id; ?>" class="btn btn-success">เพิ่มข้อมูล</a>
+                <?php } else { $value = 0; } ?>
+                                
+            </div>
+        </div>
+        </section>
+        <script>
+        let sidebar = document.querySelector(".sidebar");
+        let closeBtn = document.querySelector("#btn");
+        let searchBtn = document.querySelector(".bx-search");
+        // let log_out = document.querySelector("#log_out");
 
-        <?php if($value == 0) { ?>
-            <a href="insertForm.php?user_id=<?php echo $user_id; ?>" class="btn btn-success">เพิ่มข้อมูล</a>
-            <?php } else { $value = 0; } ?>
-            
-    </div>
+        closeBtn.addEventListener("click", ()=>{
+        sidebar.classList.toggle("open");
+        menuBtnChange();//calling the function(optional)
+        });
+
+        searchBtn.addEventListener("click", ()=>{ // Sidebar open when you click on the search iocn
+        sidebar.classList.toggle("open");
+        menuBtnChange(); //calling the function(optional)
+        });
+
+        // following are the code to change sidebar button(optional)
+        function menuBtnChange() {
+        if(sidebar.classList.contains("open")){
+        closeBtn.classList.replace("bx-menu", "bx-menu-alt-right");//replacing the iocns class
+        }else {
+        closeBtn.classList.replace("bx-menu-alt-right","bx-menu");//replacing the iocns class
+        }
+        }
+
+        function Logout()
+        {
+            window.location = 'http://localhost:8080/PHPmdiablesFit/logout.php';
+        }
+    </script>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </html>
