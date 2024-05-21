@@ -80,19 +80,19 @@ require_once 'connect.php';
             <?php } ?> 
 
             <div class="mb-3">
-                <label for="firstname" class="form-label">First name</label>
-                <input type="text" placeholder="firstname" class="form-control" name="firstname" aria-describedby="firstname">
+                <label for="firstname" class="form-label">ชื่อจริง</label>
+                <input type="text" placeholder="ชื่อจริง" class="form-control" name="firstname" aria-describedby="firstname">
             </div>
             <div class="mb-3">
-                <label for="lastname" class="form-label">Last name</label>
-                <input type="text"  class="form-control" name="lastname" aria-describedby="lastname" placeholder="lastname">
+                <label for="lastname" class="form-label">นามสกุล</label>
+                <input type="text"  class="form-control" name="lastname" aria-describedby="lastname" placeholder="นามสกุล">
             </div>
             <div class="mb-3">
-                <label for="age" class="form-label">Age</label>
-                <input type="text" placeholder="age" class="form-control" name="age" aria-describedby="age">
+                <label for="age" class="form-label">อายุ</label>
+                <input type="text" placeholder="อายุ" class="form-control" name="age" aria-describedby="age">
             </div>
             <div>
-                <label for="gender" class="form-label">Gender</label>
+                <label for="gender" class="form-label">เพศ</label>
             </div>
             <div class="form-check form-check-inline mb-3">
                 <input class="form-check-input" type="radio"  name="gender" aria-describedby="gender" value="ชาย">
@@ -107,19 +107,19 @@ require_once 'connect.php';
                 <label for="gender" class="form-check-label">อื่นๆ</label>
             </div>
             <div>
-                <label for="email" class="form-label">Email</label>
+                <label for="email" class="form-label">เบอร์โทรศัพท์</label>
             </div>
             <div class="input-group mb-3">
-                <span class="input-group-text" id="basic-addon1">@</span>
-                <input type="email" placeholder="email" class="form-control" name="email" aria-describedby="email">
+                <span class="input-group-text" id="basic-addon1">+66(ไทย)</span>
+                <input type="text" placeholder="เบอร์โทรศัพท์" class="form-control" name="number" aria-describedby="number">
             </div>
             <div class="mb-3">
-                <label for="password" class="form-label">Password</label>
-                <input type="password" placeholder="password" class="form-control" name="password">
+                <label for="password" class="form-label">รหัสผ่าน</label>
+                <input type="password" placeholder="รหัสผ่าน" class="form-control" name="password">
             </div>
             <div class="mb-3">
-                <label for="confirm password" class="form-label">Confirm Password</label>
-                <input type="password" placeholder="confirm password" class="form-control" name="c_password">
+                <label for="confirm password" class="form-label">ยืนยัน รหัสผ่าน</label>
+                <input type="password" placeholder="ยืนยัน รหัสผ่าน" class="form-control" name="c_password">
             </div>
             <button type="submit" name="signup" class="button">Sign Up</button>
         </form>

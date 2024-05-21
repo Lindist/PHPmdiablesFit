@@ -105,14 +105,14 @@ if(isset($_GET['admin_id']))
         <table class="table-auto w-full border-collapse border border-gray-300">
             <thead>
                 <tr class="bg-gray-200">
-                    <th class="border border-gray-300 px-4 py-2 text-center">id</th>
-                    <th class="border border-gray-300 px-4 py-2 text-center">firstname</th>
-                    <th class="border border-gray-300 px-4 py-2 text-center">lastname</th>
-                    <th class="border border-gray-300 px-4 py-2 text-center">age</th>
-                    <th class="border border-gray-300 px-4 py-2 text-center">gender</th>
-                    <th class="border border-gray-300 px-4 py-2 text-center">email</th>
-                    <!-- <th class="border border-gray-300 px-4 py-2 text-center">แก้ไข</th>
-                    <th class="border border-gray-300 px-4 py-2 text-center">ลบ</th> -->
+                    <th class="border border-gray-300 px-4 py-2 text-center">ไอดี</th>
+                    <th class="border border-gray-300 px-4 py-2 text-center">ชื่อจริง</th>
+                    <th class="border border-gray-300 px-4 py-2 text-center">นามสกุล</th>
+                    <th class="border border-gray-300 px-4 py-2 text-center">อายุ</th>
+                    <th class="border border-gray-300 px-4 py-2 text-center">เพศ</th>
+                    <th class="border border-gray-300 px-4 py-2 text-center">เบอร์โทรศัพท์</th>
+                    <th class="border border-gray-300 px-4 py-2 text-center">แก้ไข</th>
+                    <th class="border border-gray-300 px-4 py-2 text-center">ลบ</th>
                 </tr>
             </thead>
             <tbody>
@@ -123,13 +123,13 @@ if(isset($_GET['admin_id']))
                     <td class="border border-gray-300 px-4 py-2 text-center"><?php echo $row["lastname"] ?></td>
                     <td class="border border-gray-300 px-4 py-2 text-center"><?php echo $row["age"] ?></td>
                     <td class="border border-gray-300 px-4 py-2 text-center"><?php echo $row["gender"] ?></td>
-                    <td class="border border-gray-300 px-4 py-2 text-center"><?php echo $row["email"] ?></td>
-                    <!-- <td class="border border-gray-300 px-4 py-2 text-center">
+                    <td class="border border-gray-300 px-4 py-2 text-center"><?php echo $row["number"] ?></td>
+                    <td class="border border-gray-300 px-4 py-2 text-center">
                         <a href="edit_memberform.php?id=<?php echo $row["id"] ?>" class="bg-blue-500 text-white rounded px-2 py-1"><i class="fa-solid fa-pen-to-square"></i></a>
                     </td>
                     <td class="border border-gray-300 px-4 py-2 text-center">
                         <a href="deletemember.php?id=<?php //echo $row["id"] ?>" class="bg-red-500 text-white rounded px-2 py-1" onclick="return confirm('คุณต้องการลบข้อมูลหรือไม่')"><i class="fa-solid fa-trash"></i></a>
-                    </td> -->
+                    </td>
                 </tr>
             <?php } ?>
             </tbody>

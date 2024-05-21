@@ -7,14 +7,14 @@ $firstname = $_POST['firstname'];
 $lastname = $_POST['lastname'];
 $age = $_POST['age'];
 $gender = $_POST['gender'];
-$email = $_POST['email'];
+$number = $_POST['number'];
 
 $sql = "UPDATE tb_member SET
     firstname = '$firstname',
     lastname = '$lastname',
     age = '$age',
     gender = '$gender',
-    email = '$email'
+    email = '$number'
     WHERE id = '$id'";
 
 $result = mysqli_query($connect, $sql);

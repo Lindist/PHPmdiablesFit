@@ -73,12 +73,12 @@ require_once 'connect.php';
                 </div>
             <?php } ?>
             <div class="mb-3">
-                <label for="email" class="form-label">Email</label>
-                <input type="email" placeholder="email" class="form-control" name="email" aria-describedby="email">
+                <label for="เบอร์โทรศัพท์" class="form-label">เบอร์โทรศัพท์</label>
+                <input type="text" placeholder="เบอร์โทรศัพท์" class="form-control" name="number" aria-describedby="number">
             </div>
             <div class="mb-3">
-                <label for="password" class="form-label">Password</label>
-                <input type="password" placeholder="password" class="form-control" name="password">
+                <label for="password" class="form-label">รหัสผ่าน</label>
+                <input type="password" placeholder="รหัสผ่าน" class="form-control" name="password">
             </div>
             <button type="submit" name="signin" class = "button">Sign In</button>
         </form>

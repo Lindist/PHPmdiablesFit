@@ -36,24 +36,24 @@ $row = mysqli_fetch_assoc($result);
             <input type="hidden" value="<?php echo $row["id"]; ?>" name="id"> <!-- hide id -->
 
             <div class="mb-4">
-                <label for="firstname" class="block font-medium text-gray-700">firstname</label>
+                <label for="firstname" class="block font-medium text-gray-700">ชื่อจริง</label>
                 <input type="text" name="firstname" class="mt-1 p-2 bg-white text-1xl border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md focus:ring-1" value="<?php echo $row["firstname"]; ?>">
             </div>
             <div class="mb-4">
-                <label for="lastname" class="block font-medium text-gray-700">lastname</label>
+                <label for="lastname" class="block font-medium text-gray-700">นามสกุล</label>
                 <input type="text" name="lastname" class="mt-1 p-2 bg-white text-1xl border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md focus:ring-1" value="<?php echo $row["lastname"]; ?>">
             </div>
             <div class="mb-4">
-                <label for="age" class="block font-medium text-gray-700">age</label>
+                <label for="age" class="block font-medium text-gray-700">อายุ</label>
                 <input type="text" name="age" class="mt-1 p-2 bg-white text-1xl border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md focus:ring-1" value="<?php echo $row["age"]; ?>">
             </div>
             <div class="mb-4">
-                <label for="gender" class="block font-medium text-gray-700">gender</label>
+                <label for="gender" class="block font-medium text-gray-700">เพศ</label>
                 <input type="text" name="gender" class="mt-1 p-2 bg-white text-1xl border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md focus:ring-1" value="<?php echo $row["gender"]; ?>">
             </div>
             <div class="mb-4">
-                <label for="email" class="block font-medium text-gray-700">email</label>
-                <input type="text" name="email" class="mt-1 p-2 bg-white text-1xl border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md focus:ring-1" value="<?php echo $row["email"]; ?>">
+                <label for="number" class="block font-medium text-gray-700">เบอร์โทรศัพท์</label>
+                <input type="text" name="number" class="mt-1 p-2 bg-white text-1xl border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md focus:ring-1" value="<?php echo $row["number"]; ?>">
             </div>
 
             <div class="flex items-center space-x-2 mt-4">

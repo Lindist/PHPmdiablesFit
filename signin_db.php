@@ -4,15 +4,39 @@
     require_once 'connect.php';
 
     if (isset($_POST['signin'])) {
-        $email = $_POST['email'];
+        $number = $_POST['number'];
         $password = $_POST['password'];
 
-      
-        if (empty($email)) {
-            $_SESSION['error'] = 'กรุณากรอกอีเมล';
+        $barnnumber = "0123654789";
+        $checkbarn = 1;
+        $iszero = 0;
+        if($number[0] != '0')
+        {
+                $iszero = 1;
+        }else{
+        for ($i = 0; $i < strlen($number); $i++) {
+            for ($j = 0; $j < strlen($barnnumber); $j++)
+                if($number[$i] == $barnnumber[$j])
+                {
+                    $checkbarn++;
+                }
+        }
+    }
+
+        if (empty($number)) {
+            $_SESSION['error'] = 'กรุณากรอกเบอร์โทรศัพท์';
             header("location: signinForm.php");
-        } else if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-            $_SESSION['error'] = 'รูปแบบอีเมลไม่ถูกต้อง';
+        }
+        else if ($iszero == 1) {
+            $_SESSION['error'] = 'กรุณากรอกเบอร์โทรศัพท์หน้าด้วยตัวเลข 0';
+            header("location: signinForm.php");
+        } 
+        else if ($checkbarn < 10) {
+            $_SESSION['error'] = 'กรุณากรอกเบอร์โทรศัพท์ด้วยตัวเลข';
+            header("location: signinForm.php");
+        }
+        else if (strlen($number) < 10 || strlen($number) > 10) {
+            $_SESSION['error'] = 'รูปแบบเบอร์โทรศัพท์จะต้องมีความยาว 10 หลัก';
             header("location: signinForm.php");
         } else if (empty($password)) {
             $_SESSION['error'] = 'กรุณากรอกรหัสผ่าน';
@@ -23,13 +47,13 @@
         } else {
             try {
 
-                $check_data = $conn->prepare("SELECT * FROM tb_member WHERE email = :email");
-                $check_data->bindParam(":email", $email);
+                $check_data = $conn->prepare("SELECT * FROM tb_member WHERE number = :number");
+                $check_data->bindParam(":number", $number);
                 $check_data->execute();
                 $row = $check_data->fetch(PDO::FETCH_ASSOC);
 
                 if ($check_data->rowCount() > 0) {
-                    if ($email == $row['email']) {
+                    if ($number == $row['number']) {
                         if (password_verify($password, $row['password'])) {
                             if ($row['urole'] == 'admin') {
                                 $_SESSION['admin_login'] = $row['id'];
@@ -43,7 +67,7 @@
                             header("location: signinForm.php");
                         }
                     }else {
-                        $_SESSION['error'] = 'อีเมลผิด';
+                        $_SESSION['error'] = 'เบอร์โทรศัพท์ผิด';
                         header("location: signinForm.php");
                     }
                 }

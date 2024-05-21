@@ -89,7 +89,7 @@ $order = 1;
                 <p class="">อายุ : <?php echo $row["age"] ?></p>
                 <p class="">เพศ : <?php echo $row["gender"] ?></p>
                 <p class="">สถานะผู้ใช้งาน : <?php echo $row["urole"] ?></p>
-                <p class="">อีเมล : <?php echo $row["email"] ?></p>
+                <p class="">เบอร์โทรศัพท์ : <?php echo $row["number"] ?></p>
                 </div>
             </div>
             <a href="edit_memberform.php?user_id=<?php echo $user_id; ?>" class="text-xl bg-yellow-400 text-black rounded inline-block mt-18 mb-24 px-8 py-2">แก้ไขข้อมูล</a>
