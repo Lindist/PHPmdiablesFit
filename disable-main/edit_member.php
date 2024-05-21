@@ -20,16 +20,6 @@ $sql = "UPDATE tb_member SET
 $result = mysqli_query($connect, $sql);
 // echo $sql;
 if($result) {
-    if($admin == 1)
-    {
-        // echo "แก้ไขข้อมูลเรียบร้อย";
-        // echo "<a href='index.php'>กลับหน้าแรก<a>";
-        echo "<script>";
-        echo "alert('อัปเดตข้อมูลเสร็จสิ้น!');";
-        // echo "window.location = 'index.php';";
-        echo "location.href='homeuser_member.php?admin_id='+ ".$id;
-        echo "</script>";
-    }else{
 
         // echo "แก้ไขข้อมูลเรียบร้อย";
         /* The line `echo "<a href='index.php'>กลับหน้าแรก<a>";` is generating a hyperlink in the PHP
@@ -42,7 +32,6 @@ if($result) {
         // echo "window.location = 'index.php';";
         echo "location.href='homeuser_member.php?user_id='+ ".$id;
         echo "</script>";
-    }
 } else {
     echo mysqli_error($connect);
 }
