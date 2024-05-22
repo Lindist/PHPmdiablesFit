@@ -33,7 +33,7 @@ if(isset($_GET['admin_id']))
       </div>
       <ul class="nav-list">
         <li>
-          <a href="home.php?admin_id=<?php echo $ida; ?>">
+          <a href="homeadmin.php?admin_id=<?php echo $ida; ?>">
             <i class="bx bx-user"></i>
             <span class="links_name">Admin</span>
           </a>

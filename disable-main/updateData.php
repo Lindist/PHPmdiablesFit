@@ -60,7 +60,7 @@ if($result) {
         echo "<script>";
         echo "alert('อัปเดตข้อมูลเสร็จสิ้น!');";
         // echo "window.location = 'index.php';";
-        echo "location.href='homeuser_detail.php?admin_id='+ ".$id;
+        echo "location.href='homeuser_detail_1.php?admin_id='+ ".$id;
         echo "</script>";
     }else{
 
@@ -73,7 +73,7 @@ if($result) {
         echo "<script>";
         echo "alert('อัปเดตข้อมูลเสร็จสิ้น!');";
         // echo "window.location = 'index.php';";
-        echo "location.href='homeuser_detail.php?user_id='+ ".$id;
+        echo "location.href='homeuser_detail_1.php?user_id='+ ".$id;
         echo "</script>";
     }
 } else {
