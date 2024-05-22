@@ -12,7 +12,7 @@ require_once 'connect.php';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ระบบเข้าฐานข้อมูลผู้พิการ</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <style>
+<style>
 .button {
   display: inline-block;
   padding: 10px 20px;
@@ -35,14 +35,52 @@ require_once 'connect.php';
   box-shadow: 0 3px #666;
   transform: translateY(4px);
 }
+
+.back {
+  display: inline-block;
+  border-radius: 4px;
+  border: none;
+  background:transparent;
+  color: #FFFFFF;
+  text-align: center;
+  transition: all 0.5s;
+  cursor: pointer;
+}
+
+.back span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.back span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.back:hover span {
+  padding-right: 15px;
+}
+
+.back:hover span:after {
+  opacity: 1;
+  right: 0;
+}
 </style>
 </head>
 <body class="container">
     <div id = "inout">
-        <a href="signinForm.php" class="btn btn-outline-primary">Login</a>
-        <a href="signupForm.php" class="btn btn-primary">Signup</a>
-        <a href="menuhome/home.html" class="btn btn-secondary">Back</a>
+        <a href="signinForm.php" class="btn btn-outline-primary">เข้าสู่ระบบ</a>
+        <a href="signupForm.php" class="btn btn-primary">สมัครสมาชิก</a>
+        <div class="btn btn-dark">
+            <a href="menuhome/home.html" class = "back"><span>กลับ</span></a>
         </div>
+    </div>
         <script type="text/javascript">
             let x = document.getElementById("inout");
             x.style.textAlign="right";
