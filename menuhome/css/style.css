@@ -12,6 +12,31 @@ body{
     text-align: center;
     padding: 0;
     margin: 0;
+    width: 100%;
+}
+
+.nav ul li {
+    margin: 0 4rem;
+    font-size: 1rem;
+    display: inline-block;
+    position: relative;
+}
+.nav ul li a{
+    text-transform: uppercase;
+}
+.nav ul li::after{
+    content: '';
+    height: 3px;
+    width: 0;
+    background: #009688;
+    position: absolute;
+    left:0;
+    bottom: 0;
+    transition: 0.5s;
+}
+
+.nav ul li:hover:after{
+    width: 100%;
 }
 
 .nav li{
@@ -40,6 +65,26 @@ body{
     cursor: pointer;
 }
 
+.header-info h2
+{
+    height: auto;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    text-align: center;
+        /* border: 1px solid red; */
+}
+
+.header-info p {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    background-color: #fff;
+    text-align: left
+}
+
 .header-info a {
     display: block;
     width: 80px;
@@ -65,11 +110,64 @@ body{
     width: 100%;
     display: flex;
     color: #fff;
-    justify-content: left;
+    justify-content: center;
     /* margin-right: 1.2rem; */
     align-items: center;
     /* border: 1px solid red; */
     background-color: #040D12;
+}
+
+button{
+    text-align: center;
+    width: 100%;
+    margin-top: 2rem;
+    background-color: #070F2B;
+    color: #000;
+    padding: 0.5rem 1rem;
+    border-radius: 25px;
+    font-weight: bold;
+    border: 2px solid #1B1A55;
+    cursor: pointer;
+    background: transparent;
+    position: relative;
+    overflow: hidden;
+    transition: 0.5s; 
+}
+
+button:hover{
+    transition: 0.5s;
+    color: #fff;
+    background: #1B1A55;
+    width: 100%;
+    
+} 
+
+footer{
+    margin-top: 4%;
+    border-radius: 25px;
+    height: 50%;
+    background-color: #27374D;
+    padding: 1rem;
+    color: #fff;
+    position: relative;
+}
+
+
+footer .copy{
+    position: absolute;
+    margin: auto;
+    width: 100%;
+    text-align: center;
+    margin-top: 2rem;
+    bottom: 0;
+    font-size: x-small;
+    /* padding: 0.5rem; */
+}
+
+.contract div img{
+    width: 1rem;
+    margin-right: 10px;
+    box-shadow: 0 0 10px #333;
 }
 
 @media screen and (min-width:650px){
@@ -80,7 +178,7 @@ body{
         
     }
     .logo{
-        width: 20%;
+        width: 30%;
         display: flex;
         justify-content: center;
         align-items: center;
