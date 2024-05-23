@@ -77,7 +77,7 @@ if(isset($_GET['user_id']))
         <h1 class="text-center text-2xl font-bold">User</h1>
     </section>
 
-    <script>
+    <script src="logout.js">
         let sidebar = document.querySelector(".sidebar");
         let closeBtn = document.querySelector("#btn");
         let searchBtn = document.querySelector(".bx-search");
@@ -100,11 +100,6 @@ if(isset($_GET['user_id']))
         }else {
         closeBtn.classList.replace("bx-menu-alt-right","bx-menu");//replacing the iocns class
         }
-        }
-
-        function Logout()
-        {
-            window.location = 'http://localhost:8080/PHPmdiablesFit/logout.php';
         }
     </script>
 

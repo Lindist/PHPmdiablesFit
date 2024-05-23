@@ -140,11 +140,6 @@ $count = mysqli_num_rows($result);
         closeBtn.classList.replace("bx-menu-alt-right","bx-menu");//replacing the iocns class
         }
         }
-
-        function Logout()
-        {
-            window.location = 'http://localhost:8080/PHPmdiablesFit/logout.php';
-        }
     </script>
 
   </body>
