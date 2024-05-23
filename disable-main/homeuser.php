@@ -76,8 +76,8 @@ if(isset($_GET['user_id']))
     <section class="home-section">
         <h1 class="text-center text-2xl font-bold">User</h1>
     </section>
-
-    <script src="logout.js">
+    <script src="logout.js"></script>
+    <script>
         let sidebar = document.querySelector(".sidebar");
         let closeBtn = document.querySelector("#btn");
         let searchBtn = document.querySelector(".bx-search");
