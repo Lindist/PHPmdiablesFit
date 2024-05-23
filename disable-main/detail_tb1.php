@@ -162,8 +162,8 @@ if(isset($_GET['admin_id']))
         <?php } ?>
 </div>
     </section>
-
-    <script src="logout.js">
+    <script src="logout.js"></script>
+    <script>
         let sidebar = document.querySelector(".sidebar");
         let closeBtn = document.querySelector("#btn");
         let searchBtn = document.querySelector(".bx-search");
