@@ -12,26 +12,56 @@
             font-weight: 300;
             font-style: normal;
         }
-        /* header {
-            background-color: #11101D;
-        } */
     </style>
     <link href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css" rel="stylesheet">
 </head>
-<body class="bg-slate-200">
-    <header class="bg-white">
-        <nav>
+
+<body class="bg-slate-200 h-screen">
+    <header class="bg-[#11101D]">
+        <nav class="flex items-center w-[92%] mx-auto">
             <div>
-                <i class="w-16 bx bxs-layer icon"></i>ระบบเก็บฐานข้อมูลคนพิการ
+                <i class="text-white flex text-5xl justify-center items-center w-16 h-16 bx bxs-layer icon"></i>
             </div>
-            <div>
-                <ul>
+            <!-- <div class="nav-links text-white duration-500 md:static absolute bg-[#11101D] md:min-h-fit min-h-[60vh] left-0 top-[-100%] md:w-auto  w-full flex items-center px-5">
+                <ul class="flex md:flex-row flex-col md:items-center md:gap-[4vw] gap-8">
                     <li>
-                        
+                        <a class="hover:text-gray-500" href="#">Products</a>
+                    </li>
+                    <li>
+                        <a class="hover:text-gray-500" href="#">Solution</a>
+                    </li>
+                    <li>
+                        <a class="hover:text-gray-500" href="#">Resource</a>
+                    </li>
+                    <li>
+                        <a class="hover:text-gray-500" href="#">Developers</a>
+                    </li>
+                    <li>
+                        <a class="hover:text-gray-500" href="#">Pricing</a>
                     </li>
                 </ul>
+            </div> -->
+            <div class="text-white text-2xl font-semibold">
+                <p class="text-left mx-2">ระบบเก็บฐานข้อมูลคนพิการ</p>
+            </div>
+            <div class="flex items-center gap-6">
+                <!-- <button class="bg-[#a6c1ee] text-white px-5 py-2 rounded-full hover:bg-[#87acec]">เข้าสู่ระบบ</button>
+                <ion-icon onclick="onToggleMenu(this)" name="menu" class="text-3xl cursor-pointer md:hidden"></ion-icon>
+                <button class="bg-[#a6c1ee] text-white px-5 py-2 rounded-full hover:bg-[#87acec]">สมัครสมาชิก</button>
+                <ion-icon onclick="onToggleMenu(this)" name="menu" class="text-3xl cursor-pointer md:hidden"></ion-icon> -->
             </div>
         </nav>
     </header>
+
+
+
+    <script>
+        const navLinks = document.querySelector('.nav-links')
+        function onToggleMenu(e){
+            e.name = e.name === 'menu' ? 'close' : 'menu'
+            navLinks.classList.toggle('top-[9%]')
+        }
+    </script>
 </body>
+
 </html>
