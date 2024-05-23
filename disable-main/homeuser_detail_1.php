@@ -113,7 +113,7 @@ $order = 1;
         </div>
     </section>
 
-    <script>
+    <script src="logout.js">
         let sidebar = document.querySelector(".sidebar");
         let closeBtn = document.querySelector("#btn");
         let searchBtn = document.querySelector(".bx-search");
@@ -136,11 +136,6 @@ $order = 1;
         }else {
         closeBtn.classList.replace("bx-menu-alt-right","bx-menu");//replacing the iocns class
         }
-        }
-
-        function Logout()
-        {
-            window.location = 'http://localhost:8080/PHPmdiablesFit/logout.php';
         }
     </script>
 
