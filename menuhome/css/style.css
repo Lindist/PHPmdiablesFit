@@ -157,25 +157,19 @@ button:hover{
 } 
 
 footer{
+    height: 100%;
     margin-top: 4%;
-    border-radius: 25px;
-    height: 50%;
     background-color: #27374D;
-    padding: 1rem;
     color: #fff;
-    position: relative;
+    padding-right: 2rem;
+    padding-left: 2rem;
+    padding-top: 2rem;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
 }
 
-
-footer .copy{
-    position: absolute;
-    margin: auto;
-    width: 100%;
-    text-align: center;
-    margin-top: 2rem;
-    bottom: 0;
-    font-size: x-small;
-    /* padding: 0.5rem; */
+footer .contract{
+    background-color: #27374D;
 }
 
 .contract div img{
@@ -183,6 +177,17 @@ footer .copy{
     margin-right: 10px;
     box-shadow: 0 0 10px #333;
 }
+
+footer .copy{
+    color: #fff;
+    margin: auto;
+    width: 100%;
+    text-align: center;
+    bottom: 0;
+    font-size: x-small;
+    
+}
+
 
 @media screen and (min-width:850px){
     
@@ -314,11 +319,15 @@ footer .copy{
     
 
     footer{
-        height: 300px;
+        height: 100%;
         background-color: #27374D;
-        padding: 1rem;
         color: #fff;
         position: relative;
+        border-top-left-radius: 25px;
+        border-top-right-radius: 25px;
+        padding-right: 2rem;
+        padding-left: 2rem;
+        padding-top: 2rem;
     }
 
     .contract{
@@ -337,14 +346,12 @@ footer .copy{
     }
 
     footer .copy{
-        position: absolute;
+        color: #fff;
         margin: auto;
         width: 100%;
         text-align: center;
-        margin-top: 2rem;
         bottom: 0;
         font-size: x-small;
-        /* padding: 0.5rem; */
     }
 
 }
