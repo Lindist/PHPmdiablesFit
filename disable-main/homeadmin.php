@@ -116,7 +116,7 @@ $count = mysqli_num_rows($result);
         </div>
     </section>
 
-    <script>
+    <script src = "logout.js">
         let sidebar = document.querySelector(".sidebar");
         let closeBtn = document.querySelector("#btn");
         let searchBtn = document.querySelector(".bx-search");
