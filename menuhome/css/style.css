@@ -184,7 +184,7 @@ footer .copy{
     box-shadow: 0 0 10px #333;
 }
 
-@media screen and (min-width:650px){
+@media screen and (min-width:850px){
     
     .nav {
         display: flex;
