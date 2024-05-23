@@ -78,11 +78,14 @@ body{
 }
 
 .header-info p {
+    width: 100%;
+    margin-right: 2%;
+    margin-left: 2%;
     display: flex;
     justify-content: left;
     align-items: center;
     background-color: #fff;
-    text-align: left
+    text-align: left;
 }
 
 .header-info a {
@@ -103,9 +106,9 @@ body{
     text-decoration: none;
 }
 
-.nav li li{
+/* .nav li li{
     font-size: .8em;
-}
+} */
 .logo{
     width: 100%;
     display: flex;
