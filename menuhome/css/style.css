@@ -23,6 +23,7 @@ body{
 }
 .nav ul li a{
     text-transform: uppercase;
+    border-radius: 5px;
 }
 .nav ul li::after{
     content: '';
@@ -108,7 +109,7 @@ body{
 /* .nav li li{
     font-size: .8em;
 } */
-.logo{
+.nav .logo{
     width: 100%;
     display: flex;
     color: #fff;
@@ -116,7 +117,18 @@ body{
     /* margin-right: 1.2rem; */
     align-items: center;
     /* border: 1px solid red; */
-    background-color: #040D12;
+    background-color: #070F2B;
+}
+
+.nav .logo h1 {
+    width: 100%;
+    height: auto;
+    border-radius: 15px;
+    background-color: #070F2B;
+    display: flex;
+    color: #fff;
+    justify-content: center;
+    align-items: center;
 }
 
 button{
@@ -179,12 +191,26 @@ footer .copy{
         color: #fff;
         
     }
-    .logo{
+    .nav .logo{
         width: 30%;
         display: flex;
+        color: #fff;
+        justify-content: center;
+        /* margin-right: 1.2rem; */
+        align-items: center;
+        /* border: 1px solid red; */
+        background-color: #070F2B;
+    }
+    
+    .nav .logo h1 {
+        width: 100%;
+        height: auto;
+        border-radius: 15px;
+        background-color: #070F2B;
+        display: flex;
+        color: #fff;
         justify-content: center;
         align-items: center;
-        background-color: #040D12;
     }
     .nav ul {
         width: 100%;
@@ -202,6 +228,7 @@ footer .copy{
     }
     .nav ul li a{
         text-transform: uppercase;
+        border-radius: 5px;
     }
     .nav ul li::after{
         content: '';
