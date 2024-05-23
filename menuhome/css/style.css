@@ -85,7 +85,7 @@ body{
     justify-content: left;
     align-items: center;
     background-color: #fff;
-    text-align: left;
+    text-align: justify;
 }
 
 /* .header-info a {
