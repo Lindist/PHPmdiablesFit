@@ -14,35 +14,18 @@
         }
     </style>
     <link href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
-<body class="bg-slate-200 h-screen">
+<body class="bg-slate-200">
     <header class="bg-[#11101D]">
         <nav class="flex items-center w-[92%] mx-auto">
             <div>
                 <i class="text-white flex text-5xl justify-center items-center w-16 h-16 bx bxs-layer icon"></i>
             </div>
-            <!-- <div class="nav-links text-white duration-500 md:static absolute bg-[#11101D] md:min-h-fit min-h-[60vh] left-0 top-[-100%] md:w-auto  w-full flex items-center px-5">
-                <ul class="flex md:flex-row flex-col md:items-center md:gap-[4vw] gap-8">
-                    <li>
-                        <a class="hover:text-gray-500" href="#">Products</a>
-                    </li>
-                    <li>
-                        <a class="hover:text-gray-500" href="#">Solution</a>
-                    </li>
-                    <li>
-                        <a class="hover:text-gray-500" href="#">Resource</a>
-                    </li>
-                    <li>
-                        <a class="hover:text-gray-500" href="#">Developers</a>
-                    </li>
-                    <li>
-                        <a class="hover:text-gray-500" href="#">Pricing</a>
-                    </li>
-                </ul>
-            </div> -->
             <div class="text-white text-2xl font-semibold">
                 <p class="text-left mx-2">ระบบเก็บฐานข้อมูลคนพิการ</p>
+                
             </div>
             <div class="flex items-center gap-6">
                 <!-- <button class="bg-[#a6c1ee] text-white px-5 py-2 rounded-full hover:bg-[#87acec]">เข้าสู่ระบบ</button>
@@ -53,7 +36,41 @@
         </nav>
     </header>
 
-
+    <!-- <div class="text-center mt-10 mb-10">
+        <div class="inline-block text-2xl text-left leading-10"> -->
+    <div class="">
+        <div class="flex justify-center mt-10 mb-10">
+            <div class="w-2/4 text-2xl text-left">
+                <h2 class="my-2 font-bold text-center">การแถลงผลการสำรวจความพิการ พ.ศ.2565</h2>
+                <p class="my-2">ผลการสำรวจความพิการ พ.ศ. 2565 ชี้ผู้พิการเข้าถึงสวัสดิการค่ารักษาพยาบาลหลักของรัฐ การส่งเสริมป้องกันโรคอย่างทั่วถึง  แต่ยังน่าเป็นกังวลด้านการศึกษา การทำงาน การเข้าถึงอุปกรณ์เครื่องช่วยคนพิการ และยังคงมีความต้องการสวัสดิการอื่น ๆ ของรัฐที่จำเป็น เพื่อเพิ่มคุณภาพชีวิตของผู้พิการ</p>
+                <div class="text-center">
+                    <button class="" type="button" onclick="window.open('https://www.unicef.org/thailand/th/press-releases/%E0%B8%81%E0%B8%B2%E0%B8%A3%E0%B9%81%E0%B8%96%E0%B8%A5%E0%B8%87%E0%B8%9C%E0%B8%A5%E0%B8%81%E0%B8%B2%E0%B8%A3%E0%B8%AA%E0%B8%B3%E0%B8%A3%E0%B8%A7%E0%B8%88%E0%B8%84%E0%B8%A7%E0%B8%B2%E0%B8%A1%E0%B8%9E%E0%B8%B4%E0%B8%81%E0%B8%B2%E0%B8%A3-%E0%B8%9E%E0%B8%A8-2565#:~:text=%E0%B8%9C%E0%B8%A5%E0%B8%81%E0%B8%B2%E0%B8%A3%E0%B8%AA%E0%B8%B3%E0%B8%A3%E0%B8%A7%E0%B8%88%E0%B8%84%E0%B8%A7%E0%B8%B2%E0%B8%A1%E0%B8%9E%E0%B8%B4%E0%B8%81%E0%B8%B2%E0%B8%A3%20%E0%B8%9E.%E0%B8%A8.%202565%20%E0%B8%8A%E0%B8%B5%E0%B9%89%E0%B8%9C%E0%B8%B9%E0%B9%89%E0%B8%9E%E0%B8%B4%E0%B8%81%E0%B8%B2%E0%B8%A3%E0%B9%80%E0%B8%82%E0%B9%89%E0%B8%B2%E0%B8%96%E0%B8%B6%E0%B8%87%E0%B8%AA%E0%B8%A7%E0%B8%B1%E0%B8%AA%E0%B8%94%E0%B8%B4%E0%B8%81%E0%B8%B2%E0%B8%A3%E0%B8%84%E0%B9%88%E0%B8%B2%E0%B8%A3%E0%B8%B1%E0%B8%81%E0%B8%A9%E0%B8%B2%E0%B8%9E%E0%B8%A2%E0%B8%B2%E0%B8%9A%E0%B8%B2%E0%B8%A5%E0%B8%AB%E0%B8%A5%E0%B8%B1%E0%B8%81%E0%B8%82%E0%B8%AD%E0%B8%87%E0%B8%A3%E0%B8%B1%E0%B8%90%20%E0%B8%81%E0%B8%B2%E0%B8%A3%E0%B8%AA%E0%B9%88%E0%B8%87%E0%B9%80%E0%B8%AA%E0%B8%A3%E0%B8%B4%E0%B8%A1%E0%B8%9B%E0%B9%89%E0%B8%AD%E0%B8%87%E0%B8%81%E0%B8%B1%E0%B8%99%E0%B9%82%E0%B8%A3%E0%B8%84%E0%B8%AD%E0%B8%A2%E0%B9%88%E0%B8%B2%E0%B8%87%E0%B8%97%E0%B8%B1%E0%B9%88%E0%B8%A7%E0%B8%96%E0%B8%B6%E0%B8%87%20%E0%B9%81%E0%B8%95%E0%B9%88%E0%B8%A2%E0%B8%B1%E0%B8%87%E0%B8%99%E0%B9%88%E0%B8%B2%E0%B9%80%E0%B8%9B%E0%B9%87%E0%B8%99%E0%B8%81%E0%B8%B1%E0%B8%87%E0%B8%A7%E0%B8%A5%E0%B8%94%E0%B9%89%E0%B8%B2%E0%B8%99%E0%B8%81%E0%B8%B2%E0%B8%A3%E0%B8%A8%E0%B8%B6%E0%B8%81%E0%B8%A9%E0%B8%B2,%E0%B8%81%E0%B8%B2%E0%B8%A3%E0%B8%97%E0%B8%B3%E0%B8%87%E0%B8%B2%E0%B8%99%20%E0%B8%81%E0%B8%B2%E0%B8%A3%E0%B9%80%E0%B8%82%E0%B9%89%E0%B8%B2%E0%B8%96%E0%B8%B6%E0%B8%87%E0%B8%AD%E0%B8%B8%E0%B8%9B%E0%B8%81%E0%B8%A3%E0%B8%93%E0%B9%8C%E0%B9%80%E0%B8%84%E0%B8%A3%E0%B8%B7%E0%B9%88%E0%B8%AD%E0%B8%87%E0%B8%8A%E0%B9%88%E0%B8%A7%E0%B8%A2%E0%B8%84%E0%B8%99%E0%B8%9E%E0%B8%B4%E0%B8%81%E0%B8%B2%E0%B8%A3%20%E0%B9%81%E0%B8%A5%E0%B8%B0%E0%B8%A2%E0%B8%B1%E0%B8%87%E0%B8%84%E0%B8%87%E0%B8%A1%E0%B8%B5%E0%B8%84%E0%B8%A7%E0%B8%B2%E0%B8%A1%E0%B8%95%E0%B9%89%E0%B8%AD%E0%B8%87%E0%B8%81%E0%B8%B2%E0%B8%A3%E0%B8%AA%E0%B8%A7%E0%B8%B1%E0%B8%AA%E0%B8%94%E0%B8%B4%E0%B8%81%E0%B8%B2%E0%B8%A3%E0%B8%AD%E0%B8%B7%E0%B9%88%E0%B8%99%20%E0%B9%86%20%E0%B8%82%E0%B8%AD%E0%B8%87%E0%B8%A3%E0%B8%B1%E0%B8%90%E0%B8%97%E0%B8%B5%E0%B9%88%E0%B8%88%E0%B8%B3%E0%B9%80%E0%B8%9B%E0%B9%87%E0%B8%99%20%E0%B9%80%E0%B8%9E%E0%B8%B7%E0%B9%88%E0%B8%AD%E0%B9%80%E0%B8%9E%E0%B8%B4%E0%B9%88%E0%B8%A1%E0%B8%84%E0%B8%B8%E0%B8%93%E0%B8%A0%E0%B8%B2%E0%B8%9E%E0%B8%8A%E0%B8%B5%E0%B8%A7%E0%B8%B4%E0%B8%95%E0%B8%82%E0%B8%AD%E0%B8%87%E0%B8%9C%E0%B8%B9%E0%B9%89%E0%B8%9E%E0%B8%B4%E0%B8%81%E0%B8%B2%E0%B8%A3','_blank')">อ่านเพิ่มเติม...</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <footer class="bg-[#11101D] text-white rounded-t-3xl">
+        <main class="grid">
+            <div class="my-16 mx-16">
+                <p class="text-lg mb-4">จัดทำโดยแผนกเทคนิคคอมพิวเตอร์</p>
+                <p class="leading-tight flex"><img class="h-6 w-6 mr-2" src="https://image.makewebeasy.net/makeweb/m_1920x0/BnYGKP9Kn/DefaultData/Layer_84.png?v=202012190947" alt="">วิทยาลัยเทคนิคแพร่ ตั้งอยู่ที่ 5 ถนนเมืองหิต ตำบลในเวียง อำเภอเมืองแพร่ จังหวัดแพร่ รหัสไปรษณีย์ 5400</p>
+            </div>
+            <div class="my-16 mx-16">
+                <p class="flex mb-4"><img class="h-6 w-6 mr-2" src="https://image.makewebeasy.net/makeweb/m_1920x0/BnYGKP9Kn/DefaultData/icon_call.png?v=202012190947" alt="">054 511 142</p>
+                <p class="flex mb-4"><img class="h-6 w-6 mr-2" src="https://image.makewebeasy.net/makeweb/m_1920x0/BnYGKP9Kn/DefaultData/icon_call.png?v=202012190947" alt=""> 054 522 119 (งานทะเบียน)</p>
+                <p class="flex mb-4"><img class="h-6 w-6 mr-2" src="https://image.makewebeasy.net/makeweb/m_1920x0/BnYGKP9Kn/DefaultData/icon_fax.png?v=202012190947" alt="">054 511 811</p>
+                <p class="flex mb-4"><img class="h-6 w-6 mr-2" src="https://image.makewebeasy.net/makeweb/m_1920x0/BnYGKP9Kn/DefaultData/Layer_88.png?v=202012190947" alt="">Techphrae@hotmail.com</p>
+            </div>
+            <div class="my-16 mx-16">
+                <p class="text-lg  mb-4">รับข่าวสารจากเรา</p>
+                <p class="flex mb-4"><img class="h-6 w-6 mr-2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAAANRJREFUSEvtVsENwjAQszdhFLoJm0AngU3oJnSTQ0YhJCEqpaRqJHLvxD5bdzoTGxU34kV9xGa2L+TGSHJMsd4Um9kBwBHArhQxgJ7kJcTLEVshwhBGirtQeUTs7L26Hz2A4ccm5NrZYYjY400RRw+XNJAIacQvE6esaVbPcaANV9tjPydtncJhmLM+6Ztv1knX5LaE5NMfktFByt1jnTGFgZI1kOyyQcDZ8ow7SiAlS7ddpQYeN9krNrOTizwlCVMsRSDxVEC8pswcdn25em0H/k/xHeJOsx9WzVFkAAAAAElFTkSuQmCC"/>ctn phrae</p>
+                <p class="flex mb-4"><img class="h-6 w-6 mr-2" src="https://image.makewebeasy.net/makeweb/m_1920x0/BnYGKP9Kn/DefaultData/icon_fb.png?v=202012190947" alt="">pr.technicphrae หรือ ctn phrae</p>
+                <p class="flex mb-4"><img class="h-6 w-6 mr-2" src="https://image.makewebeasy.net/makeweb/m_1920x0/BnYGKP9Kn/DefaultData/icon_line.png?v=202012190947" alt="">@5PTC</p>
+            </div>
+        </main>
+            <p class="text-center bg-[#11101D] py-2">&copy;2024</p>
+    </footer>
 
     <script>
         const navLinks = document.querySelector('.nav-links')
