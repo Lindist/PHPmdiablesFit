@@ -30,7 +30,6 @@ if($result) {
         echo "<a href='index.php'>กลับหน้าแรก<a>";
         echo "<script>";
         echo "alert('ลบข้อมูลเสร็จสิ้น!');";
-        // echo "window.location = 'index.php';";
         echo "location.href='index.php?user_id='+ ".$id;
         echo "</script>";
     }

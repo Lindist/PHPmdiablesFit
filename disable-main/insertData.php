@@ -44,17 +44,12 @@ if($result) {
     if($admin == 1)
     {
         echo "<script>";
-        // echo "alert('ลบข้อมูลเสร็จสิ้น!');";
-        // echo "window.location = 'index.php';";
+        echo "alert('เพิ่มข้อมูลเสร็จสิ้น!');";
         echo "location.href='detail_tb1.php?admin_id='+ ".$id;
         echo "</script>";
     }else{
-
-        // echo "ลบข้อมูลเรียบร้อย";
-        // echo "<a href='index.php'>กลับหน้าแรก<a>";
         echo "<script>";
-        echo "alert('ลบข้อมูลเสร็จสิ้น!');";
-        // echo "window.location = 'index.php';";
+        echo "alert('เพิ่มข้อมูลเสร็จสิ้น!');";
         echo "location.href='homeuser_detail.php?user_id='+ ".$id;
         echo "</script>";
     }

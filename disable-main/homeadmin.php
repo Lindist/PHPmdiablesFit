@@ -104,7 +104,7 @@ $count = mysqli_num_rows($result);
                 <p class="">เบอร์โทรศัพท์ : <?php echo $row["number"] ?></p>
                 </div>
             </div>
-            <a href="edit_memberform.php?user_id=<?php echo $user_id; ?>" class="text-xl bg-yellow-400 text-black rounded inline-block mt-18 mb-24 px-8 py-2">แก้ไขข้อมูล</a>
+            <a href="edit_memberform.php?user_id=<?php echo $id; ?>" class="text-xl bg-yellow-400 text-black rounded inline-block mt-18 mb-24 px-8 py-2">แก้ไขข้อมูล</a>
             <?php ?>
             <?php } else { ?>
                 <div class="text-center p-3 mt-10 bg-red-100 text-red-500 border border-red-300 rounded">

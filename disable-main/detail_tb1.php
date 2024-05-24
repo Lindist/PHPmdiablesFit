@@ -107,13 +107,13 @@ if(isset($_GET['admin_id']))
                 <tr class="bg-gray-200">
                     <th class="border border-gray-300 px-4 py-2 text-center">detail_id</th>
                     <th class="border border-gray-300 px-4 py-2 text-center">id</th>
-                    <th class="border border-gray-300 px-4 py-2 text-center">detail_date</th>
-                    <th class="border border-gray-300 px-4 py-2 text-center">detail_address</th>
-                    <th class="border border-gray-300 px-4 py-2 text-center">detail_idp</th>
-                    <th class="border border-gray-300 px-4 py-2 text-center">detail_tel</th>
-                    <th class="border border-gray-300 px-4 py-2 text-center">detail_occ</th>
-                    <th class="border border-gray-300 px-4 py-2 text-center">detail_salary</th>
-                    <th class="border border-gray-300 px-4 py-2 text-center">detail_type</th>
+                    <th class="border border-gray-300 px-4 py-2 text-center">ว/ด/ป เกิด</th>
+                    <th class="border border-gray-300 px-4 py-2 text-center">ที่อยู่</th>
+                    <th class="border border-gray-300 px-4 py-2 text-center">รหัสบัตร ประชาชน</th>
+                    <th class="border border-gray-300 px-4 py-2 text-center">เบอร์โทรศัพท์</th>
+                    <th class="border border-gray-300 px-4 py-2 text-center">อาชีพ</th>
+                    <th class="border border-gray-300 px-4 py-2 text-center">รายได้</th>
+                    <th class="border border-gray-300 px-4 py-2 text-center">ประเภทความพิการ</th>
                     <?php if(isset($ida))
                     { ?>
                     <th class="border border-gray-300 px-4 py-2 text-center">แก้ไข</th>

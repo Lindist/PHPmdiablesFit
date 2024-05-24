@@ -107,12 +107,12 @@ if(isset($_GET['admin_id']))
             <thead>
                 <tr class="bg-gray-200">
                     <th class="border border-gray-300 px-4 py-2 text-center">detail_id</th>
-                    <th class="border border-gray-300 px-4 py-2 text-center">detail_care</th>
-                    <th class="border border-gray-300 px-4 py-2 text-center">detail_care_name</th>
-                    <th class="border border-gray-300 px-4 py-2 text-center">detail_care_lastname</th>
-                    <th class="border border-gray-300 px-4 py-2 text-center">detail_care_tel</th>
-                    <th class="border border-gray-300 px-4 py-2 text-center">detail_line</th>
-                    <th class="border border-gray-300 px-4 py-2 text-center">detail_facebook</th>
+                    <th class="border border-gray-300 px-4 py-2 text-center">ผู้ดูแล</th>
+                    <th class="border border-gray-300 px-4 py-2 text-center">ชื่อผู้ดูแล</th>
+                    <th class="border border-gray-300 px-4 py-2 text-center">นามสกุลผู้ดูแล</th>
+                    <th class="border border-gray-300 px-4 py-2 text-center">เบอร์โทรผู้ดูแล</th>
+                    <th class="border border-gray-300 px-4 py-2 text-center">ไลน์ผู้ดูแล</th>
+                    <th class="border border-gray-300 px-4 py-2 text-center">เฟซบุ๊คผู้ดูแล</th>
                     <?php if(isset($ida))
                     { ?>
                     <th class="border border-gray-300 px-4 py-2 text-center">แก้ไข</th>

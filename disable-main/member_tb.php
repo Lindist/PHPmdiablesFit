@@ -15,7 +15,10 @@ if(isset($_GET['admin_id']))
 {
     $ida = $_GET['admin_id'];
 }
+
+$id = $ida
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -125,7 +128,7 @@ if(isset($_GET['admin_id']))
                     <td class="border border-gray-300 px-4 py-2 text-center"><?php echo $row["gender"] ?></td>
                     <td class="border border-gray-300 px-4 py-2 text-center"><?php echo $row["number"] ?></td>
                     <td class="border border-gray-300 px-4 py-2 text-center">
-                        <a href="edit_memberform.php?id=<?php echo $row["id"] ?>" class="bg-blue-500 text-white rounded px-2 py-1"><i class="fa-solid fa-pen-to-square"></i></a>
+                        <a href="edit_memberform.php?user_id=<?php echo $row["id"] ?>" class="bg-blue-500 text-white rounded px-2 py-1"><i class="fa-solid fa-pen-to-square"></i></a>
                     </td>
                     <td class="border border-gray-300 px-4 py-2 text-center">
                         <a href="deletemember.php?id=<?php //echo $row["id"] ?>" class="bg-red-500 text-white rounded px-2 py-1" onclick="return confirm('คุณต้องการลบข้อมูลหรือไม่')"><i class="fa-solid fa-trash"></i></a>
@@ -142,8 +145,8 @@ if(isset($_GET['admin_id']))
         <!-- <a href="http://localhost:8080/PHPmdiablesFit/signupForm.php" class="bg-green-500 text-white rounded inline-block mt-4 p-2 mr-1">เพิ่มข้อมูล</a> -->
     </div>
     </section>
-
-    <script src="logout.js">
+    <script src="logout.js"></script>
+    <script>
         let sidebar = document.querySelector(".sidebar");
         let closeBtn = document.querySelector("#btn");
         let searchBtn = document.querySelector(".bx-search");
