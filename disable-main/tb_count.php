@@ -34,26 +34,34 @@ $key1 = array_keys($count1);
 $key2 = array_keys($count2);
 $key3 = array_keys($count3);
 
-$result = array_diff($key1, $tbc);
-$c=0;
-print_r($result);
+// $result = array_diff($key1, $tbc);
 
-if(empty($result))
+if(!empty($tbc))
 {
-    foreach($count1 as $key => $v)
+    for($i = 0;$i < count($tbc);$i++)
     {
-        $mysql3 = $conn->prepare("UPDATE tb_count SET member_type='$key',Count='$v' WHERE id = '$keys[$c]'");
-        $c++;
+        $mysql3 = $conn->prepare("DELETE FROM tb_count WHERE id = '$keys[$i]'");
         $mysql3->execute();
     }
 }
-else{
-    foreach($count1 as $key => $v)
-    {
-        $mysql3 = $conn->prepare("INSERT INTO tb_count(member_type,Count) VALUES('$key','$v')");
-        $mysql3->execute();
-    } 
-}
+foreach($count1 as $key => $v)
+{
+    $mysql3 = $conn->prepare("INSERT INTO tb_count(member_type,Count) VALUES('อายุ : $key','$v')");
+    $mysql3->execute();
+} 
+
+foreach($count2 as $key => $v)
+{
+    $mysql3 = $conn->prepare("INSERT INTO tb_count(member_type,Count) VALUES('เพศ : $key','$v')");
+    $mysql3->execute();
+} 
+
+foreach($count3 as $key => $v)
+{
+    $mysql3 = $conn->prepare("INSERT INTO tb_count(member_type,Count) VALUES('อาชีพ : $key','$v')");
+    $mysql3->execute();
+} 
+
 
 
 ?>
