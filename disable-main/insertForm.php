@@ -71,7 +71,7 @@ if(isset($_GET['admin']))
 <body class="p-3 mb-2 bg-slate-200">
     <div class="container mx-auto overflow-x-auto p-6 bg-white rounded shadow-md">
 
-        <h2 class="text-center text-2xl font-bold">แบบฟอร์มเพิ่มข้อมูล</h2>
+        <h2 class="text-center text-2xl font-medium">แบบฟอร์มเพิ่มข้อมูลรายละเอียดผู้พิการ</h2>
         <hr class="my-4">
         <form action="insertData.php" method="POST">
 
@@ -96,15 +96,12 @@ if(isset($_GET['admin']))
             </div>
             <div class="mb-4">
                 <label for="detail_address" class="block font-medium text-gray-700">ที่อยู่</label>
-                <input type="text" name="detail_address" class="mt-1 p-2 bg-white text-1xl border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md focus:ring-1"">
+                <textarea name="detail_address" class="resize-y mt-1 p-2 bg-white text-1xl border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md focus:ring-1"></textarea>
+                <!-- <input type="text" name="detail_address" class="mt-1 p-2 bg-white text-1xl border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md focus:ring-1"> -->
             </div>
             <div class="mb-4">
-                <label for="detail_idp" class="block font-medium text-gray-700">บปชช</label>
+                <label for="detail_idp" class="block font-medium text-gray-700">บัตรประชาชน</label>
                 <input type="text" name="detail_idp" class="mt-1 p-2 bg-white text-1xl border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md focus:ring-1">
-            </div>
-            <div class="mb-4">
-                <label for="detail_tel" class="block font-medium text-gray-700">เบอร์โทร</label>
-                <input type="text" name="detail_tel" class="mt-1 p-2 bg-white text-1xl border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md focus:ring-1">
             </div>
             <div class="mb-4">
                 <label for="detail_occ" class="block font-medium text-gray-700">อาชีพ</label>
@@ -131,6 +128,7 @@ if(isset($_GET['admin']))
             <div class="question mb-3 flex items-center">
                 <label for="detail_care" class="font-medium text-gray-700 mr-2">คุณมีผู้แลรึเปล่า?</label>
                 <input class="form-checkbox h-6 w-6" type="checkbox" name="detail_care" value="1">
+                <label for="detail_care" class="font-medium text-gray-700 ml-3">มี</label>
             </div>
         
             <div class="answer mb-4">
@@ -161,7 +159,7 @@ if(isset($_GET['admin']))
             <div class="flex items-center space-x-2 mt-4">
                 <input type="submit" value="บันทึกข้อมูล" class="bg-green-500 text-white rounded inline-block p-2">
                 <input type="reset" value="ล้างข้อมูล" class="bg-red-500 text-white rounded inline-block p-2">
-                <a href="homeuser_detail.php?user_id=<?php echo $id; ?>" class="bg-blue-500 text-white rounded inline-block p-2">กลับหน้าแรก</a>
+                <a href="homeuser_detail_1.php?user_id=<?php echo $id; ?>" class="bg-blue-500 text-white rounded inline-block p-2">กลับหน้าแรก</a>
             </div>
         </form>
     </div>

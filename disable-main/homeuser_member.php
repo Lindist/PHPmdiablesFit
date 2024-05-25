@@ -13,6 +13,7 @@ $result = mysqli_query($connect, $sql);
 
 $count = mysqli_num_rows($result);
 $order = 1;
+$row = mysqli_fetch_array($result, MYSQLI_BOTH);
 
 ?>
 
@@ -73,10 +74,10 @@ $order = 1;
         </li>
         <li class="profile">
           <div class="profile-details">
-            <img src="https://i.pinimg.com/564x/8b/16/7a/8b167af653c2399dd93b952a48740620.jpg" alt="profileImg" />
+            <!-- <img src="https://i.pinimg.com/564x/8b/16/7a/8b167af653c2399dd93b952a48740620.jpg" alt="profileImg" /> -->
             <div class="name_job">
-              <div class="name">user</div>
-              <div class="job">userinterface</div>
+              <div class="name">User</div>
+              <div class="job"><?php echo $row["firstname"]." ".$row["lastname"] ?></div>
             </div>
           </div>
           <i class="bx bx-log-out" id="log_out" onclick="Logout();"></i>
@@ -90,7 +91,6 @@ $order = 1;
             <?php if ($count>0) { ?>
             <div class="text-center mt-10 mb-10">
                 <div class="inline-block text-2xl text-left leading-10">
-                <?php $row = mysqli_fetch_array($result, MYSQLI_BOTH); ?>
                 <p class="">ชื่อจริง : <?php echo $row["firstname"] ?></p>
                 <p class="">นามสกุล : <?php echo $row["lastname"] ?></p>
                 <p class="">อายุ : <?php echo $row["age"] ?></p>

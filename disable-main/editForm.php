@@ -50,6 +50,9 @@ while($row2 = mysqli_fetch_assoc($result1))
      $data1[] = $row2['id'];
 }
 
+$sqlr = "SELECT * FROM tb_member WHERE id LIKE '%$user_id%'";
+$resultr = mysqli_query($connect, $sqlr);
+$rowr = mysqli_fetch_assoc($resultr);
 
 ?>
 
@@ -102,15 +105,11 @@ while($row2 = mysqli_fetch_assoc($result1))
             </div>
             <div class="mb-4">
                 <label for="detail_address" class="block font-medium text-gray-700">ที่อยู่</label>
-                <input type="text" name="detail_address" class="mt-1 p-2 bg-white text-1xl border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md focus:ring-1" value="<?php echo $row["detail_address"]; ?>">
+                <textarea name="detail_address" class="resize-y mt-1 p-2 bg-white text-1xl border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md focus:ring-1" ><?php echo $row["detail_address"]; ?></textarea>
             </div>
             <div class="mb-4">
-                <label for="detail_idp" class="block font-medium text-gray-700">บปชช</label>
+                <label for="detail_idp" class="block font-medium text-gray-700">บัตรประชาชน</label>
                 <input type="text" name="detail_idp" class="mt-1 p-2 bg-white text-1xl border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md focus:ring-1" value="<?php echo $row["detail_idp"]; ?>">
-            </div>
-            <div class="mb-4">
-                <label for="detail_tel" class="block font-medium text-gray-700">เบอร์โทร</label>
-                <input type="text" name="detail_tel" class="mt-1 p-2 bg-white text-1xl border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md focus:ring-1" value="<?php echo $row["detail_tel"]; ?>">
             </div>
             <div class="mb-4">
                 <label for="detail_occ" class="block font-medium text-gray-700">อาชีพ</label>
@@ -124,6 +123,15 @@ while($row2 = mysqli_fetch_assoc($result1))
                 <label for="detail_type" class="block font-medium text-gray-700">ประเภทความพิการ</label>
                 <input type="text" name="detail_type" class="mt-1 p-2 bg-white text-1xl border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md focus:ring-1" value="<?php echo $row["detail_type"]; ?>">
             </div>
+            <div class="mb-4">
+                <label for="detail_line" class="block font-medium text-gray-700">ไลน์</label>
+                <input type="text" name="detail_line" class="mt-1 p-2 bg-white text-1xl border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md focus:ring-1" value="<?php echo $row["detail_line"]; ?>">
+            </div>
+
+            <div class="mb-4">
+                <label for="detail_facebook" class="block font-medium text-gray-700">เฟซบุ๊ค</label>
+                <input type="text" name="detail_facebook" class="mt-1 p-2 bg-white text-1xl border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md focus:ring-1" value="<?php echo $row["detail_facebook"]; ?>">
+            </div>
 
             <style>
                 .answer {
@@ -133,42 +141,42 @@ while($row2 = mysqli_fetch_assoc($result1))
                     display: block;
                 }
             </style>
-
-            <div class="question mb-3 flex items-center">
-                <label for="detail_care" class="font-medium text-gray-700 mr-2">Do you have a coupon?</label>
-                <?php
-                if ($row['detail_care'] == "มี") {
-                    echo '<input class="form-checkbox h-6 w-6" type="checkbox" name="detail_care" value="1" checked>';
-                } else {
-                    echo '<input class="form-checkbox h-6 w-6" type="checkbox" name="detail_care" value="1">';
-                }
-                ?>
+            
+            <?php if ($rowr["urole"] == 'admin') { ?>
+                <div class="question mb-3 flex items-center">
+                    <label for="detail_care" class="font-medium text-gray-700 mr-2">คุณมีผู้แลรึเปล่า?</label>
+                    <?php
+                    if ($row['detail_care'] == "มี") {
+                        echo '<input class="form-checkbox h-6 w-6" type="checkbox" name="detail_care" value="1" checked>';
+                    } else {
+                        echo '<input class="form-checkbox h-6 w-6" type="checkbox" name="detail_care" value="1">';
+                    }
+                    ?>
+                    <label for="detail_care" class="font-medium text-gray-700 ml-3">มี</label>
             </div>
+            <?php } else { ?>
+                
+            <?php } ?>
 
-            <div class="answer mb-4">
-                <label for="detail_care_name" class="block font-medium text-gray-700">ชื่อผู้ดูแล</label>
-                <input type="text" name="detail_care_name" class="mt-1 p-2 bg-white text-1xl border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md focus:ring-1" value="<?php echo $row["detail_care_name"]; ?>">
-            </div>
+            <?php if ($row['detail_care'] == 'มี') { ?>
+                <input class="form-checkbox h-6 w-6" type="checkbox" style="display:none" name="detail_care" value="1" checked>
+                <div class="mb-4">
+                    <label for="detail_care_name" class="block font-medium text-gray-700">ชื่อผู้ดูแล</label>
+                    <input type="text" name="detail_care_name" class="mt-1 p-2 bg-white text-1xl border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md focus:ring-1" value="<?php echo $row["detail_care_name"]; ?>">
+                </div>
+                <div class="mb-4">
+                    <label for="detail_care_lastname" class="block font-medium text-gray-700">นามสกุลผู้ดูแล</label>
+                    <input type="text" name="detail_care_lastname" class="mt-1 p-2 bg-white text-1xl border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md focus:ring-1" value="<?php echo $row["detail_care_lastname"]; ?>">
+                </div>
+                <div class="mb-4">
+                    <label for="detail_care_tel" class="block font-medium text-gray-700">เบอร์โทรผู้ดูแล</label>
+                    <input type="text" name="detail_care_tel" class="mt-1 p-2 bg-white text-1xl border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md focus:ring-1" value="<?php echo $row["detail_care_tel"]; ?>">
+                </div>
+            <?php } else { 
 
-            <div class="answer mb-4">
-                <label for="detail_care_lastname" class="block font-medium text-gray-700">นามสกุลผู้ดูแล</label>
-                <input type="text" name="detail_care_lastname" class="mt-1 p-2 bg-white text-1xl border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md focus:ring-1" value="<?php echo $row["detail_care_lastname"]; ?>">
-            </div>
-
-            <div class="answer mb-4">
-                <label for="detail_care_tel" class="block font-medium text-gray-700">เบอร์โทรผู้ดูแล</label>
-                <input type="text" name="detail_care_tel" class="mt-1 p-2 bg-white text-1xl border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md focus:ring-1" value="<?php echo $row["detail_care_tel"]; ?>">
-            </div>
-
-            <div class="answer mb-4">
-                <label for="detail_line" class="block font-medium text-gray-700">ไลน์ผู้ดูแล</label>
-                <input type="text" name="detail_line" class="mt-1 p-2 bg-white text-1xl border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md focus:ring-1" value="<?php echo $row["detail_line"]; ?>">
-            </div>
-
-            <div class="answer mb-4">
-                <label for="detail_facebook" class="block font-medium text-gray-700">เฟซบุ๊คผู้ดูแล</label>
-                <input type="text" name="detail_facebook" class="mt-1 p-2 bg-white text-1xl border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md focus:ring-1" value="<?php echo $row["detail_facebook"]; ?>">
-            </div>
+            }
+            
+            ?>
 
             <div class="flex items-center space-x-2 mt-4">
                 <input type="submit" value="บันทึกข้อมูล" class="bg-green-500 text-white rounded inline-block p-2">

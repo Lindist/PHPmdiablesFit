@@ -8,10 +8,11 @@ $admin = $_POST['admin_id'];
 $detail_date = $_POST['detail_date'];
 $detail_address = $_POST['detail_address'];
 $detail_idp = $_POST['detail_idp'];
-$detail_tel = $_POST['detail_tel'];
 $detail_occ = $_POST['detail_occ'];
 $detail_salary = $_POST['detail_salary'];
 $detail_type = $_POST['detail_type'];
+$detail_line = $_POST['detail_line'];
+$detail_facebook = $_POST['detail_facebook'];
 
 if (isset($_POST['detail_care'])) {
     $detail_care = "มี";
@@ -23,14 +24,10 @@ if ($detail_care == "ไม่มี") {
     $detail_care_name = "-";
     $detail_care_lastname = "-";    
     $detail_care_tel = "-";
-    $detail_line = "-";
-    $detail_facebook = "-";
 } else {
     $detail_care_name = $_POST['detail_care_name'];
     $detail_care_lastname = $_POST['detail_care_lastname'];
     $detail_care_tel = $_POST['detail_care_tel'];
-    $detail_line = $_POST['detail_line'];
-    $detail_facebook = $_POST['detail_facebook'];
 }
 
 $sql = "UPDATE tb_detail SET
@@ -38,7 +35,6 @@ $sql = "UPDATE tb_detail SET
     detail_date = '$detail_date',
     detail_address = '$detail_address',
     detail_idp = '$detail_idp',
-    detail_tel = '$detail_tel',
     detail_occ = '$detail_occ',
     detail_salary = '$detail_salary',
     detail_type = '$detail_type',
@@ -55,25 +51,13 @@ $result = mysqli_query($connect, $sql);
 if($result) {
     if($admin == 1)
     {
-        echo "แก้ไขข้อมูลเรียบร้อย";
-        // echo "<a href='index.php'>กลับหน้าแรก<a>";
         echo "<script>";
         echo "alert('อัปเดตข้อมูลเสร็จสิ้น!');";
-        // echo "window.location = 'index.php';";
-        $_SESSION['refresh_count'] = 2;
         echo "location.href='homeuser_detail_1.php?admin_id='+ ".$id;
         echo "</script>";
     }else{
-        echo "แก้ไขข้อมูลเรียบร้อย";
-        /* The line `echo "<a href='index.php'>กลับหน้าแรก<a>";` is generating a hyperlink in the PHP
-        code. When this line is executed, it will display a link with the text "กลับหน้าแรก" (which
-        means "Go back to the home page" in Thai) that points to the `index.php` page. This allows
-        users to easily navigate back to the home page by clicking on the link. */
-        // echo "<a href='index.php'>กลับหน้าแรก<a>"
         echo "<script>";
         echo "alert('อัปเดตข้อมูลเสร็จสิ้น!');";
-        // echo "window.location = 'index.php';";
-        $_SESSION['refresh_count'] = 2;
         echo "location.href='homeuser_detail_1.php?user_id='+ ".$id;
         echo "</script>";
     }
