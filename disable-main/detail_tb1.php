@@ -95,7 +95,7 @@ if(isset($_GET['admin_id']))
     </div>
     <section class="home-section">
     <div class="container mx-auto overflow-x-auto p-6 bg-white rounded shadow-md">
-        <h1 class="text-center text-2xl font-medium">ตารางผู้ดูแล</h1>
+        <h1 class="text-center text-2xl font-medium">ตารางผู้พิการ</h1>
         <hr class="my-4">
         <div class="mb-3">
             <form action="searchData.php" class="flex space-x-2" method="POST">
@@ -111,8 +111,7 @@ if(isset($_GET['admin_id']))
                     <th class="border border-gray-300 px-4 py-2 text-center">id</th>
                     <th class="border border-gray-300 px-4 py-2 text-center">ว/ด/ป เกิด</th>
                     <th class="border border-gray-300 px-4 py-2 text-center">ที่อยู่</th>
-                    <th class="border border-gray-300 px-4 py-2 text-center">รหัสบัตร ประชาชน</th>
-                    <th class="border border-gray-300 px-4 py-2 text-center">เบอร์โทรศัพท์</th>
+                    <th class="border border-gray-300 px-4 py-2 text-center">รหัสบัตรประชาชน</th>
                     <th class="border border-gray-300 px-4 py-2 text-center">อาชีพ</th>
                     <th class="border border-gray-300 px-4 py-2 text-center">รายได้</th>
                     <th class="border border-gray-300 px-4 py-2 text-center">ประเภทความพิการ</th>
@@ -131,7 +130,6 @@ if(isset($_GET['admin_id']))
                     <td class="border border-gray-300 px-4 py-2 text-center"><?php echo $row["detail_date"] ?></td>
                     <td class="border border-gray-300 px-4 py-2 text-center"><?php echo $row["detail_address"] ?></td>
                     <td class="border border-gray-300 px-4 py-2 text-center"><?php echo $row["detail_idp"] ?></td>
-                    <td class="border border-gray-300 px-4 py-2 text-center"><?php echo $row["detail_tel"] ?></td>
                     <td class="border border-gray-300 px-4 py-2 text-center"><?php echo $row["detail_occ"] ?></td>
                     <td class="border border-gray-300 px-4 py-2 text-center"><?php echo $row["detail_salary"] ?></td>
                     <td class="border border-gray-300 px-4 py-2 text-center"><?php echo $row["detail_type"] ?></td>
