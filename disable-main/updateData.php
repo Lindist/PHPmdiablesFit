@@ -60,10 +60,10 @@ if($result) {
         echo "<script>";
         echo "alert('อัปเดตข้อมูลเสร็จสิ้น!');";
         // echo "window.location = 'index.php';";
+        $_SESSION['refresh_count'] = 2;
         echo "location.href='homeuser_detail_1.php?admin_id='+ ".$id;
         echo "</script>";
     }else{
-
         echo "แก้ไขข้อมูลเรียบร้อย";
         /* The line `echo "<a href='index.php'>กลับหน้าแรก<a>";` is generating a hyperlink in the PHP
         code. When this line is executed, it will display a link with the text "กลับหน้าแรก" (which
@@ -73,6 +73,7 @@ if($result) {
         echo "<script>";
         echo "alert('อัปเดตข้อมูลเสร็จสิ้น!');";
         // echo "window.location = 'index.php';";
+        $_SESSION['refresh_count'] = 2;
         echo "location.href='homeuser_detail_1.php?user_id='+ ".$id;
         echo "</script>";
     }

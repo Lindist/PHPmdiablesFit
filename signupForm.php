@@ -1,6 +1,7 @@
 <?php
 session_start();
 require_once 'connect.php';
+
 ?>
 
 <!DOCTYPE html>
@@ -104,6 +105,9 @@ require_once 'connect.php';
                 <div class="alert alert-success" role="alert">
                     <?php 
                         echo $_SESSION['success'];
+                        if (isset($_SESSION['refresh_count'])) {
+                            header('location: disable-main/tb_count.php');
+                        }
                         unset($_SESSION['success']);
                     ?>
                 </div>

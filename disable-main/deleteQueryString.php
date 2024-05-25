@@ -22,6 +22,7 @@ if($result) {
         echo "<script>";
         echo "alert('ลบข้อมูลเสร็จสิ้น!');";
         // echo "window.location = 'index.php';";
+        $_SESSION['refresh_count'] = 3;
         echo "location.href='home.php?admin_id='+ ".$id;
         echo "</script>";
     }else{
@@ -30,6 +31,7 @@ if($result) {
         echo "<a href='index.php'>กลับหน้าแรก<a>";
         echo "<script>";
         echo "alert('ลบข้อมูลเสร็จสิ้น!');";
+        $_SESSION['refresh_count'] = 3;
         echo "location.href='index.php?user_id='+ ".$id;
         echo "</script>";
     }

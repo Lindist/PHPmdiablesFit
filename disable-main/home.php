@@ -4,6 +4,10 @@ if(isset($_GET['admin_id']))
 {
     $ida = $_GET['admin_id'];
 }
+
+if (isset($_SESSION['refresh_count'])) {
+  header('location: tb_count.php');
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">

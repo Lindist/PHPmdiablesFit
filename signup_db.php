@@ -94,6 +94,7 @@
                     $stmt->bindParam(":number", $number);
                     $stmt->bindParam(":password", $passwordHash);
                     $stmt->execute();
+                    $_SESSION['refresh_count'] = 1;
                     $_SESSION['success'] = "สมัครสมาชิกเรียบร้อยแล้ว! <a href='signinForm.php' class='alert-link'>คลิ๊กที่นี่</a> เพื่อเข้าสู่ระบบ";
                     header("location: signupForm.php");
                 } else {

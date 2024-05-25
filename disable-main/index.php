@@ -41,6 +41,9 @@ while($row2 = $all->fetch(PDO::FETCH_ASSOC))
 }
 // $arr=implode(",",$data);
 $value = 0;
+if (isset($_SESSION['refresh_count'])) {
+  header('location: tb_count.php');
+}
 ?>
 
 <!DOCTYPE html>

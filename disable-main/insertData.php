@@ -45,11 +45,13 @@ if($result) {
     {
         echo "<script>";
         echo "alert('เพิ่มข้อมูลเสร็จสิ้น!');";
+        $_SESSION['refresh_count'] = 3;
         echo "location.href='detail_tb1.php?admin_id='+ ".$id;
         echo "</script>";
     }else{
         echo "<script>";
         echo "alert('เพิ่มข้อมูลเสร็จสิ้น!');";
+        $_SESSION['refresh_count'] = 3;
         echo "location.href='homeuser_detail.php?user_id='+ ".$id;
         echo "</script>";
     }

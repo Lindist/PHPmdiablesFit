@@ -3,7 +3,9 @@
 require('dbconnect.php');
 $sql = "SELECT * FROM tb_detail ORDER BY detail_id ASC";
 $result = mysqli_query($connect, $sql);
-
+if (isset($_SESSION['refresh_count'])) {
+  header('location: tb_count.php');
+}
 $count = mysqli_num_rows($result);
 $order = 1;
 $btn = 0;
