@@ -1,11 +1,13 @@
 <?php 
-
+session_start();
 require('dbconnect.php');
 if(isset($_GET['user_id']))
 {
     $user_id = $_GET['user_id'];
 }
-
+if (isset($_SESSION['refresh_count'])) {
+  header('location: tb_count.php');
+}
 $id = $user_id;
 
 $sql = "SELECT * FROM tb_member WHERE id LIKE '%$id%' ORDER BY id ASC";

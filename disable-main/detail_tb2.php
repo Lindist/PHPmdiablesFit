@@ -1,5 +1,5 @@
 <?php 
-
+session_start();
 require('dbconnect.php');
 
 $sql = "SELECT * FROM tb_detail ORDER BY detail_id ASC";

@@ -1,5 +1,5 @@
 <?php 
-
+session_start();
 require('dbconnect.php');
 $tname = $_POST["tname"];
 

@@ -1,5 +1,5 @@
 <?php 
-
+session_start();
 require('dbconnect.php');
 $id = $_POST['id'];
 
@@ -14,13 +14,13 @@ $sql = "UPDATE tb_member SET
     lastname = '$lastname',
     age = '$age',
     gender = '$gender',
-    email = '$number'
+    number = '$number'
     WHERE id = '$id'";
 
 $result = mysqli_query($connect, $sql);
 // echo $sql;
 if($result) {
-
+    $_SESSION['refresh_count'] = 3;
         // echo "แก้ไขข้อมูลเรียบร้อย";
         /* The line `echo "<a href='index.php'>กลับหน้าแรก<a>";` is generating a hyperlink in the PHP
         code. When this line is executed, it will display a link with the text "กลับหน้าแรก" (which
