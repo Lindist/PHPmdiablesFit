@@ -14,6 +14,11 @@ $result = mysqli_query($connect, $sql);
 $count = mysqli_num_rows($result);
 $order = 1;
 
+
+$sqlu = "SELECT * FROM tb_member WHERE id LIKE '%$id%' ORDER BY id ASC";
+$resultu = mysqli_query($connect, $sqlu);
+$rowu = mysqli_fetch_array($resultu, MYSQLI_BOTH);
+
 ?>
 
 <!DOCTYPE html>
@@ -73,10 +78,10 @@ $order = 1;
         </li>
         <li class="profile">
           <div class="profile-details">
-            <img src="https://i.pinimg.com/564x/8b/16/7a/8b167af653c2399dd93b952a48740620.jpg" alt="profileImg" />
+            <!-- <img src="https://i.pinimg.com/564x/8b/16/7a/8b167af653c2399dd93b952a48740620.jpg" alt="profileImg" /> -->
             <div class="name_job">
-              <div class="name">user</div>
-              <div class="job">userinterface</div>
+              <div class="name">User</div>
+              <div class="job"><?php echo $rowu["firstname"]." ".$rowu["lastname"] ?></div>
             </div>
           </div>
           <i class="bx bx-log-out" id="log_out" onclick="Logout();"></i>
@@ -93,8 +98,7 @@ $order = 1;
                 <?php $row = mysqli_fetch_array($result, MYSQLI_BOTH); ?>
                 <p class="">ว/ด/ป เกิด : <?php echo $row["detail_date"] ?></p>
                 <p class="">ที่อยู่ : <?php echo $row["detail_address"] ?></p>
-                <p class="">รหัสบัตร ประชาชน : <?php echo $row["detail_idp"] ?></p>
-                <p class="">เบอร์โทรศัพท์ : <?php echo $row["detail_tel"] ?></p>
+                <p class="">รหัสบัตรประชาชน : <?php echo $row["detail_idp"] ?></p>
                 <p class="">อาชีพ : <?php echo $row["detail_occ"] ?></p>
                 <p class="">รายได้ : <?php echo $row["detail_salary"] ?></p>
                 <p class="">ประเภทความพิการ : <?php echo $row["detail_type"] ?></p>

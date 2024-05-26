@@ -29,7 +29,7 @@ $row = mysqli_fetch_assoc($result);
 <body class="p-3 mb-2 bg-gray-100">
     <div class="container mx-auto overflow-x-auto p-6 bg-white rounded shadow-md">
 
-        <h2 class="text-center text-2xl font-bold">แบบฟอร์มแก้ไขข้อมูล member</h2>
+        <h2 class="text-center text-2xl font-bold">แบบฟอร์มแก้ไขข้อมูลผู้ใช้งาน</h2>
         <hr class="my-4">
         <form action="edit_member.php" method="POST">
 
