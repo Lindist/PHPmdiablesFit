@@ -34,6 +34,7 @@ $key1 = array_keys($count1);
 $key2 = array_keys($count2);
 $key3 = array_keys($count3);
 
+$id = 1;
 // $result = array_diff($key1, $tbc);
 
 if(!empty($tbc))
@@ -46,20 +47,23 @@ if(!empty($tbc))
 }
 foreach($count1 as $key => $v)
 {
-    $mysql3 = $conn->prepare("INSERT INTO tb_count(member_type,Count) VALUES('อายุ : $key','$v')");
+    $mysql3 = $conn->prepare("INSERT INTO tb_count(id,member_type,Count) VALUES('$id','อายุ : $key','$v')");
     $mysql3->execute();
+    $id++;
 } 
 
 foreach($count2 as $key => $v)
 {
-    $mysql3 = $conn->prepare("INSERT INTO tb_count(member_type,Count) VALUES('เพศ : $key','$v')");
+    $mysql3 = $conn->prepare("INSERT INTO tb_count(id,member_type,Count) VALUES('$id','เพศ : $key','$v')");
     $mysql3->execute();
+    $id++;
 } 
 
 foreach($count3 as $key => $v)
 {
-    $mysql3 = $conn->prepare("INSERT INTO tb_count(member_type,Count) VALUES('อาชีพ : $key','$v')");
+    $mysql3 = $conn->prepare("INSERT INTO tb_count(id,member_type,Count) VALUES('$id','อาชีพ : $key','$v')");
     $mysql3->execute();
+    $id++;
 } 
 
 
