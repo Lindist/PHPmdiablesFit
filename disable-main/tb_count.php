@@ -42,9 +42,10 @@ $key3 = array_keys($count3);
 $id = 1;
 if(!empty($tbc))
 {
-    for($i = 0;$i < count($tbc);$i++)
+    foreach($count1 as $key => $v)
     {
-        $mysql3 = $conn->prepare("DELETE FROM tb_count WHERE id = '$keys[$i]'");
+        $mysql3 = $conn->prepare("UPDATE tb_count SET member_type='$key',Count='$v' WHERE id = '$keys[$c]'");
+        $c++;
         $mysql3->execute();
     }
 }
