@@ -1,9 +1,5 @@
 <?php
-session_start();
-
 require('connect.php');
-
-   
 $mysql = $conn->query("SELECT * FROM tb_member");
 $mysql2 = $conn->query("SELECT * FROM tb_detail");
 $mysql3 = $conn->query("SELECT * FROM tb_count");
@@ -39,7 +35,7 @@ $key2 = array_keys($count2);
 $key3 = array_keys($count3);
 
 // $result = array_diff($key1, $tbc);
-$id = 1;
+
 if(!empty($tbc))
 {
     foreach($count1 as $key => $v)
@@ -51,44 +47,22 @@ if(!empty($tbc))
 }
 foreach($count1 as $key => $v)
 {
-    $mysql3 = $conn->prepare("INSERT INTO tb_count(id,member_type,Count) VALUES('$id','อายุ : $key','$v')");
+    $mysql3 = $conn->prepare("INSERT INTO tb_count(member_type,Count) VALUES('อายุ : $key','$v')");
     $mysql3->execute();
-    $id++;
 } 
 
 foreach($count2 as $key => $v)
 {
-    $mysql3 = $conn->prepare("INSERT INTO tb_count(id,member_type,Count) VALUES('$id','เพศ : $key','$v')");
+    $mysql3 = $conn->prepare("INSERT INTO tb_count(member_type,Count) VALUES('เพศ : $key','$v')");
     $mysql3->execute();
-    $id++;
 } 
 
 foreach($count3 as $key => $v)
 {
-    $mysql3 = $conn->prepare("INSERT INTO tb_count(id,member_type,Count) VALUES('$id','อาชีพ : $key','$v')");
+    $mysql3 = $conn->prepare("INSERT INTO tb_count(member_type,Count) VALUES('อาชีพ : $key','$v')");
     $mysql3->execute();
-    $id++;
 } 
 
-// if (!isset($_SESSION['refresh_count'])) {
-//     $_SESSION['refresh_count'] = 0;
-// }
 
-
-if ($_SESSION['refresh_count'] == 1) {
-    unset($_SESSION['refresh_count']);
-    $_SESSION['success'] = "สมัครสมาชิกเรียบร้อยแล้ว! <a href='signinForm.php' class='alert-link'>คลิ๊กที่นี่</a> เพื่อเข้าสู่ระบบ";
-    header('location: ../signupForm.php');
-}
-else if ($_SESSION['refresh_count'] == 2) {
-    unset($_SESSION['refresh_count']);
-    echo "<script src='backpages.js'></script>";
-}
-else if ($_SESSION['refresh_count'] == 3) {
-    unset($_SESSION['refresh_count']);
-    echo "<script src='backpages.js'></script>";
-}
-
-// echo "<script src='backpages.js'></script>";
 
 ?>
