@@ -1,6 +1,6 @@
 <?php 
 require('dbconnect.php');
-session_start();
+
 if(isset($_GET['admin_id']))
 {
     $ida = $_GET['admin_id'];

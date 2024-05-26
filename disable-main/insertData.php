@@ -1,5 +1,5 @@
 <?php 
-session_start();
+
 require('dbconnect.php');
 
 $id = $_POST['user_id'];
