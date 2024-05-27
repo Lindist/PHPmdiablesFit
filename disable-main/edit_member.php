@@ -29,7 +29,7 @@ if($result) {
         echo "alert('อัปเดตข้อมูลเสร็จสิ้น!');";
         echo "location.href='homeadmin.php?admin_id='+ ".$id;
         echo "</script>";
-    }
+    } else
         echo "<script>";
         echo "alert('อัปเดตข้อมูลเสร็จสิ้น!');";
         echo "location.href='homeuser_member.php?user_id='+ ".$id;
