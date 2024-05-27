@@ -73,7 +73,7 @@ $rowr = mysqli_fetch_assoc($resultr);
         <!-- <div align = "right">
             <a href="http://localhost:8080/PHPmdiablesFit/logout.php" target="_self" class="bg-red-500 text-white rounded inline-block p-2">Logout</a>
         </div> -->
-        <h2 class="text-center text-2xl font-bold">แบบฟอร์มแก้ไขข้อมูล Detail</h2>
+        <h2 class="text-center text-2xl font-bold">แบบฟอร์มแก้ไขข้อมูลรายละเอียดผู้พิการ</h2>
         <hr class="my-4">
         <form action="updateData.php" method="POST">
         <input type="hidden" name="id" value="<?php echo $id; ?>">
@@ -99,7 +99,7 @@ $rowr = mysqli_fetch_assoc($resultr);
             </div>
             <div class="mb-4">
                 <label for="detail_address" class="block font-medium text-gray-700">ที่อยู่</label>
-                <textarea name="detail_address" class="resize-y mt-1 p-2 bg-white text-1xl border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md focus:ring-1" ><?php echo $row["detail_address"]; ?></textarea>
+                <textarea name="detail_address" class="resize-y mt-1 p-2 bg-white text-1xl border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md focus:ring-1 h-11" ><?php echo $row["detail_address"]; ?></textarea>
             </div>
             <div class="mb-4">
                 <label for="detail_idp" class="block font-medium text-gray-700">บัตรประชาชน</label>
@@ -177,7 +177,7 @@ $rowr = mysqli_fetch_assoc($resultr);
                     <input type="text" name="detail_care_tel" class="mt-1 p-2 bg-white text-1xl border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md focus:ring-1" value="<?php echo $row["detail_care_tel"]; ?>">
                 </div>
             <?php } else { ?>
-                <p>echo "ไม่มี";</p>
+                <!-- <p>echo "ไม่มี";</p> -->
             <?php } ?>
  
             <div class="flex items-center space-x-2 mt-4">

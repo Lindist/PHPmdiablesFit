@@ -26,7 +26,7 @@ $rowu = mysqli_fetch_array($resultu, MYSQLI_BOTH);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home Page</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles.css">
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300&display=swap');
@@ -99,8 +99,6 @@ $rowu = mysqli_fetch_array($resultu, MYSQLI_BOTH);
                 <p class="">ชื่อผู้ดูแล : <?php echo $row["detail_care_name"] ?></p>
                 <p class="">นามสกุลผู้ดูแล : <?php echo $row["detail_care_lastname"] ?></p>
                 <p class="">เบอร์โทรผู้ดูแล : <?php echo $row["detail_care_tel"] ?></p>
-                <p class="">ไลน์ผู้ดูแล : <?php echo $row["detail_line"] ?></p>
-                <p class="">เฟซบุ๊คผู้ดูแล : <?php echo $row["detail_facebook"] ?></p>
                 </div>
             </div>
             <a href="editForm.php?user_id=<?php echo $user_id; ?>" class="text-xl bg-yellow-400 text-black rounded inline-block mt-18 mb-24 px-8 py-2">แก้ไขข้อมูล</a>
