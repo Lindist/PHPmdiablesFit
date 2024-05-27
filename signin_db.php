@@ -27,14 +27,14 @@
             $_SESSION['error'] = 'กรุณากรอกเบอร์โทรศัพท์';
             header("location: signinForm.php");
         }
-        else if ($iszero == 1) {
-            $_SESSION['error'] = 'กรุณากรอกเบอร์โทรศัพท์หน้าด้วยตัวเลข 0';
-            header("location: signinForm.php");
-        } 
         else if ($checkbarn < 10) {
             $_SESSION['error'] = 'กรุณากรอกเบอร์โทรศัพท์ด้วยตัวเลข';
             header("location: signinForm.php");
         }
+        else if ($iszero == 1) {
+            $_SESSION['error'] = 'กรุณากรอกเบอร์โทรศัพท์หน้าด้วยตัวเลข 0';
+            header("location: signinForm.php");
+        } 
         else if (strlen($number) < 10 || strlen($number) > 10) {
             $_SESSION['error'] = 'รูปแบบเบอร์โทรศัพท์จะต้องมีความยาว 10 หลัก';
             header("location: signinForm.php");
