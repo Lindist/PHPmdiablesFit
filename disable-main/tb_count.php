@@ -1,4 +1,5 @@
 <?php
+session_start();
 require('connect.php');
 $mysql = $conn->query("SELECT * FROM tb_member");
 $mysql2 = $conn->query("SELECT * FROM tb_detail");
@@ -66,6 +67,10 @@ foreach($count3 as $key => $v)
     $id++;
 } 
 
-
+if($_SESSION['refres_page'] == 1){
+    unset($_SESSION['refres_page']);
+    $_SESSION['success'] = "สมัครสมาชิกเรียบร้อยแล้ว! <a href='signinForm.php' class='alert-link'>คลิ๊กที่นี่</a> เพื่อเข้าสู่ระบบ";
+    header("location: ../signupForm.php");
+}
 
 ?>

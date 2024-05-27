@@ -44,12 +44,7 @@ if($result) {
     }else{
         echo "<script>";
         echo "alert('เพิ่มข้อมูลเสร็จสิ้น!');";
-<<<<<<< HEAD
-        echo "location.href='homeuser_detail.php?user_id='+ ".$id;
-=======
-        $_SESSION['refresh_count'] = 3;
         echo "location.href='homeuser_detail_1.php?user_id='+ ".$id;
->>>>>>> f8e581d812fc5d8616bf81257f4439bb396a37e4
         echo "</script>";
     }
 } else {
