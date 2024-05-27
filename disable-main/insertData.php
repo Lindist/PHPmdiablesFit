@@ -1,5 +1,5 @@
 <?php 
-
+session_start();
 require('dbconnect.php');
 
 $id = $_POST['user_id'];
@@ -39,12 +39,14 @@ if($result) {
     {
         echo "<script>";
         echo "alert('เพิ่มข้อมูลเสร็จสิ้น!');";
-        echo "location.href='detail_tb1.php?admin_id='+ ".$id;
+        $_SESSION['refres_page7'] = 7;
+        echo "location.href='tb_count.php?user_id='+ ".$id;
         echo "</script>";
     }else{
         echo "<script>";
         echo "alert('เพิ่มข้อมูลเสร็จสิ้น!');";
-        echo "location.href='homeuser_detail_1.php?user_id='+ ".$id;
+        $_SESSION['refres_page8'] = 8;
+        echo "location.href='tb_count.php?user_id='+ ".$id;
         echo "</script>";
     }
 } else {

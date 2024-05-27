@@ -119,4 +119,19 @@ else if(isset($_SESSION['refres_page6']))
     echo "location.href='homeuser_detail_1.php?user_id='+ ".$id1;
     echo "</script>";
 }
+else if(isset($_SESSION['refres_page7']))
+{
+    unset($_SESSION['refres_page7']);
+    echo "<script>";
+    echo "location.href='detail_tb1.php?admin_id='+ ".$id1;
+    echo "</script>";
+}
+else if(isset($_SESSION['refres_page8']))
+{
+    unset($_SESSION['refres_page8']);
+    echo "<script>";
+    echo "location.href='homeuser_detail_1.php?user_id='+ ".$id1;
+    echo "</script>";
+}
+
 ?>
