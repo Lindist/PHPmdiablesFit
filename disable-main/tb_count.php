@@ -72,5 +72,10 @@ if($_SESSION['refres_page'] == 1){
     $_SESSION['success'] = "สมัครสมาชิกเรียบร้อยแล้ว! <a href='signinForm.php' class='alert-link'>คลิ๊กที่นี่</a> เพื่อเข้าสู่ระบบ";
     header("location: ../signupForm.php");
 }
+else if($_SESSION['refres_page'] == 2)
+{
+    unset($_SESSION['refres_page']);
+    echo "<script src='backpages.js'></script>";
+}
 
 ?>
