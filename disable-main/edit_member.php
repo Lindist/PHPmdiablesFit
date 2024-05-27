@@ -9,6 +9,10 @@ $age = $_POST['age'];
 $gender = $_POST['gender'];
 $number = $_POST['number'];
 
+$sqlu = "SELECT * FROM tb_member WHERE id LIKE '%$id%' ORDER BY id ASC";
+$resultu = mysqli_query($connect, $sqlu);
+$rowu = mysqli_fetch_array($resultu, MYSQLI_BOTH);
+
 $sql = "UPDATE tb_member SET
     firstname = '$firstname',
     lastname = '$lastname',
@@ -18,8 +22,14 @@ $sql = "UPDATE tb_member SET
     WHERE id = '$id'";
 
 $result = mysqli_query($connect, $sql);
-// echo $sql;
+
 if($result) {
+    if ($rowr["urole"] == 'admin') {
+        echo "<script>";
+        echo "alert('อัปเดตข้อมูลเสร็จสิ้น!');";
+        echo "location.href='homeadmin.php?admin_id='+ ".$id;
+        echo "</script>";
+    }
         echo "<script>";
         echo "alert('อัปเดตข้อมูลเสร็จสิ้น!');";
         echo "location.href='homeuser_member.php?user_id='+ ".$id;
