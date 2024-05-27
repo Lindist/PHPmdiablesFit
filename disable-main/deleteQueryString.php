@@ -1,7 +1,7 @@
 <?php 
 
 require('dbconnect.php');
-
+session_start();
 $detail_id = $_GET['detail_id'];
 $id=$_GET['user_id'];
 if(isset($_GET['admin']))
@@ -22,7 +22,8 @@ if($result) {
         echo "<script>";
         echo "alert('ลบข้อมูลเสร็จสิ้น!');";
         // echo "window.location = 'index.php';";
-        echo "location.href='home.php?admin_id='+ ".$id;
+        $_SESSION['refres_page4'] = 4;
+        echo "location.href='tb_count.php?admin_id='+ ".$id;
         echo "</script>";
     }else{
 
@@ -30,7 +31,6 @@ if($result) {
         echo "<a href='index.php'>กลับหน้าแรก<a>";
         echo "<script>";
         echo "alert('ลบข้อมูลเสร็จสิ้น!');";
-        echo "location.href='index.php?user_id='+ ".$id;
         echo "</script>";
     }
 } else {
