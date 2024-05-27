@@ -24,7 +24,7 @@ $sql = "UPDATE tb_member SET
 $result = mysqli_query($connect, $sql);
 
 if($result) {
-    if ($rowr["urole"] == 'admin') {
+    if ($rowu["urole"] == 'admin') {
         echo "<script>";
         echo "alert('อัปเดตข้อมูลเสร็จสิ้น!');";
         echo "location.href='homeadmin.php?admin_id='+ ".$id;
