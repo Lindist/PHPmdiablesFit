@@ -101,6 +101,7 @@ $rowu = mysqli_fetch_array($resultu, MYSQLI_BOTH);
         </li>
       </ul>
     </div>
+    <div></div>
     <section class="home-section">
       <!-- <?php
       echo $id;

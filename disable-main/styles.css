@@ -240,11 +240,11 @@
     font-weight: 500;
     margin: 18px
   }
-  @media screen and (max-width: 450px) {
+  @media screen and (max-width: 500px) {
     /* .sidebar {
       display: none;
-    } */
-    /* body {
+    }
+    body {
       background: #E2E8F0;
     } */
     .sidebar {
