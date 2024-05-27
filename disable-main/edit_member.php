@@ -1,8 +1,7 @@
 <?php 
-
 require('dbconnect.php');
 $id = $_POST['id'];
-
+session_start();
 $firstname = $_POST['firstname'];
 $lastname = $_POST['lastname'];
 $age = $_POST['age'];
@@ -12,7 +11,6 @@ $number = $_POST['number'];
 $sqlu = "SELECT * FROM tb_member WHERE id LIKE '%$id%' ORDER BY id ASC";
 $resultu = mysqli_query($connect, $sqlu);
 $rowu = mysqli_fetch_array($resultu, MYSQLI_BOTH);
-
 $sql = "UPDATE tb_member SET
     firstname = '$firstname',
     lastname = '$lastname',
@@ -27,13 +25,15 @@ if($result) {
     if ($rowu["urole"] == 'admin') {
         echo "<script>";
         echo "alert('อัปเดตข้อมูลเสร็จสิ้น!');";
-        echo "location.href='homeadmin.php?admin_id='+ ".$id;
+        $_SESSION['refres_page2'] = 2;
+        echo "location.href='tb_count.php?admin_id='+ ".$id;
         echo "</script>";
-    }
+    }else{
         echo "<script>";
         echo "alert('อัปเดตข้อมูลเสร็จสิ้น!');";
         echo "location.href='homeuser_member.php?user_id='+ ".$id;
         echo "</script>";
+    }
 } else {
     echo mysqli_error($connect);
 }

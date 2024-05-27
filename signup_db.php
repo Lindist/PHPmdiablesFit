@@ -95,7 +95,7 @@
                     $stmt->bindParam(":password", $passwordHash);
                     $stmt->execute();
                     $_SESSION['success'] = "สมัครสมาชิกเรียบร้อยแล้ว! <a href='signinForm.php' class='alert-link'>คลิ๊กที่นี่</a> เพื่อเข้าสู่ระบบ";
-                    $_SESSION['refres_page'] = 1;
+                    $_SESSION['refres_page1'] = 1;
                     header("location: disable-main/tb_count.php");
                 } else {
                     $_SESSION['error'] = "มีบางอย่างผิดพลาด";

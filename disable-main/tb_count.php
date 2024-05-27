@@ -1,12 +1,22 @@
 <?php
-session_start();
 require('connect.php');
+session_start();
+if(isset($_GET['admin_id']))
+{
+    $id1 = $_GET['admin_id'];
+}
+else if(isset($_GET['user_id']))
+{
+    $id1 = $_GET['user_id'];
+}
+
 $mysql = $conn->query("SELECT * FROM tb_member");
 $mysql2 = $conn->query("SELECT * FROM tb_detail");
 $mysql3 = $conn->query("SELECT * FROM tb_count");
 $mysql->execute();
 $mysql2->execute();
 $mysql3->execute();
+
 
 $cage = array();
 $cgender = array();
@@ -36,6 +46,7 @@ $key2 = array_keys($count2);
 $key3 = array_keys($count3);
 
 $id = 1;
+
 // $result = array_diff($key1, $tbc);
 
 if(!empty($tbc))
@@ -67,15 +78,18 @@ foreach($count3 as $key => $v)
     $id++;
 } 
 
-if($_SESSION['refres_page'] == 1){
-    unset($_SESSION['refres_page']);
+if(isset($_SESSION['refres_page1'])){
+    unset($_SESSION['refres_page1']);
     $_SESSION['success'] = "สมัครสมาชิกเรียบร้อยแล้ว! <a href='signinForm.php' class='alert-link'>คลิ๊กที่นี่</a> เพื่อเข้าสู่ระบบ";
     header("location: ../signupForm.php");
 }
-else if($_SESSION['refres_page'] == 2)
+else if(isset($_SESSION['refres_page2']))
 {
-    unset($_SESSION['refres_page']);
-    echo "<script src='backpages.js'></script>";
+    unset($_SESSION['refres_page2']);
+    echo "<script>";
+    echo "location.href='homeadmin.php?admin_id='+ ".$id1;
+    // echo "<script src='backpages.js'></script>";
+    echo "</script>";
 }
 
 ?>
