@@ -31,7 +31,8 @@ if($result) {
     }else{
         echo "<script>";
         echo "alert('อัปเดตข้อมูลเสร็จสิ้น!');";
-        echo "location.href='homeuser_member.php?user_id='+ ".$id;
+        $_SESSION['refres_page3'] = 3;
+        echo "location.href='tb_count.php?user_id='+ ".$id;
         echo "</script>";
     }
 } else {

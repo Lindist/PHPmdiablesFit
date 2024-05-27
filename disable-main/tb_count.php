@@ -91,5 +91,13 @@ else if(isset($_SESSION['refres_page2']))
     // echo "<script src='backpages.js'></script>";
     echo "</script>";
 }
+else if(isset($_SESSION['refres_page3']))
+{
+    unset($_SESSION['refres_page3']);
+    echo "<script>";
+    echo "location.href='homeuser_member.php?user_id='+ ".$id1;
+    echo "</script>";
+}
+
 
 ?>
