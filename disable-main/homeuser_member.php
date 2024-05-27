@@ -76,8 +76,8 @@ $row = mysqli_fetch_array($result, MYSQLI_BOTH);
           <div class="profile-details">
             <!-- <img src="https://i.pinimg.com/564x/8b/16/7a/8b167af653c2399dd93b952a48740620.jpg" alt="profileImg" /> -->
             <div class="name_job">
-              <div class="name">User</div>
-              <div class="job"><?php echo $row["firstname"]." ".$row["lastname"] ?></div>
+              <div class="name"><?php echo $row["urole"] ?></div>
+              <div class="job"><?php echo "Name : ".$row["firstname"]." ".$row["lastname"] ?></div>
             </div>
           </div>
           <i class="bx bx-log-out" id="log_out" onclick="Logout();"></i>

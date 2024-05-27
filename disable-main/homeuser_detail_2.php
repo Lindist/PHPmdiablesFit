@@ -79,8 +79,8 @@ $rowu = mysqli_fetch_array($resultu, MYSQLI_BOTH);
           <div class="profile-details">
             <!-- <img src="https://i.pinimg.com/564x/8b/16/7a/8b167af653c2399dd93b952a48740620.jpg" alt="profileImg" /> -->
             <div class="name_job">
-              <div class="name">User</div>
-              <div class="job"><?php echo $rowu["firstname"]." ".$rowu["lastname"] ?></div>
+              <div class="name"><?php echo $rowu["urole"] ?></div>
+              <div class="job"><?php echo "Name : ".$rowu["firstname"]." ".$rowu["lastname"] ?></div>
             </div>
           </div>
           <i class="bx bx-log-out" id="log_out" onclick="Logout();"></i>

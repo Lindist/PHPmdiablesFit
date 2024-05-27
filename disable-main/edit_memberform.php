@@ -8,7 +8,13 @@ $result = mysqli_query($connect, $sql);
 
 $row = mysqli_fetch_assoc($result);
 
-$sqlu = "SELECT * FROM tb_member WHERE id LIKE '%$id%' ORDER BY id ASC";
+if(isset($_GET['ida'])) {
+    $ida = $_GET['ida'];
+} else {
+    $ida = $id;
+}
+
+$sqlu = "SELECT * FROM tb_member WHERE id LIKE '%$ida%' ORDER BY id ASC";
 $resultu = mysqli_query($connect, $sqlu);
 $rowu = mysqli_fetch_array($resultu, MYSQLI_BOTH);
 
@@ -38,6 +44,7 @@ $rowu = mysqli_fetch_array($resultu, MYSQLI_BOTH);
         <form action="edit_member.php" method="POST">
 
             <input type="hidden" value="<?php echo $row["id"]; ?>" name="id"> <!-- hide id -->
+            <input type="hidden" value="<?php echo $ida ?>" name="ida">
 
             <div class="mb-4">
                 <label for="firstname" class="block font-medium text-gray-700">ชื่อจริง</label>
@@ -66,9 +73,15 @@ $rowu = mysqli_fetch_array($resultu, MYSQLI_BOTH);
                 <?php
                 
                 if ($rowu["urole"] == 'admin') {
-                    echo '<a href="homeadmin.php?admin_id=' .$id. '" class="bg-blue-500 text-white rounded inline-block p-2">กลับหน้าแรก</a>';
-                } else
-                    echo '<a href="homeuser_member.php?user_id=' .$id. '" class="bg-blue-500 text-white rounded inline-block p-2">กลับหน้าแรก</a>';
+                    echo '<a href="homeadmin.php?admin_id=' .$ida. '" class="bg-blue-500 text-white rounded inline-block p-2">กลับหน้าแรก</a>';
+                } else {
+                    echo '<a href="homeuser_member.php?user_id=' .$ida. '" class="bg-blue-500 text-white rounded inline-block p-2">กลับหน้าแรก</a>';
+                    // if ($rowu["urole"] == 'admin') {
+                    //     echo '<a href="homeadmin.php?admin_id=' .$id. '" class="bg-blue-500 text-white rounded inline-block p-2">กลับหน้าแรก</a>';
+                    // } else
+                    //     echo '<a href="homeuser_member.php?user_id=' .$id. '" class="bg-blue-500 text-white rounded inline-block p-2">กลับหน้าแรก</a>';
+                }
+
                 ?>
                 <!-- <a href="homeuser_member.php?user_id=<?php echo $id; ?>" class="bg-blue-500 text-white rounded inline-block p-2">กลับหน้าแรก</a> -->
             </div>

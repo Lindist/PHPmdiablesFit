@@ -10,6 +10,7 @@ $id = $ida;
 
 $sql = "SELECT * FROM tb_member WHERE id LIKE '%$id%' ORDER BY id ASC";
 $result = mysqli_query($connect, $sql);
+$row = mysqli_fetch_array($result, MYSQLI_BOTH);
 
 $count = mysqli_num_rows($result);
 ?>
@@ -78,10 +79,10 @@ $count = mysqli_num_rows($result);
         </li>
         <li class="profile">
           <div class="profile-details">
-            <img src="https://i.pinimg.com/564x/8b/16/7a/8b167af653c2399dd93b952a48740620.jpg" alt="profileImg" />
+            <!-- <img src="https://i.pinimg.com/564x/8b/16/7a/8b167af653c2399dd93b952a48740620.jpg" alt="profileImg" /> -->
             <div class="name_job">
-              <div class="name">Admin_1</div>
-              <div class="job">Web designer</div>
+              <div class="name"><?php echo $row["urole"] ?></div>
+              <div class="job"><?php echo "Name : ".$row["firstname"]." ".$row["lastname"] ?></div>
             </div>
           </div>
           <i class="bx bx-log-out" id="log_out" onclick="Logout();"></i>
@@ -95,7 +96,6 @@ $count = mysqli_num_rows($result);
             <?php if ($count>0) { ?>
             <div class="text-center mt-10 mb-10">
                 <div class="inline-block text-2xl text-left leading-10">
-                <?php $row = mysqli_fetch_array($result, MYSQLI_BOTH); ?>
                 <p class="">ชื่อจริง : <?php echo $row["firstname"] ?></p>
                 <p class="">นามสกุล : <?php echo $row["lastname"] ?></p>
                 <p class="">อายุ : <?php echo $row["age"] ?></p>
@@ -104,7 +104,7 @@ $count = mysqli_num_rows($result);
                 <p class="">เบอร์โทรศัพท์ : <?php echo $row["number"] ?></p>
                 </div>
             </div>
-            <a href="edit_memberform.php?user_id=<?php echo $id; ?>" class="text-xl bg-yellow-400 text-black rounded inline-block mt-18 mb-24 px-8 py-2">แก้ไขข้อมูล</a>
+            <a href="edit_memberform.php?user_id=<?php echo $id; ?>&ida=<?php echo $ida ?>" class="text-xl bg-yellow-400 text-black rounded inline-block mt-18 mb-24 px-8 py-2">แก้ไขข้อมูล</a>
             <?php ?>
             <?php } else { ?>
                 <div class="text-center p-3 mt-10 bg-red-100 text-red-500 border border-red-300 rounded">

@@ -53,28 +53,11 @@ if($result) {
     {
         echo "<script>";
         echo "alert('อัปเดตข้อมูลเสร็จสิ้น!');";
-<<<<<<< HEAD
-        // echo "window.location = 'index.php';";
-        echo "location.href='homeuser_detail_1.php?admin_id='+ ".$id;
-        echo "</script>";
-    }else{
-
-        echo "แก้ไขข้อมูลเรียบร้อย";
-        /* The line `echo "<a href='index.php'>กลับหน้าแรก<a>";` is generating a hyperlink in the PHP
-        code. When this line is executed, it will display a link with the text "กลับหน้าแรก" (which
-        means "Go back to the home page" in Thai) that points to the `index.php` page. This allows
-        users to easily navigate back to the home page by clicking on the link. */
-        // echo "<a href='index.php'>กลับหน้าแรก<a>"
-        echo "<script>";
-        echo "alert('อัปเดตข้อมูลเสร็จสิ้น!');";
-        // echo "window.location = 'index.php';";
-=======
         echo "location.href='homeuser_detail_1.php?admin_id='+ ".$id;
         echo "</script>";
     }else{
         echo "<script>";
         echo "alert('อัปเดตข้อมูลเสร็จสิ้น!');";
->>>>>>> f8e581d812fc5d8616bf81257f4439bb396a37e4
         echo "location.href='homeuser_detail_1.php?user_id='+ ".$id;
         echo "</script>";
     }

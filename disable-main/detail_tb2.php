@@ -12,10 +12,16 @@ $btn2 = 0;
 ?>
 <?php 
 require('connect.php');
-if(isset($_GET['admin_id']))
-{
-    $ida = $_GET['admin_id'];
+if(isset($_GET['admin_id'])) {
+  $ida = $_GET['admin_id'];
+} else {
+
 }
+
+$sqlu = "SELECT * FROM tb_member WHERE id LIKE '%$ida%' ORDER BY id ASC";
+$resultu = mysqli_query($connect, $sqlu);
+$rowu = mysqli_fetch_array($resultu, MYSQLI_BOTH);
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -82,10 +88,10 @@ if(isset($_GET['admin_id']))
         </li>
         <li class="profile">
           <div class="profile-details">
-            <img src="https://i.pinimg.com/564x/8b/16/7a/8b167af653c2399dd93b952a48740620.jpg" alt="profileImg" />
+            <!-- <img src="https://i.pinimg.com/564x/8b/16/7a/8b167af653c2399dd93b952a48740620.jpg" alt="profileImg" /> -->
             <div class="name_job">
-              <div class="name">Admin_1</div>
-              <div class="job">Web designer</div>
+              <div class="name"><?php echo $rowu["urole"] ?></div>
+              <div class="job"><?php echo "Name : ".$rowu["firstname"]." ".$rowu["lastname"] ?></div>
             </div>
           </div>
           <i class="bx bx-log-out" id="log_out" onclick="Logout();"></i>

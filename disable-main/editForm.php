@@ -2,23 +2,12 @@
 
 require('dbconnect.php');
 // $detail_id = $_GET["detail_id"];
-$user_id = $_GET["user_id"];
+$id = $_GET["user_id"];
 
-if(isset($_GET['admin']))
-{
-    $admin = $_GET['admin'];
-}else
-{
-    $admin = 0;
-}
-
-$sql = "SELECT * FROM tb_detail WHERE id = $user_id";
+$sql = "SELECT * FROM tb_detail WHERE id = $id";
 $result = mysqli_query($connect, $sql);
-
 $row = mysqli_fetch_assoc($result);
 
-?>
-<?php
 $servername = "localhost";
 $username = "root";
 $password = "";
@@ -40,7 +29,6 @@ while($row1 = $all->fetch(PDO::FETCH_ASSOC))
 }
 $value=0;
 
-require('dbconnect.php');
 $all1 = "SELECT * FROM tb_detail";
 $result1 = mysqli_query($connect, $all1);
 $data1 = array();
@@ -50,7 +38,13 @@ while($row2 = mysqli_fetch_assoc($result1))
      $data1[] = $row2['id'];
 }
 
-$sqlr = "SELECT * FROM tb_member WHERE id LIKE '%$user_id%'";
+if(isset($_GET['ida'])) {
+    $ida = $_GET['ida'];
+} else {
+    $ida = $id;
+}
+
+$sqlr = "SELECT * FROM tb_member WHERE id LIKE '%$ida%'";
 $resultr = mysqli_query($connect, $sqlr);
 $rowr = mysqli_fetch_assoc($resultr);
 
@@ -82,8 +76,8 @@ $rowr = mysqli_fetch_assoc($resultr);
         <h2 class="text-center text-2xl font-bold">แบบฟอร์มแก้ไขข้อมูล Detail</h2>
         <hr class="my-4">
         <form action="updateData.php" method="POST">
-        <input type="hidden" name="id" value="<?php echo $user_id; ?>">
-        <input type="hidden" name="admin_id" value="<?php echo $admin; ?>">
+        <input type="hidden" name="id" value="<?php echo $id; ?>">
+        <input type="hidden" name="admin_id" value="<?php echo $ida; ?>">
 
         <input type="hidden" value="<?php echo $row["detail_id"]; ?>" name="detail_id"> <!-- hide id -->
 
@@ -153,35 +147,51 @@ $rowr = mysqli_fetch_assoc($resultr);
                     }
                     ?>
                     <label for="detail_care" class="font-medium text-gray-700 ml-3">มี</label>
-            </div>
+                </div>
             <?php } else { ?>
-                
+                <div class="question hidden">
+                <?php
+                if ($row['detail_care'] == "มี") {
+                    echo '<input class="form-checkbox h-6 w-6" type="checkbox" name="detail_care" value="1" checked>';
+                } else {
+                    echo '<input class="form-checkbox h-6 w-6" type="checkbox" name="detail_care" value="1">';
+                }
+                ?>
+                </div>
             <?php } ?>
 
-            <?php if ($row['detail_care'] == 'มี') { ?>
+            <!-- <?php echo $row['detail_care']; ?> -->
+
+            <?php if ($row['detail_care'] == "มี") { ?>
                 <input class="form-checkbox h-6 w-6" type="checkbox" style="display:none" name="detail_care" value="1" checked>
-                <div class="mb-4">
+                <div class="answer mb-4">
                     <label for="detail_care_name" class="block font-medium text-gray-700">ชื่อผู้ดูแล</label>
                     <input type="text" name="detail_care_name" class="mt-1 p-2 bg-white text-1xl border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md focus:ring-1" value="<?php echo $row["detail_care_name"]; ?>">
                 </div>
-                <div class="mb-4">
+                <div class="answer mb-4">
                     <label for="detail_care_lastname" class="block font-medium text-gray-700">นามสกุลผู้ดูแล</label>
                     <input type="text" name="detail_care_lastname" class="mt-1 p-2 bg-white text-1xl border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md focus:ring-1" value="<?php echo $row["detail_care_lastname"]; ?>">
                 </div>
-                <div class="mb-4">
+                <div class="answer mb-4">
                     <label for="detail_care_tel" class="block font-medium text-gray-700">เบอร์โทรผู้ดูแล</label>
                     <input type="text" name="detail_care_tel" class="mt-1 p-2 bg-white text-1xl border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md focus:ring-1" value="<?php echo $row["detail_care_tel"]; ?>">
                 </div>
-            <?php } else { 
-
-            }
-            
-            ?>
-
+            <?php } else { ?>
+                <p>echo "ไม่มี";</p>
+            <?php } ?>
+ 
             <div class="flex items-center space-x-2 mt-4">
                 <input type="submit" value="บันทึกข้อมูล" class="bg-green-500 text-white rounded inline-block p-2">
                 <input type="reset" value="ล้างข้อมูล" class="bg-red-500 text-white rounded inline-block p-2">
-                <a href="homeuser_detail.php?user_id=<?php echo $user_id ?>" class="bg-blue-500 text-white rounded inline-block p-2">กลับหน้าแรก</a>
+                <?php
+                
+                if ($rowr["urole"] == 'admin') {
+                    echo '<a href="detail_tb1.php?admin_id=' .$ida. '" class="bg-blue-500 text-white rounded inline-block p-2">กลับหน้าแรก</a>';
+                } else {
+                    echo '<a href="homeuser_detail_1.php?user_id=' .$ida. '" class="bg-blue-500 text-white rounded inline-block p-2">กลับหน้าแรก</a>';
+                }
+                
+                ?>
             </div>
         </form>
     </div>

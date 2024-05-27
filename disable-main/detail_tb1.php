@@ -8,13 +8,18 @@ $count = mysqli_num_rows($result);
 $order = 1;
 $btn = 0;
 $btn2 = 0;
-?>
-<?php 
+
 require('connect.php');
-if(isset($_GET['admin_id']))
-{
+if(isset($_GET['admin_id'])) {
     $ida = $_GET['admin_id'];
+} else {
+
 }
+
+$sqlu = "SELECT * FROM tb_member WHERE id LIKE '%$ida%' ORDER BY id ASC";
+$resultu = mysqli_query($connect, $sqlu);
+$rowu = mysqli_fetch_array($resultu, MYSQLI_BOTH);
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -81,10 +86,10 @@ if(isset($_GET['admin_id']))
         </li>
         <li class="profile">
           <div class="profile-details">
-            <img src="https://i.pinimg.com/564x/8b/16/7a/8b167af653c2399dd93b952a48740620.jpg" alt="profileImg" />
+            <!-- <img src="https://i.pinimg.com/564x/8b/16/7a/8b167af653c2399dd93b952a48740620.jpg" alt="profileImg" /> -->
             <div class="name_job">
-              <div class="name">Admin_1</div>
-              <div class="job">Web designer</div>
+              <div class="name"><?php echo $rowu["urole"] ?></div>
+              <div class="job"><?php echo "Name : ".$rowu["firstname"]." ".$rowu["lastname"] ?></div>
             </div>
           </div>
           <i class="bx bx-log-out" id="log_out" onclick="Logout();"></i>
@@ -131,18 +136,19 @@ if(isset($_GET['admin_id']))
                     <td class="border border-gray-300 px-4 py-2 text-center"><?php echo $row["detail_occ"] ?></td>
                     <td class="border border-gray-300 px-4 py-2 text-center"><?php echo $row["detail_salary"] ?></td>
                     <td class="border border-gray-300 px-4 py-2 text-center"><?php echo $row["detail_type"] ?></td>
-                    <?php if(isset($ida) && $row["id"] == $ida)
-                    { ?>
+                    <?php //if(isset($ida) && $row["id"] == $ida)
+                    //{ ?>
                     <td class="border border-gray-300 px-4 py-2 text-center">
-                        <a href="editForm.php?detail_id=<?php echo $row["detail_id"]; ?>&user_id=<?php echo $ida; ?>&admin=1" class="bg-blue-500 text-white rounded px-2 py-1"><i class="fa-solid fa-pen-to-square"></i></a>
+                        <a href="editForm.php?detail_id=<?php echo $row["detail_id"]; ?>&user_id=<?php echo $row["id"]; ?>&ida=<?php echo $ida; ?>" class="bg-blue-500 text-white rounded px-2 py-1"><i class="fa-solid fa-pen-to-square"></i></a>
                     </td>
                     <td class="border border-gray-300 px-4 py-2 text-center">
-                        <a href="deleteQueryString.php?detail_id=<?php echo $row["detail_id"]; ?>&user_id=<?php echo $ida; ?>&admin=1" class="bg-red-500 text-white rounded px-2 py-1" onclick="return confirm('คุณต้องการลบข้อมูลหรือไม่')"><i class="fa-solid fa-trash"></i></a>
+                        <a href="deleteQueryString.php?detail_id=<?php echo $row["detail_id"]; ?>&user_id=<?php echo $row["id"]; ?>&admin=1" class="bg-red-500 text-white rounded px-2 py-1" onclick="return confirm('คุณต้องการลบข้อมูลหรือไม่')"><i class="fa-solid fa-trash"></i></a>
                     </td>
-                    <?php $btn = 0; ?>
-                    <?php }else { ?>
-                        <?php $btn = 1; ?>
-                    <?php } ?>
+                    <?php //$btn = 0; 
+                    // echo $ida;?>
+                    <?php //}else { ?>
+                        <?php //$btn = 1; ?>
+                    <?php //} ?>
                 </tr>
             <?php } ?>
             </tbody>

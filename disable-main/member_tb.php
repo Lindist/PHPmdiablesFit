@@ -11,12 +11,19 @@ $order = 1;
 ?>
 <?php 
 require('connect.php');
-if(isset($_GET['admin_id']))
-{
-    $ida = $_GET['admin_id'];
+
+if(isset($_GET['admin_id'])) {
+  $ida = $_GET['admin_id'];
+} else {
+  $ida = $id;
 }
 
-$id = $ida
+$id = $ida;
+
+$sqlu = "SELECT * FROM tb_member WHERE id LIKE '%$id%' ORDER BY id ASC";
+$resultu = mysqli_query($connect, $sqlu);
+$rowu = mysqli_fetch_array($resultu, MYSQLI_BOTH);
+
 ?>
 
 <!DOCTYPE html>
@@ -84,10 +91,10 @@ $id = $ida
         </li>
         <li class="profile">
           <div class="profile-details">
-            <img src="https://i.pinimg.com/564x/8b/16/7a/8b167af653c2399dd93b952a48740620.jpg" alt="profileImg" />
+            <!-- <img src="https://i.pinimg.com/564x/8b/16/7a/8b167af653c2399dd93b952a48740620.jpg" alt="profileImg" /> -->
             <div class="name_job">
-              <div class="name">Admin_1</div>
-              <div class="job">Web designer</div>
+              <div class="name"><?php echo $rowu["urole"] ?></div>
+              <div class="job"><?php echo "Name : ".$rowu["firstname"]." ".$rowu["lastname"] ?></div>
             </div>
           </div>
           <i class="bx bx-log-out" id="log_out" onclick="Logout();"></i>
@@ -95,12 +102,18 @@ $id = $ida
       </ul>
     </div>
     <section class="home-section">
+      <!-- <?php
+      echo $id;
+      echo $ida;
+      ?> -->
     <div class="container mx-auto overflow-x-auto p-6 bg-white rounded shadow-md">
         <h1 class="text-center text-2xl font-medium">ตารางผู้ใช้</h1>
         <hr class="my-4">
         <div class="mb-3">
             <form action="searchmember.php" class="flex space-x-2" method="POST">
-                <input class="flex-grow p-2 border border-gray-300 rounded" type="search" name="firstname" placeholder="ป้อนชื่อทีม">
+                <input type="hidden" value="<?php echo $row["id"]; ?>" name="id"> <!-- hide id -->
+                <input type="hidden" value="<?php echo $ida ?>" name="ida">
+                <input class="flex-grow p-2 border border-gray-300 rounded" type="search" name="firstname" placeholder="ป้อนชื่อจริง">
                 <button class="rounded p-2 bg-blue-500 text-white" type="submit">Search</button>
             </form>
         </div>
@@ -128,7 +141,7 @@ $id = $ida
                     <td class="border border-gray-300 px-4 py-2 text-center"><?php echo $row["gender"] ?></td>
                     <td class="border border-gray-300 px-4 py-2 text-center"><?php echo $row["number"] ?></td>
                     <td class="border border-gray-300 px-4 py-2 text-center">
-                        <a href="edit_memberform.php?user_id=<?php echo $row["id"] ?>" class="bg-blue-500 text-white rounded px-2 py-1"><i class="fa-solid fa-pen-to-square"></i></a>
+                        <a href="edit_memberform.php?user_id=<?php echo $row["id"] ?>&ida=<?php echo $ida ?>" class="bg-blue-500 text-white rounded px-2 py-1"><i class="fa-solid fa-pen-to-square"></i></a>
                     </td>
                     <td class="border border-gray-300 px-4 py-2 text-center">
                         <a href="deletemember.php?id=<?php //echo $row["id"] ?>" class="bg-red-500 text-white rounded px-2 py-1" onclick="return confirm('คุณต้องการลบข้อมูลหรือไม่')"><i class="fa-solid fa-trash"></i></a>

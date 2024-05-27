@@ -96,7 +96,7 @@ if(isset($_GET['admin']))
             </div>
             <div class="mb-4">
                 <label for="detail_address" class="block font-medium text-gray-700">ที่อยู่</label>
-                <textarea name="detail_address" class="resize-y mt-1 p-2 bg-white text-1xl border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md focus:ring-1"></textarea>
+                <textarea name="detail_address" class="resize-y mt-1 p-2 bg-white text-1xl border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md focus:ring-1 h-11"></textarea>
                 <!-- <input type="text" name="detail_address" class="mt-1 p-2 bg-white text-1xl border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md focus:ring-1"> -->
             </div>
             <div class="mb-4">
@@ -114,6 +114,14 @@ if(isset($_GET['admin']))
             <div class="mb-4">
                 <label for="detail_type" class="block font-medium text-gray-700">ประเภทความพิการ</label>
                 <input type="text" name="detail_type" class="mt-1 p-2 bg-white text-1xl border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md focus:ring-1">
+            </div>
+            <div class="mb-4">
+                <label for="detail_line" class="block font-medium text-gray-700">ไลน์</label>
+                <input type="text" name="detail_line" class="mt-1 p-2 bg-white text-1xl border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md focus:ring-1">
+            </div>
+            <div class="mb-4">
+                <label for="detail_facebook" class="block font-medium text-gray-700">เฟซบุ๊ค</label>
+                <input type="text" name="detail_facebook" class="mt-1 p-2 bg-white text-1xl border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md focus:ring-1">
             </div>
 
             <style>
@@ -144,16 +152,6 @@ if(isset($_GET['admin']))
             <div class="answer mb-4">
                 <label for="detail_care_tel" class="block font-medium text-gray-700">เบอร์โทรผู้ดูแล</label>
                 <input type="text" name="detail_care_tel" class="mt-1 p-2 bg-white text-1xl border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md focus:ring-1">
-            </div>
-
-            <div class="answer mb-4">
-                <label for="detail_line" class="block font-medium text-gray-700">ไลน์ผู้ดูแล</label>
-                <input type="text" name="detail_line" class="mt-1 p-2 bg-white text-1xl border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md focus:ring-1">
-            </div>
-
-            <div class="answer mb-4">
-                <label for="detail_facebook" class="block font-medium text-gray-700">เฟซบุ๊คผู้ดูแล</label>
-                <input type="text" name="detail_facebook" class="mt-1 p-2 bg-white text-1xl border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md focus:ring-1">
             </div>
 
             <div class="flex items-center space-x-2 mt-4">
