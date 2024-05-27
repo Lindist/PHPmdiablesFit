@@ -8,6 +8,10 @@ $result = mysqli_query($connect, $sql);
 
 $row = mysqli_fetch_assoc($result);
 
+$sqlu = "SELECT * FROM tb_member WHERE id LIKE '%$id%' ORDER BY id ASC";
+$resultu = mysqli_query($connect, $sqlu);
+$rowu = mysqli_fetch_array($resultu, MYSQLI_BOTH);
+
 ?>
 
 <!DOCTYPE html>
@@ -59,7 +63,14 @@ $row = mysqli_fetch_assoc($result);
             <div class="flex items-center space-x-2 mt-4">
                 <input type="submit" value="บันทึกข้อมูล" class="bg-green-500 text-white rounded inline-block p-2">
                 <input type="reset" value="ล้างข้อมูล" class="bg-red-500 text-white rounded inline-block p-2">
-                <a href="homeuser_member.php?user_id=<?php echo $id; ?>" class="bg-blue-500 text-white rounded inline-block p-2">กลับหน้าแรก</a>
+                <?php
+                
+                if ($rowu["urole"] == 'admin') {
+                    echo '<a href="homeadmin.php?admin_id=' .$id. '" class="bg-blue-500 text-white rounded inline-block p-2">กลับหน้าแรก</a>';
+                } else
+                    echo '<a href="homeuser_member.php?user_id=' .$id. '" class="bg-blue-500 text-white rounded inline-block p-2">กลับหน้าแรก</a>';
+                ?>
+                <!-- <a href="homeuser_member.php?user_id=<?php echo $id; ?>" class="bg-blue-500 text-white rounded inline-block p-2">กลับหน้าแรก</a> -->
             </div>
         </form>
     </div>
