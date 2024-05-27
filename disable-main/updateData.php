@@ -1,7 +1,7 @@
 <?php 
 
 require('dbconnect.php');
-
+session_start();
 $detail_id = $_POST['detail_id'];
 $id = $_POST['id'];
 $admin = $_POST['admin_id'];
@@ -53,12 +53,15 @@ if($result) {
     {
         echo "<script>";
         echo "alert('อัปเดตข้อมูลเสร็จสิ้น!');";
-        echo "location.href='homeuser_detail_1.php?admin_id='+ ".$id;
+        $_SESSION['refres_page5'] = 5;
+        echo "location.href='tb_count.php?admin_id='+ ".$id;
         echo "</script>";
     }else{
         echo "<script>";
         echo "alert('อัปเดตข้อมูลเสร็จสิ้น!');";
-        echo "location.href='homeuser_detail_1.php?user_id='+ ".$id;
+        $_SESSION['refres_page6'] = 6;
+        echo "location.href='tb_count.php?user_id='+ ".$id;
+        
         echo "</script>";
     }
 } else {
