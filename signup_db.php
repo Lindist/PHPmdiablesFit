@@ -47,12 +47,12 @@
             $_SESSION['error'] = 'กรุณากรอกเบอร์โทรศัพท์';
             header("location: signupForm.php");
         }
-        else if ($iszero == 1) {
-            $_SESSION['error'] = 'กรุณากรอกเบอร์โทรศัพท์หน้าด้วยตัวเลข 0';
-            header("location: signupForm.php");
-        }
         else if ($checkbarn < 10) {
             $_SESSION['error'] = 'กรุณากรอกเบอร์โทรศัพท์ด้วยตัวเลข';
+            header("location: signupForm.php");
+        }
+        else if ($iszero == 1) {
+            $_SESSION['error'] = 'กรุณากรอกเบอร์โทรศัพท์หน้าด้วยตัวเลข 0';
             header("location: signupForm.php");
         }
         else if (strlen($number) < 10 || strlen($number) > 10) {
