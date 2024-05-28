@@ -24,6 +24,7 @@ $cocc = array();
 $tbc = array();
 $keys = array();
 $agesh = array();
+$gendersh = array();
 
 while($row = $mysql->fetch(PDO::FETCH_ASSOC)){
     $cage[] = $row['age'];
@@ -48,7 +49,6 @@ $key3 = array_keys($count3);
 
 
 $id = 1;
-$change = 0;
 // $result = array_diff($key1, $tbc);
 
 if(!empty($tbc))
@@ -119,10 +119,31 @@ for($i=0;$i<count($agein_key);$i++)
 
 foreach($count2 as $key => $v)
 {
-    $mysql3 = $conn->prepare("INSERT INTO tb_count(id,member_type,Count) VALUES('$id','เพศ : $key','$v')");
-    $mysql3->execute();
-    $id++;
+    if($key == "ชาย")
+    {
+        $gendersh["ชาย"] = $v;
+    }
+    else if($key == "หญิง")
+    {
+        $gendersh["หญิง"] = $v;
+    }
+    else{
+        $gendersh["อื่นๆ"] = $v;
+    }
+    
 } 
+$male = $gendersh["ชาย"];
+$female = $gendersh["หญิง"];
+$other = $gendersh["อื่นๆ"];
+$mysql3 = $conn->prepare("INSERT INTO tb_count(id,member_type,Count) VALUES('$id','เพศ : ชาย','$male')");
+$mysql3->execute();
+$id++;
+$mysql3 = $conn->prepare("INSERT INTO tb_count(id,member_type,Count) VALUES('$id','เพศ : หญิง','$female')");
+$mysql3->execute();
+$id++;
+$mysql3 = $conn->prepare("INSERT INTO tb_count(id,member_type,Count) VALUES('$id','เพศ : อื่นๆ','$other')");
+$mysql3->execute();
+$id++;
 
 foreach($count3 as $key => $v)
 {
