@@ -60,8 +60,38 @@ $rowu = mysqli_fetch_array($resultu, MYSQLI_BOTH);
             </div>
             <div class="mb-4">
                 <label for="gender" class="block font-medium text-gray-700">เพศ</label>
-                <input type="text" name="gender" class="mt-1 p-2 bg-white text-1xl border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md focus:ring-1" value="<?php echo $row["gender"]; ?>">
+                <div class="form-check form-check-inline mb-3">
+                <?php
+                $gender_arr = array("ชาย","หญิง","อื่นๆ");
+                $gender_thai = "";
+                foreach($gender_arr as $value)
+                {
+                    if($value == "ชาย")
+                    {
+                        $gender_thai = "ชาย";
+                    }
+                    else if($value == "หญิง")
+                    {
+                        $gender_thai = "หญิง";
+                    }
+                    else{
+                        $gender_thai = "อื่นๆ";
+                    }
+                    if($value == $row["gender"])
+                    {
+                        echo "<input class='form-check-input mr-1' type='radio' name='gender' aria-describedby='gender' value='$value' checked >";
+                        echo "<label for='gender' class='form-check-label'>$gender_thai</label>";
+                    }
+                    else{
+                        echo "<input class='form-check-input mr-1' type='radio' name='gender' aria-describedby='gender' value='$value'>";
+                        echo "<label for='gender' class='form-check-label'>$gender_thai</label>";
+                    }
+                }
+                
+                ?>
+                </div>
             </div>
+
             <div class="mb-4">
                 <label for="number" class="block font-medium text-gray-700">เบอร์โทรศัพท์</label>
                 <input type="text" name="number" class="mt-1 p-2 bg-white text-1xl border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md focus:ring-1" value="<?php echo $row["number"]; ?>">
