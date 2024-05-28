@@ -6,10 +6,12 @@ if(isset($_GET['admin_id']))
     $ida = $_GET['admin_id'];
 }
 
-$id = $ida;
-
 $sql = "SELECT * FROM tb_count";
 $result = mysqli_query($connect, $sql);
+
+$sqlu = "SELECT * FROM tb_member WHERE id LIKE '%$ida%' ORDER BY id ASC";
+$resultu = mysqli_query($connect, $sqlu);
+$rowu = mysqli_fetch_array($resultu, MYSQLI_BOTH);
 
 $count = mysqli_num_rows($result);
 ?>
@@ -80,8 +82,8 @@ $count = mysqli_num_rows($result);
           <div class="profile-details">
             <!-- <img src="https://i.pinimg.com/564x/8b/16/7a/8b167af653c2399dd93b952a48740620.jpg" alt="profileImg" /> -->
             <div class="name_job">
-              <div class="name"><?php echo $row["urole"] ?></div>
-              <div class="job"><?php echo "Name : ".$row["firstname"]." ".$row["lastname"] ?></div>
+              <div class="name"><?php echo $rowu["urole"] ?></div>
+              <div class="job"><?php echo "Name : ".$rowu["firstname"]." ".$rowu["lastname"] ?></div>
             </div>
           </div>
           <i class="bx bx-log-out" id="log_out" onclick="Logout();"></i>
@@ -93,8 +95,9 @@ $count = mysqli_num_rows($result);
         <h1 class="text-center text-2xl font-medium">ตารางผู้พิการ</h1>
         <hr class="my-4">
         <div class="mb-3">
-            <form action="searchData.php" class="flex space-x-2" method="POST">
-                <input class="flex-grow p-2 border border-gray-300 rounded" type="search" name="tname" placeholder="ป้อนชื่อทีม">
+            <form action="tb_countsearch.php" class="flex space-x-2" method="POST">
+                <input class="flex-grow p-2 border border-gray-300 rounded" type="search" name="search" placeholder="ป้อนประเภท">
+                <input type="hidden" name="ida" value = "<?php echo $ida; ?>">
                 <button class="rounded p-2 bg-blue-500 text-white" type="submit">Search</button>
             </form>
         </div>

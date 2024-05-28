@@ -1,25 +1,21 @@
 <?php 
-
 require('dbconnect.php');
-$sql = "SELECT * FROM tb_detail ORDER BY detail_id ASC";
+
+// if(isset($_GET['admin_id']))
+// {
+$ida = $_POST['ida'];
+// }
+$type = $_POST["search"];
+
+
+$sql = "SELECT * FROM tb_count WHERE member_type LIKE '%$type%' ORDER BY member_type ASC";
 $result = mysqli_query($connect, $sql);
-
-$count = mysqli_num_rows($result);
-$order = 1;
-$btn = 0;
-$btn2 = 0;
-
-require('connect.php');
-if(isset($_GET['admin_id'])) {
-    $ida = $_GET['admin_id'];
-} else {
-
-}
 
 $sqlu = "SELECT * FROM tb_member WHERE id LIKE '%$ida%' ORDER BY id ASC";
 $resultu = mysqli_query($connect, $sqlu);
 $rowu = mysqli_fetch_array($resultu, MYSQLI_BOTH);
 
+$count = mysqli_num_rows($result);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -38,10 +34,10 @@ $rowu = mysqli_fetch_array($resultu, MYSQLI_BOTH);
             font-style: normal;
         }
     </style>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   </head>
-  <body class="p-3 mb-2 bg-slate-200">
+  <body>
     <div class="sidebar">
       <div class="logo-details">
         <i class="bx bxs-layer icon"></i>
@@ -88,21 +84,22 @@ $rowu = mysqli_fetch_array($resultu, MYSQLI_BOTH);
           <div class="profile-details">
             <!-- <img src="https://i.pinimg.com/564x/8b/16/7a/8b167af653c2399dd93b952a48740620.jpg" alt="profileImg" /> -->
             <div class="name_job">
-              <div class="name"><?php echo $rowu["urole"] ?></div>
-              <div class="job"><?php echo "Name : ".$rowu["firstname"]." ".$rowu["lastname"] ?></div>
+              <div class="name"><?php echo $rowu["urole"]; ?></div>
+              <div class="job"><?php echo "Name : ".$rowu["firstname"]." ".$rowu["lastname"]; ?></div>
             </div>
           </div>
           <i class="bx bx-log-out" id="log_out" onclick="Logout();"></i>
         </li>
       </ul>
     </div>
-    <section class="home-section">
+    <section class="home-section p-3 bg-slate-200">
     <div class="container mx-auto overflow-x-auto p-6 bg-white rounded shadow-md">
         <h1 class="text-center text-2xl font-medium">ตารางผู้พิการ</h1>
         <hr class="my-4">
         <div class="mb-3">
-            <form action="searchData.php" class="flex space-x-2" method="POST">
-                <input class="flex-grow p-2 border border-gray-300 rounded" type="search" name="tname" placeholder="ป้อนชื่อทีม">
+            <form action="tb_countsearch.php?admin_id= <?php echo $ida; ?>" class="flex space-x-2" method="POST">
+                <input class="flex-grow p-2 border border-gray-300 rounded" type="search" name="tname" placeholder="ป้อนประเภท">
+                <input type="hidden" name="ida" value = "<?php echo $ida; ?>">
                 <button class="rounded p-2 bg-blue-500 text-white" type="submit">Search</button>
             </form>
         </div>
@@ -110,45 +107,15 @@ $rowu = mysqli_fetch_array($resultu, MYSQLI_BOTH);
         <table class="table-auto w-full border-collapse border border-gray-300">
             <thead>
                 <tr class="bg-gray-200">
-                    <th class="border border-gray-300 px-4 py-2 text-center">detail_id</th>
-                    <th class="border border-gray-300 px-4 py-2 text-center">id</th>
-                    <th class="border border-gray-300 px-4 py-2 text-center">ว/ด/ป เกิด</th>
-                    <th class="border border-gray-300 px-4 py-2 text-center">ที่อยู่</th>
-                    <th class="border border-gray-300 px-4 py-2 text-center">รหัสบัตรประชาชน</th>
-                    <th class="border border-gray-300 px-4 py-2 text-center">อาชีพ</th>
-                    <th class="border border-gray-300 px-4 py-2 text-center">รายได้</th>
-                    <th class="border border-gray-300 px-4 py-2 text-center">ประเภทความพิการ</th>
-                    <?php if(isset($ida))
-                    { ?>
-                    <th class="border border-gray-300 px-4 py-2 text-center">แก้ไข</th>
-                    <th class="border border-gray-300 px-4 py-2 text-center">ลบ</th>
-                    <?php } ?>
+                    <th class="border border-gray-300 px-4 py-2 text-center">ประเภท</th>
+                    <th class="border border-gray-300 px-4 py-2 text-center">จำนวน</th>
                 </tr>
             </thead>
             <tbody>
             <?php while($row = mysqli_fetch_array($result, MYSQLI_BOTH)) { ?>
                 <tr>
-                    <td class="border border-gray-300 px-4 py-2 text-center"><?php echo $row["detail_id"] ?></td>
-                    <td class="border border-gray-300 px-4 py-2 text-center"><?php echo $row["id"]?></td>
-                    <td class="border border-gray-300 px-4 py-2 text-center"><?php echo $row["detail_date"] ?></td>
-                    <td class="border border-gray-300 px-4 py-2 text-center"><?php echo $row["detail_address"] ?></td>
-                    <td class="border border-gray-300 px-4 py-2 text-center"><?php echo $row["detail_idp"] ?></td>
-                    <td class="border border-gray-300 px-4 py-2 text-center"><?php echo $row["detail_occ"] ?></td>
-                    <td class="border border-gray-300 px-4 py-2 text-center"><?php echo $row["detail_salary"] ?></td>
-                    <td class="border border-gray-300 px-4 py-2 text-center"><?php echo $row["detail_type"] ?></td>
-                    <?php if(isset($ida) && $row["id"] == $ida)
-                    { ?>
-                    <td class="border border-gray-300 px-4 py-2 text-center">
-                        <a href="editForm.php?detail_id=<?php echo $row["detail_id"]; ?>&user_id=<?php echo $row["id"]; ?>&ida=<?php echo $ida; ?>" class="bg-blue-500 text-white rounded px-2 py-1"><i class="fa-solid fa-pen-to-square"></i></a>
-                    </td>
-                    <td class="border border-gray-300 px-4 py-2 text-center">
-                        <a href="deleteQueryString.php?detail_id=<?php echo $row["detail_id"]; ?>&user_id=<?php echo $row["id"]; ?>&admin=1" class="bg-red-500 text-white rounded px-2 py-1" onclick="return confirm('คุณต้องการลบข้อมูลหรือไม่')"><i class="fa-solid fa-trash"></i></a>
-                    </td>
-                    <?php $btn = 0; 
-                     echo $ida;?>
-                    <?php }else { ?>
-                        <?php $btn = 1; ?>
-                    <?php } ?>
+                    <td class="border border-gray-300 px-4 py-2 text-center"><?php echo $row["member_type"] ?></td>
+                    <td class="border border-gray-300 px-4 py-2 text-center"><?php echo $row["Count"]?></td>
                 </tr>
             <?php } ?>
             </tbody>
@@ -159,11 +126,7 @@ $rowu = mysqli_fetch_array($resultu, MYSQLI_BOTH);
                 <?php $btn2 = 1; ?>
             </div>
         <?php } ?>
-        <?php if($btn == 1 || $btn2 == 1) 
-        { ?>
-        <a href="insertForm.php?user_id=<?php echo $ida; ?>&admin=1" class="bg-green-500 text-white rounded inline-block mt-4 p-2 mr-1">เพิ่มข้อมูล</a>
-        <?php $btn2 = 0; ?>
-        <?php } ?>
+
 </div>
     </section>
     <script src="logout.js"></script>
@@ -171,16 +134,17 @@ $rowu = mysqli_fetch_array($resultu, MYSQLI_BOTH);
         let sidebar = document.querySelector(".sidebar");
         let closeBtn = document.querySelector("#btn");
         let searchBtn = document.querySelector(".bx-search");
+        // let log_out = document.querySelector("#log_out");
 
         closeBtn.addEventListener("click", ()=>{
         sidebar.classList.toggle("open");
         menuBtnChange();//calling the function(optional)
         });
 
-        // searchBtn.addEventListener("click", ()=>{ // Sidebar open when you click on the search iocn
-        // sidebar.classList.toggle("open");
-        // menuBtnChange(); //calling the function(optional)
-        // });
+        searchBtn.addEventListener("click", ()=>{ // Sidebar open when you click on the search iocn
+        sidebar.classList.toggle("open");
+        menuBtnChange(); //calling the function(optional)
+        });
 
         // following are the code to change sidebar button(optional)
         function menuBtnChange() {

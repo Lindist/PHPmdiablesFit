@@ -22,7 +22,7 @@ $id = $ida;
 
 $sqlu = "SELECT * FROM tb_member WHERE id LIKE '%$id%' ORDER BY id ASC";
 $resultu = mysqli_query($connect, $sqlu);
-
+$rowu = mysqli_fetch_array($resultu, MYSQLI_BOTH);
 ?>
 
 <!DOCTYPE html>

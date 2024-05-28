@@ -20,7 +20,7 @@ if(isset($_GET['admin_id'])) {
 
 $sqlu = "SELECT * FROM tb_member WHERE id LIKE '%$ida%' ORDER BY id ASC";
 $resultu = mysqli_query($connect, $sqlu);
-
+$rowu = mysqli_fetch_array($resultu, MYSQLI_BOTH);
 ?>
 <!DOCTYPE html>
 <html lang="en">
