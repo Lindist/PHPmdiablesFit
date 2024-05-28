@@ -264,6 +264,7 @@
       position: fixed;
       left: 0;
       top: 0;
+      z-index: 2;
     }
     .logo-details {
       color: white;
@@ -292,18 +293,15 @@
       position: fixed;
       width: 100%;
       height: 100vh;
-      /* top: -100%; */
-      top: 45px;
-      /* top: 80.4px; */
+      top: -100%;
       text-align: center;
-      transition: all 0.5s;
       z-index: 1;
     }
     .sidebar ul li a {
       display: block;
       padding: 30px;
-      /* margin: 30px; */
       line-height: 30px;
+      z-index: 1;
     }
     a {
       background: #2c294d;
@@ -321,6 +319,7 @@
     }
     .sidebar.open ul {
       top: 80.4px;
+      z-index: 2;
     }
     .sidebar ul li .profile-details {
       padding: 8px;
@@ -329,10 +328,8 @@
       flex-wrap: nowrap;
     }
     .sidebar .profile #log_out {
-      /* position: absolute; */
       font-size: 26px;
       background: none;
-      /* width:20%; */
       height: 60px;
       border-radius: 0px;
       margin-left: auto;
@@ -348,12 +345,17 @@
       z-index: 1;
     }
     .sidebar,
+    .sidebar .logo-details,
     .sidebar .logo-details .icon,
     .sidebar .logo-details .logo_name,
     .sidebar .logo-details .checkbtn {
       z-index: 2;
     }
     .sidebar ul {
+      z-index: 1;
+    }
+    ul.nav-list,
+    div.sidebar {
       z-index: 1;
     }
   }

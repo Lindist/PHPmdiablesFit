@@ -41,12 +41,12 @@ $rowu = mysqli_fetch_array($resultu, MYSQLI_BOTH);
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css" rel="stylesheet">
   </head>
-  <body class="p-3 mb-2 bg-slate-200">
+  <body class="">
     <div class="sidebar">
       <div class="logo-details">
         <i class="bx bxs-layer icon"></i>
         <div class="logo_name">Admin</div>
-        <i class="bx bx-menu" id="btn"></i>
+        <i class="bx bx-menu  checkbtn" id="btn"></i>
       </div>
       <ul class="nav-list">
         <li>
@@ -184,9 +184,9 @@ $rowu = mysqli_fetch_array($resultu, MYSQLI_BOTH);
         // following are the code to change sidebar button(optional)
         function menuBtnChange() {
         if(sidebar.classList.contains("open")){
-        closeBtn.classList.replace("bx-menu", "bx-menu-alt-right");//replacing the iocns class
+        closeBtn.classList.replace("bx-menu", "bx-x");//replacing the iocns class
         }else {
-        closeBtn.classList.replace("bx-menu-alt-right","bx-menu");//replacing the iocns class
+        closeBtn.classList.replace("bx-x","bx-menu");//replacing the iocns class
         }
         }
     </script>

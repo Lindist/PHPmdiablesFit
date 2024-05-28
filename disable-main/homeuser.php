@@ -30,7 +30,7 @@ if(isset($_GET['user_id']))
       <div class="logo-details">
         <i class="bx bxs-layer icon"></i>
         <div class="logo_name">User</div>
-        <i class="bx bx-menu" id="btn"></i>
+        <i class="bx bx-menu checkbtn" id="btn"></i>
       </div>
       <ul class="nav-list">
         <li>
@@ -96,9 +96,9 @@ if(isset($_GET['user_id']))
         // following are the code to change sidebar button(optional)
         function menuBtnChange() {
         if(sidebar.classList.contains("open")){
-        closeBtn.classList.replace("bx-menu", "bx-menu-alt-right");//replacing the iocns class
+        closeBtn.classList.replace("bx-menu", "bx-x");//replacing the iocns class
         }else {
-        closeBtn.classList.replace("bx-menu-alt-right","bx-menu");//replacing the iocns class
+        closeBtn.classList.replace("bx-x","bx-menu");//replacing the iocns class
         }
         }
     </script>
