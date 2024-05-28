@@ -77,7 +77,7 @@ $rowr = mysqli_fetch_assoc($resultr);
         <hr class="my-4">
         <form action="updateData.php" method="POST">
         <input type="hidden" name="id" value="<?php echo $id; ?>">
-        <input type="hidden" name="admin_id" value="<?php echo $ida; ?>">
+        <input type="hidden" name="admin_id" value="<?php echo 1; ?>">
 
         <input type="hidden" value="<?php echo $row["detail_id"]; ?>" name="detail_id"> <!-- hide id -->
 

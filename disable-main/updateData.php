@@ -49,18 +49,18 @@ $sql = "UPDATE tb_detail SET
 $result = mysqli_query($connect, $sql);
 // echo $sql;
 if($result) {
-    if($admin == 1)
+    if($admin == 0)
     {
         echo "<script>";
         echo "alert('อัปเดตข้อมูลเสร็จสิ้น!');";
         $_SESSION['refres_page5'] = 5;
-        echo "location.href='tb_count.php?admin_id='+ ".$id;
+        echo "location.href='tb_count.php?user_id='+ ".$id;
         echo "</script>";
     }else{
         echo "<script>";
         echo "alert('อัปเดตข้อมูลเสร็จสิ้น!');";
         $_SESSION['refres_page6'] = 6;
-        echo "location.href='tb_count.php?user_id='+ ".$id;
+        echo "location.href='tb_count.php?admin_id='+ ".$id;
         
         echo "</script>";
     }
