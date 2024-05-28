@@ -65,13 +65,13 @@ $row = mysqli_fetch_array($result, MYSQLI_BOTH);
           </a>
           <span class="tooltip">รายละเอียดผู้ดูแล</span>
         </li>
-        <li>
+        <!-- <li>
           <a href="#">
             <i class="bx bx-cog"></i>
             <span class="links_name">Setting</span>
           </a>
           <span class="tooltip">Setting</span>
-        </li>
+        </li> -->
         <li class="profile">
           <div class="profile-details">
             <!-- <img src="https://i.pinimg.com/564x/8b/16/7a/8b167af653c2399dd93b952a48740620.jpg" alt="profileImg" /> -->

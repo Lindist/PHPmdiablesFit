@@ -69,13 +69,13 @@ $rowu = mysqli_fetch_array($resultu, MYSQLI_BOTH);
           </a>
           <span class="tooltip">รายละเอียดผู้ดูแล</span>
         </li>
-        <li>
+        <!-- <li>
           <a href="#">
             <i class="bx bx-cog"></i>
             <span class="links_name">Setting</span>
           </a>
           <span class="tooltip">Setting</span>
-        </li>
+        </li> -->
         <li class="profile">
           <div class="profile-details">
             <!-- <img src="https://i.pinimg.com/564x/8b/16/7a/8b167af653c2399dd93b952a48740620.jpg" alt="profileImg" /> -->
@@ -104,7 +104,7 @@ $rowu = mysqli_fetch_array($resultu, MYSQLI_BOTH);
                 <p class="">ประเภทความพิการ : <?php echo $row["detail_type"] ?></p>
                 <p class="">ไลน์ : <?php echo $row["detail_line"] ?></p>
                 <p class="">เฟซบุ๊ค : <?php echo $row["detail_facebook"] ?></p>
-                <p class="">ผุ้ดูแล : <?php echo $row["detail_care"] ?></p>
+                <p class="">ผู้ดูแล : <?php echo $row["detail_care"] ?></p>
                 </div>
             </div>
             <a href="editForm.php?user_id=<?php echo $user_id; ?>" class="text-xl bg-yellow-400 text-black rounded inline-block mt-18 mb-24 px-8 py-2">แก้ไขข้อมูล</a>
