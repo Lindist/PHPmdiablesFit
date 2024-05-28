@@ -27,7 +27,7 @@ $rowu = mysqli_fetch_array($resultu, MYSQLI_BOTH);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home Page</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles.css">
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300&display=swap');
@@ -102,6 +102,8 @@ $rowu = mysqli_fetch_array($resultu, MYSQLI_BOTH);
                 <p class="">อาชีพ : <?php echo $row["detail_occ"] ?></p>
                 <p class="">รายได้ : <?php echo $row["detail_salary"] ?></p>
                 <p class="">ประเภทความพิการ : <?php echo $row["detail_type"] ?></p>
+                <p class="">ไลน์ : <?php echo $row["detail_line"] ?></p>
+                <p class="">เฟซบุ๊ค : <?php echo $row["detail_facebook"] ?></p>
                 <p class="">ผุ้ดูแล : <?php echo $row["detail_care"] ?></p>
                 </div>
             </div>
