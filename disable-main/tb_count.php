@@ -176,7 +176,7 @@ else if(isset($_SESSION['refres_page4']))
 {
     unset($_SESSION['refres_page4']);
     echo "<script>";
-    echo "location.href='home.php?admin_id='+ ".$id1;
+    echo "location.href='detail_tb1.php?admin_id='+ ".$id1;
     echo "</script>";
 }
 else if(isset($_SESSION['refres_page5']))

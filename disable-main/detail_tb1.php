@@ -18,7 +18,7 @@ if(isset($_GET['admin_id'])) {
 
 $sqlu = "SELECT * FROM tb_member WHERE id LIKE '%$ida%' ORDER BY id ASC";
 $resultu = mysqli_query($connect, $sqlu);
-$rowu = mysqli_fetch_array($resultu, MYSQLI_BOTH);
+
 
 ?>
 <!DOCTYPE html>
@@ -78,11 +78,11 @@ $rowu = mysqli_fetch_array($resultu, MYSQLI_BOTH);
           <span class="tooltip">ตารางผู้ดูแล</span>
         </li>
         <li>
-          <a href="#">
-            <i class="bx bx-cog"></i>
-            <span class="links_name">Setting</span>
+          <a href="tb_countshowup.php?admin_id=<?php echo $ida; ?>">
+            <i class="bx bx-table"></i>
+            <span class="links_name">ตารางจำนวนข้อมูล</span>
           </a>
-          <span class="tooltip">Setting</span>
+          <span class="tooltip">ตารางจำนวนข้อมูล</span>
         </li>
         <li class="profile">
           <div class="profile-details">
@@ -136,19 +136,19 @@ $rowu = mysqli_fetch_array($resultu, MYSQLI_BOTH);
                     <td class="border border-gray-300 px-4 py-2 text-center"><?php echo $row["detail_occ"] ?></td>
                     <td class="border border-gray-300 px-4 py-2 text-center"><?php echo $row["detail_salary"] ?></td>
                     <td class="border border-gray-300 px-4 py-2 text-center"><?php echo $row["detail_type"] ?></td>
-                    <?php //if(isset($ida) && $row["id"] == $ida)
-                    //{ ?>
+                    <?php if(isset($ida) && $row["id"] == $ida)
+                    { ?>
                     <td class="border border-gray-300 px-4 py-2 text-center">
                         <a href="editForm.php?detail_id=<?php echo $row["detail_id"]; ?>&user_id=<?php echo $row["id"]; ?>&ida=<?php echo $ida; ?>" class="bg-blue-500 text-white rounded px-2 py-1"><i class="fa-solid fa-pen-to-square"></i></a>
                     </td>
                     <td class="border border-gray-300 px-4 py-2 text-center">
                         <a href="deleteQueryString.php?detail_id=<?php echo $row["detail_id"]; ?>&user_id=<?php echo $row["id"]; ?>&admin=1" class="bg-red-500 text-white rounded px-2 py-1" onclick="return confirm('คุณต้องการลบข้อมูลหรือไม่')"><i class="fa-solid fa-trash"></i></a>
                     </td>
-                    <?php //$btn = 0; 
-                    // echo $ida;?>
-                    <?php //}else { ?>
-                        <?php //$btn = 1; ?>
-                    <?php //} ?>
+                    <?php $btn = 0; 
+                     echo $ida;?>
+                    <?php }else { ?>
+                        <?php $btn = 1; ?>
+                    <?php } ?>
                 </tr>
             <?php } ?>
             </tbody>

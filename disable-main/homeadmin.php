@@ -71,11 +71,11 @@ $count = mysqli_num_rows($result);
           <span class="tooltip">ตารางผู้ดูแล</span>
         </li>
         <li>
-          <a href="#">
-            <i class="bx bx-cog"></i>
-            <span class="links_name">Setting</span>
+          <a href="tb_countshowup.php?admin_id=<?php echo $ida; ?>">
+            <i class="bx bx-table"></i>
+            <span class="links_name">ตารางจำนวนข้อมูล</span>
           </a>
-          <span class="tooltip">Setting</span>
+          <span class="tooltip">ตารางจำนวนข้อมูล</span>
         </li>
         <li class="profile">
           <div class="profile-details">
