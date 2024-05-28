@@ -98,7 +98,7 @@ $count = mysqli_num_rows($result);
         <hr class="my-4">
         <div class="mb-3">
             <form action="tb_countsearch.php?admin_id= <?php echo $ida; ?>" class="flex space-x-2" method="POST">
-                <input class="flex-grow p-2 border border-gray-300 rounded" type="search" name="tname" placeholder="ป้อนประเภท">
+                <input class="flex-grow p-2 border border-gray-300 rounded" type="search" name="search" placeholder="ป้อนประเภท">
                 <input type="hidden" name="ida" value = "<?php echo $ida; ?>">
                 <button class="rounded p-2 bg-blue-500 text-white" type="submit">Search</button>
             </form>
