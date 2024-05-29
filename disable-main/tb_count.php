@@ -43,10 +43,10 @@ $count1 = array_count_values($cage);
 $count2 = array_count_values($cgender);
 $count3 = array_count_values($cocc);
 
-$key1 = array_keys($count1);
-$key2 = array_keys($count2);
-$key3 = array_keys($count3);
-
+// $key1 = array_keys($count1);
+// $key2 = array_keys($count2);
+// $key3 = array_keys($count3);
+// print_r($count1 );
 
 $id = 1;
 $change = 0;
@@ -60,52 +60,54 @@ if(!empty($tbc))
         $mysql3->execute();
     }
 }
-foreach($count1 as $key => $v)
+for($c=0; $c < count($cage);$c++)
 {
-    if($key > 0 && $key <= 12)
+    // echo $key." ".$v."<br>";
+    if($cage[$c] > 0 && $cage[$c] <= 12)
     {
-        array_splice($agesh,$change,0,'อายุ : 1-12 ปี');
+        $agesh[] = 'อายุ : 1-12 ปี';
     }
-    else if($key > 12 && $key <= 18)
+    else if($cage[$c] > 12 && $cage[$c] <= 18)
     {
-        array_splice($agesh,$change,0,'อายุ : 13-18 ปี');     
+        $agesh[] = 'อายุ : 13-18 ปี';   
     }
-    else if($key > 18 && $key <= 25)
+    else if($cage[$c] > 18 && $cage[$c] <= 25)
     {
-        array_splice($agesh,$change,0,'อายุ : 19-25 ปี');
+        $agesh[] = 'อายุ : 19-25 ปี';
     }
-    else if($key > 25 && $key <= 35)
+    else if($cage[$c] > 25 && $cage[$c] <= 35)
     {
-        array_splice($agesh,$change,0,'อายุ : 26-35 ปี');
+        $agesh[] = 'อายุ : 26-35 ปี';
     }
-    else if($key > 35 && $key <= 45)
+    else if($cage[$c] > 35 && $cage[$c] <= 45)
     {
-        array_splice($agesh,$change,0,'อายุ : 36-45 ปี');
+        $agesh[] = 'อายุ : 36-45 ปี';
     }
-    else if($key > 45 && $key <= 55)
+    else if($cage[$c] > 45 && $cage[$c] <= 55)
     {
-        array_splice($agesh,$change,0,'อายุ : 46-55 ปี');
+        $agesh[] = 'อายุ : 46-55 ปี';
     }
-    else if($key > 55 && $key <= 65)
+    else if($cage[$c] > 55 && $cage[$c] <= 65)
     {
-        array_splice($agesh,$change,0,'อายุ : 56-65 ปี');
+        $agesh[] = 'อายุ : 56-65 ปี';
     }
-    else if($key > 65 && $key <= 75)
+    else if($cage[$c] > 65 && $cage[$c] <= 75)
     {
-        array_splice($agesh,$change,0,'อายุ : 66-75 ปี');
+        $agesh[] = 'อายุ : 66-75 ปี';
     }
-    else if($key > 75 && $key <= 85)
+    else if($cage[$c] > 75 && $cage[$c] <= 85)
     {
-        array_splice($agesh,$change,0,'อายุ : 76-85 ปี');
+        $agesh[] = 'อายุ : 76-85 ปี';
     }
-    else if($key > 85 && $key <= 95)
+    else if($cage[$c] > 85 && $cage[$c] <= 95)
     {
-        array_splice($agesh,$change,0,'อายุ : 86-95 ปี');
+        $agesh[] = 'อายุ : 86-95 ปี';
     }else{
-        array_splice($agesh,$change,0,'อายุ : 96 ปีขึ้นไป');
+        $agesh[] = 'อายุ : 96 ปีขึ้นไป';
     }
     
     $id++;
+    // echo "<br>";
 } 
 $countage = array_count_values($agesh);
 ksort($countage);
