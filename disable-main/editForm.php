@@ -77,7 +77,7 @@ $rowr = mysqli_fetch_array($resultr, MYSQLI_BOTH);
         <hr class="my-4">
         <form action="updateData.php" method="POST">
         <input type="hidden" name="id" value="<?php echo $id; ?>">
-        <input type="hidden" name="admin_id" value="<?php echo 1; ?>">
+        <input type="hidden" name="ida" value="<?php echo $ida; ?>">
 
         <input type="hidden" value="<?php echo $row["detail_id"]; ?>" name="detail_id"> <!-- hide id -->
 
@@ -135,12 +135,10 @@ $rowr = mysqli_fetch_array($resultr, MYSQLI_BOTH);
                     display: block;
                 }
             </style>
-
-
             
             <?php if ($rowr["urole"] == 'admin') { ?>
                 <div class="question mb-3 flex items-center">
-                    <label for="detail_care" class="font-medium text-gray-700 mr-2">คุณมีผู้แลรึเปล่า?</label>
+                    <label for="detail_care" class="font-medium text-gray-700 mr-2">คุณมีผู้ดูแลรึเปล่า?</label>
                     <?php
                     if ($row['detail_care'] == "มี") {
                         echo '<input class="form-checkbox h-6 w-6" type="checkbox" name="detail_care" value="1" checked>';
@@ -154,17 +152,16 @@ $rowr = mysqli_fetch_array($resultr, MYSQLI_BOTH);
                 <div class="question hidden">
                 <?php
                 if ($row['detail_care'] == "มี") {
-                    echo '<input class="form-checkbox h-6 w-6" type="checkbox" name="detail_care" value="1" checked>';
+                    echo '<input class="form-checkbox h-6 w-6" type="checkbox" name="detail_careu" value="1" checked>';
                 } else {
-                    echo '<input class="form-checkbox h-6 w-6" type="checkbox" name="detail_care" value="1">';
+                    echo '<input class="form-checkbox h-6 w-6" type="checkbox" name="detail_careu" value="1">';
                 }
                 ?>
                 </div>
             <?php } ?>
-            <!-- <?php echo $row['detail_care']; ?> -->
 
             <?php //if ($row['detail_care'] == "มี") { ?>
-                <input class="form-checkbox h-6 w-6" type="checkbox" style="display:none" name="detail_care" value="1" checked>
+                <!-- <input class="form-checkbox h-6 w-6" type="checkbox" style="display:none" name="detail_care" value="1" checked> -->
                 <div class="answer mb-4">
                     <label for="detail_care_name" class="block font-medium text-gray-700">ชื่อผู้ดูแล</label>
                     <input type="text" name="detail_care_name" class="mt-1 p-2 bg-white text-1xl border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md focus:ring-1" value="<?php echo $row["detail_care_name"]; ?>">

@@ -105,7 +105,7 @@ $row = mysqli_fetch_array($result, MYSQLI_BOTH);
                 <div class="text-center p-3 mt-10 bg-red-100 text-red-500 border border-red-300 rounded">
                     <b class="text-2xl">ไม่มีข้อมูล!!</b>
                 </div>
-                <a href="#" class="text-xl bg-green-500 text-white rounded inline-block mt-10 mb-6 px-8 py-2">เพิ่มข้อมูล</a>
+                <!-- <a href="#" class="text-xl bg-green-500 text-white rounded inline-block mt-10 mb-6 px-8 py-2">เพิ่มข้อมูล</a> -->
             <?php } ?>
 
         </div>
