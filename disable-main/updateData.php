@@ -58,7 +58,7 @@ $sql = "UPDATE tb_detail SET
 
 $result = mysqli_query($connect, $sql);
 // echo $sql;
-echo $rowu["urole"];
+
 if($result) {
     if($rowu["urole"] == "admin")
     {
