@@ -49,6 +49,7 @@ $key3 = array_keys($count3);
 
 
 $id = 1;
+$change = 0;
 // $result = array_diff($key1, $tbc);
 
 if(!empty($tbc))
@@ -63,45 +64,45 @@ foreach($count1 as $key => $v)
 {
     if($key > 0 && $key <= 12)
     {
-        array_splice($agesh,0,0,'อายุ : 1-12 ปี');
+        array_splice($agesh,$change,0,'อายุ : 1-12 ปี');
     }
     else if($key > 12 && $key <= 18)
     {
-        array_splice($agesh,0,0,'อายุ : 13-18 ปี');     
+        array_splice($agesh,$change,0,'อายุ : 13-18 ปี');     
     }
     else if($key > 18 && $key <= 25)
     {
-        array_splice($agesh,0,0,'อายุ : 19-25 ปี');
+        array_splice($agesh,$change,0,'อายุ : 19-25 ปี');
     }
     else if($key > 25 && $key <= 35)
     {
-        array_splice($agesh,0,0,'อายุ : 26-35 ปี');
+        array_splice($agesh,$change,0,'อายุ : 26-35 ปี');
     }
     else if($key > 35 && $key <= 45)
     {
-        array_splice($agesh,0,0,'อายุ : 36-45 ปี');
+        array_splice($agesh,$change,0,'อายุ : 36-45 ปี');
     }
     else if($key > 45 && $key <= 55)
     {
-        array_splice($agesh,0,0,'อายุ : 46-55 ปี');
+        array_splice($agesh,$change,0,'อายุ : 46-55 ปี');
     }
     else if($key > 55 && $key <= 65)
     {
-        array_splice($agesh,0,0,'อายุ : 56-65 ปี');
+        array_splice($agesh,$change,0,'อายุ : 56-65 ปี');
     }
     else if($key > 65 && $key <= 75)
     {
-        array_splice($agesh,0,0,'อายุ : 66-75 ปี');
+        array_splice($agesh,$change,0,'อายุ : 66-75 ปี');
     }
     else if($key > 75 && $key <= 85)
     {
-        array_splice($agesh,0,0,'อายุ : 76-85 ปี');
+        array_splice($agesh,$change,0,'อายุ : 76-85 ปี');
     }
     else if($key > 85 && $key <= 95)
     {
-        array_splice($agesh,0,0,'อายุ : 86-95 ปี');
+        array_splice($agesh,$change,0,'อายุ : 86-95 ปี');
     }else{
-        array_splice($agesh,0,0,'อายุ : 96 ปีขึ้นไป');
+        array_splice($agesh,$change,0,'อายุ : 96 ปีขึ้นไป');
     }
     
     $id++;
