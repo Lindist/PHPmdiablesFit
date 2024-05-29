@@ -116,8 +116,8 @@ $rowu = mysqli_fetch_array($resultu, MYSQLI_BOTH);
                     <th class="border border-gray-300 px-4 py-2 text-center">ชื่อผู้ดูแล</th>
                     <th class="border border-gray-300 px-4 py-2 text-center">นามสกุลผู้ดูแล</th>
                     <th class="border border-gray-300 px-4 py-2 text-center">เบอร์โทรผู้ดูแล</th>
-                    <th class="border border-gray-300 px-4 py-2 text-center">ไลน์ผู้ดูแล</th>
-                    <th class="border border-gray-300 px-4 py-2 text-center">เฟซบุ๊คผู้ดูแล</th>
+                    <!-- <th class="border border-gray-300 px-4 py-2 text-center">ไลน์ผู้ดูแล</th>
+                    <th class="border border-gray-300 px-4 py-2 text-center">เฟซบุ๊คผู้ดูแล</th> -->
                     <?php if(isset($ida))
                     { ?>
                     <th class="border border-gray-300 px-4 py-2 text-center">แก้ไข</th>
@@ -133,8 +133,8 @@ $rowu = mysqli_fetch_array($resultu, MYSQLI_BOTH);
                     <td class="border border-gray-300 px-4 py-2 text-center"><?php echo $row["detail_care_name"] ?></td>
                     <td class="border border-gray-300 px-4 py-2 text-center"><?php echo $row["detail_care_lastname"] ?></td>
                     <td class="border border-gray-300 px-4 py-2 text-center"><?php echo $row["detail_care_tel"] ?></td>
-                    <td class="border border-gray-300 px-4 py-2 text-center"><?php echo $row["detail_line"] ?></td>
-                    <td class="border border-gray-300 px-4 py-2 text-center"><?php echo $row["detail_facebook"] ?></td>
+                    <!-- <td class="border border-gray-300 px-4 py-2 text-center"><?php echo $row["detail_line"] ?></td>
+                    <td class="border border-gray-300 px-4 py-2 text-center"><?php echo $row["detail_facebook"] ?></td> -->
                     <td class="border border-gray-300 px-4 py-2 text-center">
                         <a href="editForm.php?detail_id=<?php echo $row["detail_id"]; ?>&user_id=<?php echo $row["id"]; ?>&ida=<?php echo $ida;?>" class="bg-blue-500 text-white rounded px-2 py-1"><i class="fa-solid fa-pen-to-square"></i></a>
                     </td>

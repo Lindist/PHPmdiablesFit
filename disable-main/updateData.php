@@ -4,7 +4,7 @@ require('dbconnect.php');
 session_start();
 $detail_id = $_POST['detail_id'];
 $id = $_POST['id'];
-$admin = $_POST['admin_id'];
+// $admin = $_POST['admin_id'];
 $detail_date = $_POST['detail_date'];
 $detail_address = $_POST['detail_address'];
 $detail_idp = $_POST['detail_idp'];
@@ -14,8 +14,8 @@ $detail_type = $_POST['detail_type'];
 $detail_line = $_POST['detail_line'];
 $detail_facebook = $_POST['detail_facebook'];
 
-if(isset($_GET['ida'])) {
-    $ida = $_GET['ida'];
+if(isset($_POST['ida'])) {
+    $ida = $_POST['ida'];
 } else {
     $ida = $id;
 }
@@ -30,7 +30,8 @@ if (isset($_POST['detail_care'])) {
     $detail_care = "ไม่มี";
 }
 
-if ($detail_care == "ไม่มี") {
+if ($detail_care == "1") {
+    $detail_care = "ไม่มี";
     $detail_care_name = "-";
     $detail_care_lastname = "-";    
     $detail_care_tel = "-";
@@ -57,8 +58,9 @@ $sql = "UPDATE tb_detail SET
     WHERE detail_id = '$detail_id'";
 
 $result = mysqli_query($connect, $sql);
-// echo $sql;
-echo $rowu["urole"];
+// $detail_care = $_POST['detail_care'];
+// echo $detail_care;
+// echo $rowu["urole"];
 if($result) {
     if($rowu["urole"] == "admin")
     {

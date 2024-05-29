@@ -119,6 +119,8 @@ $rowu = mysqli_fetch_array($resultu, MYSQLI_BOTH);
                     <th class="border border-gray-300 px-4 py-2 text-center">อาชีพ</th>
                     <th class="border border-gray-300 px-4 py-2 text-center">รายได้</th>
                     <th class="border border-gray-300 px-4 py-2 text-center">ประเภทความพิการ</th>
+                    <th class="border border-gray-300 px-4 py-2 text-center">ไลน์</th>
+                    <th class="border border-gray-300 px-4 py-2 text-center">เฟซบุ๊ค</th>
                     <?php //if(isset($ida))
                     //{ ?>
                     <th class="border border-gray-300 px-4 py-2 text-center">แก้ไข</th>
@@ -137,6 +139,8 @@ $rowu = mysqli_fetch_array($resultu, MYSQLI_BOTH);
                     <td class="border border-gray-300 px-4 py-2 text-center"><?php echo $row["detail_occ"] ?></td>
                     <td class="border border-gray-300 px-4 py-2 text-center"><?php echo $row["detail_salary"] ?></td>
                     <td class="border border-gray-300 px-4 py-2 text-center"><?php echo $row["detail_type"] ?></td>
+                    <td class="border border-gray-300 px-4 py-2 text-center"><?php echo $row["detail_line"] ?></td>
+                    <td class="border border-gray-300 px-4 py-2 text-center"><?php echo $row["detail_facebook"] ?></td>
                     <td class="border border-gray-300 px-4 py-2 text-center">
                         <a href="editForm.php?detail_id=<?php echo $row["detail_id"]; ?>&user_id=<?php echo $row["id"]; ?>&ida=<?php echo $ida;?>" class="bg-blue-500 text-white rounded px-2 py-1"><i class="fa-solid fa-pen-to-square"></i></a>
                     </td>
