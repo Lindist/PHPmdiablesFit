@@ -108,8 +108,9 @@ foreach($count1 as $key => $v)
     $id++;
 } 
 $countage = array_count_values($agesh);
-$agein_key = array_keys(array_reverse($countage));
-$agein_value = array_values(array_reverse($countage));
+ksort($countage);
+$agein_key = array_keys($countage);
+$agein_value = array_values($countage);
 
 for($i=0;$i<count($agein_key);$i++)
 {
