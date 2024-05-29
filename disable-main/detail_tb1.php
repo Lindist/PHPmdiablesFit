@@ -16,6 +16,7 @@ if(isset($_GET['admin_id'])) {
 
 }
 
+
 $sqlu = "SELECT * FROM tb_member WHERE id LIKE '%$ida%' ORDER BY id ASC";
 $resultu = mysqli_query($connect, $sqlu);
 $rowu = mysqli_fetch_array($resultu, MYSQLI_BOTH);
@@ -118,11 +119,11 @@ $rowu = mysqli_fetch_array($resultu, MYSQLI_BOTH);
                     <th class="border border-gray-300 px-4 py-2 text-center">อาชีพ</th>
                     <th class="border border-gray-300 px-4 py-2 text-center">รายได้</th>
                     <th class="border border-gray-300 px-4 py-2 text-center">ประเภทความพิการ</th>
-                    <?php if(isset($ida))
-                    { ?>
+                    <?php //if(isset($ida))
+                    //{ ?>
                     <th class="border border-gray-300 px-4 py-2 text-center">แก้ไข</th>
                     <th class="border border-gray-300 px-4 py-2 text-center">ลบ</th>
-                    <?php } ?>
+                    <?php //} ?>
                 </tr>
             </thead>
             <tbody>
@@ -136,14 +137,20 @@ $rowu = mysqli_fetch_array($resultu, MYSQLI_BOTH);
                     <td class="border border-gray-300 px-4 py-2 text-center"><?php echo $row["detail_occ"] ?></td>
                     <td class="border border-gray-300 px-4 py-2 text-center"><?php echo $row["detail_salary"] ?></td>
                     <td class="border border-gray-300 px-4 py-2 text-center"><?php echo $row["detail_type"] ?></td>
-                    <?php if(isset($ida) && $row["id"] == $ida)
-                    { ?>
                     <td class="border border-gray-300 px-4 py-2 text-center">
-                        <a href="editForm.php?detail_id=<?php echo $row["detail_id"]; ?>&user_id=<?php echo $row["id"]; ?>&admin=1" class="bg-blue-500 text-white rounded px-2 py-1"><i class="fa-solid fa-pen-to-square"></i></a>
+                        <a href="editForm.php?detail_id=<?php echo $row["detail_id"]; ?>&user_id=<?php echo $row["id"]; ?>&ida=<?php echo $ida;?>" class="bg-blue-500 text-white rounded px-2 py-1"><i class="fa-solid fa-pen-to-square"></i></a>
                     </td>
                     <td class="border border-gray-300 px-4 py-2 text-center">
                         <a href="deleteQueryString.php?detail_id=<?php echo $row["detail_id"]; ?>&user_id=<?php echo $row["id"]; ?>&admin=1" class="bg-red-500 text-white rounded px-2 py-1" onclick="return confirm('คุณต้องการลบข้อมูลหรือไม่')"><i class="fa-solid fa-trash"></i></a>
                     </td>
+                    <?php if(isset($ida) && $row["id"] == $ida)
+                    { ?>
+                    <!-- <td class="border border-gray-300 px-4 py-2 text-center">
+                        <a href="editForm.php?detail_id=<?php echo $row["detail_id"]; ?>&user_id=<?php echo $row["id"]; ?>&admin_id=<?php echo $ida;?>" class="bg-blue-500 text-white rounded px-2 py-1"><i class="fa-solid fa-pen-to-square"></i></a>
+                    </td>
+                    <td class="border border-gray-300 px-4 py-2 text-center">
+                        <a href="deleteQueryString.php?detail_id=<?php echo $row["detail_id"]; ?>&user_id=<?php echo $row["id"]; ?>&admin=1" class="bg-red-500 text-white rounded px-2 py-1" onclick="return confirm('คุณต้องการลบข้อมูลหรือไม่')"><i class="fa-solid fa-trash"></i></a>
+                    </td> -->
                     <?php $btn = 0; ?>
                     <?php }else { ?>
                         <?php $btn = 1; ?>
@@ -160,7 +167,7 @@ $rowu = mysqli_fetch_array($resultu, MYSQLI_BOTH);
         <?php } ?>
         <?php if($btn == 1 || $btn2 == 1) 
         { ?>
-        <a href="insertForm.php?user_id=<?php echo $ida; ?>&admin=1" class="bg-green-500 text-white rounded inline-block mt-4 p-2 mr-1">เพิ่มข้อมูล</a>
+        <a href="insertForm.php?user_id=<?php echo $ida; ?>&ida=<?php echo $ida;?>" class="bg-green-500 text-white rounded inline-block mt-4 p-2 mr-1">เพิ่มข้อมูล</a>
         <?php $btn2 = 0; ?>
         <?php } ?>
 </div>
