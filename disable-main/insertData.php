@@ -3,7 +3,7 @@ session_start();
 require('dbconnect.php');
 
 $id = $_POST['user_id'];
-$admin = $_POST['admin_id'];
+// $admin = $_POST['admin_id'];
 $detail_date = $_POST['detail_date'];
 $detail_address = $_POST['detail_address'];
 $detail_idp = $_POST['detail_idp'];
@@ -12,6 +12,16 @@ $detail_salary = $_POST['detail_salary'];
 $detail_type = $_POST['detail_type'];
 $detail_line = $_POST['detail_line'];
 $detail_facebook = $_POST['detail_facebook'];
+
+if(isset($_GET['admin_id'])) {
+    $ida = $_GET['admin_id'];
+} else {
+    $ida = $id;
+}
+
+$sqlu = "SELECT * FROM tb_member WHERE id LIKE '%$ida%' ORDER BY id ASC";
+$resultu = mysqli_query($connect, $sqlu);
+$rowu = mysqli_fetch_array($resultu, MYSQLI_BOTH);
 
 if (isset($_POST['detail_care'])) {
     $detail_care = "มี";
@@ -35,18 +45,18 @@ $sql = "INSERT INTO tb_detail (id, detail_date, detail_address, detail_idp, deta
 $result = mysqli_query($connect, $sql);
 
 if($result) {
-    if($admin == 1)
+    if($rowu["urole"] == "admin")
     {
         echo "<script>";
         echo "alert('เพิ่มข้อมูลเสร็จสิ้น!');";
         $_SESSION['refres_page7'] = 7;
-        echo "location.href='tb_count.php?user_id='+ ".$id;
+        echo "location.href='tb_count.php?admin_id='+ ".$ida;
         echo "</script>";
     }else{
         echo "<script>";
         echo "alert('เพิ่มข้อมูลเสร็จสิ้น!');";
         $_SESSION['refres_page8'] = 8;
-        echo "location.href='tb_count.php?user_id='+ ".$id;
+        echo "location.href='tb_count.php?user_id='+ ".$ida;
         echo "</script>";
     }
 } else {

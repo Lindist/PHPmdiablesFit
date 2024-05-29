@@ -43,11 +43,12 @@ while($row = mysqli_fetch_assoc($result))
 }
 $arr1=implode(",",$data1);
 
-
 $id = $_GET['user_id'];
-if(isset($_GET['admin']))
-{
-    $admin = $_GET['admin'];
+
+if(isset($_GET['admin_id'])) {
+    $ida = $_GET['admin_id'];
+} else {
+    $ida = $id;
 }
 
 ?>
@@ -76,7 +77,7 @@ if(isset($_GET['admin']))
         <form action="insertData.php" method="POST">
 
         <input type="hidden" name="user_id" value="<?php echo $id; ?>">
-        <input type="hidden" name="admin_id" value="<?php echo $admin; ?>">
+        <input type="hidden" name="admin_id" value="<?php echo $ida; ?>">
 
             <!-- <div class="mb-4">
                 <label for="id" class="block font-medium text-gray-700">id</label>

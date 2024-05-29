@@ -27,8 +27,8 @@ if($result) {
         echo "</script>";
     }else{
 
-        echo "ลบข้อมูลเรียบร้อย";
-        echo "<a href='index.php'>กลับหน้าแรก<a>";
+        // echo "ลบข้อมูลเรียบร้อย";
+        // echo "<a href='index.php'>กลับหน้าแรก<a>";
         echo "<script>";
         echo "alert('ลบข้อมูลเสร็จสิ้น!');";
         echo "</script>";
