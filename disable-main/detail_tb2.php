@@ -135,14 +135,20 @@ $rowu = mysqli_fetch_array($resultu, MYSQLI_BOTH);
                     <td class="border border-gray-300 px-4 py-2 text-center"><?php echo $row["detail_care_tel"] ?></td>
                     <td class="border border-gray-300 px-4 py-2 text-center"><?php echo $row["detail_line"] ?></td>
                     <td class="border border-gray-300 px-4 py-2 text-center"><?php echo $row["detail_facebook"] ?></td>
+                    <td class="border border-gray-300 px-4 py-2 text-center">
+                        <a href="editForm.php?detail_id=<?php echo $row["detail_id"]; ?>&user_id=<?php echo $row["id"]; ?>&ida=<?php echo $ida;?>" class="bg-blue-500 text-white rounded px-2 py-1"><i class="fa-solid fa-pen-to-square"></i></a>
+                    </td>
+                    <td class="border border-gray-300 px-4 py-2 text-center">
+                        <a href="deleteQueryString.php?detail_id=<?php echo $row["detail_id"] ?>&user_id=<?php echo $row["id"]; ?>&admin=1" class="bg-red-500 text-white rounded px-2 py-1" onclick="return confirm('คุณต้องการลบข้อมูลหรือไม่')"><i class="fa-solid fa-trash"></i></a>
+                    </td>
                     <?php if(isset($ida) && $row["id"] == $ida)
                     { ?>
-                    <td class="border border-gray-300 px-4 py-2 text-center">
+                    <!-- <td class="border border-gray-300 px-4 py-2 text-center">
                         <a href="editForm.php?detail_id=<?php echo $row["detail_id"] ?>&user_id=<?php echo $ida; ?>&admin=1" class="bg-blue-500 text-white rounded px-2 py-1"><i class="fa-solid fa-pen-to-square"></i></a>
                     </td>
                     <td class="border border-gray-300 px-4 py-2 text-center">
                         <a href="deleteQueryString.php?detail_id=<?php echo $row["detail_id"] ?>&user_id=<?php echo $ida; ?>&admin=1" class="bg-red-500 text-white rounded px-2 py-1" onclick="return confirm('คุณต้องการลบข้อมูลหรือไม่')"><i class="fa-solid fa-trash"></i></a>
-                    </td>
+                    </td> -->
                     <?php $btn = 0; ?>
                     <?php }else { ?>
                         <?php $btn = 1; ?>
@@ -159,7 +165,7 @@ $rowu = mysqli_fetch_array($resultu, MYSQLI_BOTH);
         <?php } ?>
         <?php if($btn == 1 || $btn2 == 1)
         { ?>
-        <a href="insertForm.php?user_id=<?php echo $ida; ?>&admin=1" class="bg-green-500 text-white rounded inline-block mt-4 p-2 mr-1">เพิ่มข้อมูล</a>
+        <a href="insertForm.php?user_id=<?php echo $ida; ?>&ida=<?php echo $ida;?>" class="bg-green-500 text-white rounded inline-block mt-4 p-2 mr-1">เพิ่มข้อมูล</a>
         <?php $btn2 = 0; ?>
         <?php } ?>
     </div>

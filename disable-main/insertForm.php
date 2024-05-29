@@ -45,11 +45,15 @@ $arr1=implode(",",$data1);
 
 $id = $_GET['user_id'];
 
-if(isset($_GET['admin_id'])) {
-    $ida = $_GET['admin_id'];
+if(isset($_GET['ida'])) {
+    $ida = $_GET['ida'];
 } else {
     $ida = $id;
 }
+
+$sqlr = "SELECT * FROM tb_member WHERE id LIKE '%$ida%'";
+$resultr = mysqli_query($connect, $sqlr);
+$rowr = mysqli_fetch_array($resultr, MYSQLI_BOTH);
 
 ?>
 <html lang="en">
@@ -158,7 +162,16 @@ if(isset($_GET['admin_id'])) {
             <div class="flex items-center space-x-2 mt-4">
                 <input type="submit" value="บันทึกข้อมูล" class="bg-green-500 text-white rounded inline-block p-2">
                 <input type="reset" value="ล้างข้อมูล" class="bg-red-500 text-white rounded inline-block p-2">
-                <a href="homeuser_detail_1.php?user_id=<?php echo $id; ?>" class="bg-blue-500 text-white rounded inline-block p-2">กลับหน้าแรก</a>
+                <?php
+                
+                if ($rowr["urole"] == 'admin') {
+                    echo '<a href="detail_tb1.php?admin_id=<?php echo $ida; ?>" class="bg-blue-500 text-white rounded inline-block p-2">กลับหน้าแรก</a>';
+                } else {
+                    echo '<a href="homeuser_detail_1.php?user_id=<?php echo $ida; ?>" class="bg-blue-500 text-white rounded inline-block p-2">กลับหน้าแรก</a>';
+                }
+                
+                ?>
+                <!-- <a href="homeuser_detail_1.php?user_id=<?php echo $id; ?>" class="bg-blue-500 text-white rounded inline-block p-2">กลับหน้าแรก</a> -->
             </div>
         </form>
     </div>
