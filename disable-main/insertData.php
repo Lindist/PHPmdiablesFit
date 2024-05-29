@@ -22,7 +22,7 @@ if (isset($_POST['detail_care'])) {
 if ($detail_care == "ไม่มี") {
     $detail_care_name = "-";
     $detail_care_lastname = "-";    
-    $detail_care_tell = "-";
+    $detail_care_tel = "-";
 } else {
     $detail_care_name = $_POST['detail_care_name'];
     $detail_care_lastname = $_POST['detail_care_lastname'];

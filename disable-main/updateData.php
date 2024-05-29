@@ -14,6 +14,16 @@ $detail_type = $_POST['detail_type'];
 $detail_line = $_POST['detail_line'];
 $detail_facebook = $_POST['detail_facebook'];
 
+if(isset($_GET['ida'])) {
+    $ida = $_GET['ida'];
+} else {
+    $ida = $id;
+}
+
+$sqlu = "SELECT * FROM tb_member WHERE id LIKE '%$ida%' ORDER BY id ASC";
+$resultu = mysqli_query($connect, $sqlu);
+$rowu = mysqli_fetch_array($resultu, MYSQLI_BOTH);
+
 if (isset($_POST['detail_care'])) {
     $detail_care = "มี";
 } else {
@@ -48,20 +58,20 @@ $sql = "UPDATE tb_detail SET
 
 $result = mysqli_query($connect, $sql);
 // echo $sql;
+echo $rowu["urole"];
 if($result) {
-    if($admin == 0)
+    if($rowu["urole"] == "admin")
     {
         echo "<script>";
         echo "alert('อัปเดตข้อมูลเสร็จสิ้น!');";
         $_SESSION['refres_page5'] = 5;
-        echo "location.href='tb_count.php?user_id='+ ".$id;
+        echo "location.href='tb_count.php?admin_id='+ ".$ida;
         echo "</script>";
     }else{
         echo "<script>";
         echo "alert('อัปเดตข้อมูลเสร็จสิ้น!');";
         $_SESSION['refres_page6'] = 6;
-        echo "location.href='tb_count.php?admin_id='+ ".$id;
-        
+        echo "location.href='tb_count.php?user_id='+ ".$ida;
         echo "</script>";
     }
 } else {
