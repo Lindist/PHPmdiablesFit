@@ -22,8 +22,7 @@ if($result) {
         echo "<script>";
         echo "alert('ลบข้อมูลเสร็จสิ้น!');";
         // echo "window.location = 'index.php';";
-        $_SESSION['refres_page4'] = 4;
-        echo "location.href='tb_count.php?admin_id='+ ".$id;
+        echo "location.href='detail_tb1.php?admin_id='+ ".$id;
         echo "</script>";
     }else{
 

@@ -49,14 +49,12 @@ if($result) {
     {
         echo "<script>";
         echo "alert('เพิ่มข้อมูลเสร็จสิ้น!');";
-        $_SESSION['refres_page7'] = 7;
-        echo "location.href='tb_count.php?admin_id='+ ".$ida;
+        echo "location.href='detail_tb1.php?admin_id='+ ".$ida;
         echo "</script>";
     }else{
         echo "<script>";
         echo "alert('เพิ่มข้อมูลเสร็จสิ้น!');";
-        $_SESSION['refres_page8'] = 8;
-        echo "location.href='tb_count.php?user_id='+ ".$ida;
+        echo "location.href='homeuser_detail_1.php?user_id='+ ".$ida;
         echo "</script>";
     }
 } else {

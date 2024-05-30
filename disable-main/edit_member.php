@@ -33,14 +33,13 @@ if($result) {
     if ($rowu["urole"] == 'admin') {
         echo "<script>";
         echo "alert('อัปเดตข้อมูลเสร็จสิ้น!');";
-        $_SESSION['refres_page2'] = 2;
-        echo "location.href='tb_count.php?admin_id='+ ".$ida;
+        echo "location.href='member_tb.php?admin_id='+ ".$ida;
+    // echo "<script src='backpages.js'></script>";
         echo "</script>";
     } else {
         echo "<script>";
         echo "alert('อัปเดตข้อมูลเสร็จสิ้น!');";
-        $_SESSION['refres_page3'] = 3;
-        echo "location.href='tb_count.php?user_id='+ ".$ida;
+        echo "location.href='homeuser_member.php?user_id='+ ".$ida;
         echo "</script>";
     }
 } else {
