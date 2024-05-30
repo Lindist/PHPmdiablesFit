@@ -143,7 +143,7 @@ $rowu = mysqli_fetch_array($resultu, MYSQLI_BOTH);
                         <a href="edit_memberform.php?user_id=<?php echo $row["id"] ?>&ida=<?php echo $ida ?>" class="bg-blue-500 text-white rounded px-2 py-1"><i class="fa-solid fa-pen-to-square"></i></a>
                     </td>
                     <td class="border border-gray-300 px-4 py-2 text-center">
-                        <a href="deletemember.php?id=<?php //echo $row["id"] ?>" class="bg-red-500 text-white rounded px-2 py-1" onclick="return confirm('คุณต้องการลบข้อมูลหรือไม่')"><i class="fa-solid fa-trash"></i></a>
+                        <a href="deletemember.php?id=<?php echo $row["id"]; ?>&ida=<?php echo $ida; ?>" class="bg-red-500 text-white rounded px-2 py-1" onclick="return confirm('คุณต้องการลบข้อมูลหรือไม่')"><i class="fa-solid fa-trash"></i></a>
                     </td>
                 </tr>
             <?php } ?>
