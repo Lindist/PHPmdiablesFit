@@ -13,7 +13,9 @@ if(isset($_GET['ida'])) {
 } else {
     $ida = $id;
 }
-
+if(isset($_GET['admin_id'])) {
+    $admin_id = $_GET['admin_id'];
+}
 $sqlu = "SELECT * FROM tb_member WHERE id LIKE '%$ida%' ORDER BY id ASC";
 $resultu = mysqli_query($connect, $sqlu);
 $rowu = mysqli_fetch_array($resultu, MYSQLI_BOTH);
@@ -44,8 +46,8 @@ $rowu = mysqli_fetch_array($resultu, MYSQLI_BOTH);
         <form action="edit_member.php" method="POST">
 
             <input type="hidden" value="<?php echo $row["id"]; ?>" name="id"> <!-- hide id -->
-            <input type="hidden" value="<?php echo $ida ?>" name="ida">
-
+            <input type="hidden" value="<?php echo $ida; ?>" name="ida">
+            <input type="hidden" value="<?php echo $admin_id; ?>" name="admin_id">
             <div class="mb-4">
                 <label for="firstname" class="block font-medium text-gray-700">ชื่อจริง</label>
                 <input type="text" name="firstname" class="mt-1 p-2 bg-white text-1xl border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md focus:ring-1" value="<?php echo $row["firstname"]; ?>">
