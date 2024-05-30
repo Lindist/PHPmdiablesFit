@@ -10,48 +10,64 @@ $stmt = $conn->query("SELECT * FROM tb_member GROUP BY gender");
 $stmt1 = $conn->query("SELECT * FROM tb_member GROUP BY age");
 $stmt2 = $conn->query("SELECT * FROM tb_detail GROUP BY detail_occ");
 // ดึงข้อมูลเป็นแถว associative array
+$agearr_key = array();
+$agearr_value = array();
 
+$genderarr_key = array();
+$genderarr_value = array();
+
+$careerarr_key = array();
+$careerarr_value = array();
 while($data = $stmt1->fetch(PDO::FETCH_ASSOC))
 {
     // แสดงจำนวน
-    echo $data['age']." | ";
+    $agearr_key[] = $data['age'];
 }
 
-echo "<br>";
 
 while($data = $ages->fetch(PDO::FETCH_ASSOC))
 {
     // แสดงจำนวน
-    echo $data['age']."---";
+    $agearr_value[] = $data['age'];
 }
-echo "<br>";
 
 while($data = $stmt->fetch(PDO::FETCH_ASSOC))
 {
     // แสดงจำนวน
-    echo $data['gender']." | ";
+    $genderarr_key[] = $data['gender'];
 }
 
-echo "<br>";
 
 while($data = $genders->fetch(PDO::FETCH_ASSOC))
 {
     // แสดงจำนวน
-    echo $data['gender']."---";
+    $genderarr_value[] = $data['gender'];
 }
-echo "<br>";
+
 while($data = $stmt2->fetch(PDO::FETCH_ASSOC))
 {
     // แสดงจำนวน
-    echo $data['detail_occ']." | ";
+    $careerarr_key[] = $data['detail_occ'];
 }
 
-echo "<br>";
+
 
 while($data = $career->fetch(PDO::FETCH_ASSOC))
 {
     // แสดงจำนวน
-    echo $data['career']."---";
+    $careerarr_value[] = $data['career'];
 }
 
+// print_r($agearr_key);
+// echo "<br>";
+// print_r($agearr_value);
+// echo "<br>";
+// print_r($genderarr_key);
+// echo "<br>";
+// print_r($genderarr_value);
+// echo "<br>";
+// print_r($careerarr_key);
+// echo "<br>";
+// print_r($careerarr_value);
+// echo "<br>";
 ?>

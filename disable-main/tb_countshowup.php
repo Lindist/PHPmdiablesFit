@@ -1,19 +1,17 @@
 <?php 
 require('dbconnect.php');
+include 'tb_counttest1.php';
 
 if(isset($_GET['admin_id']))
 {
     $ida = $_GET['admin_id'];
 }
 
-$sql = "SELECT * FROM tb_count";
-$result = mysqli_query($connect, $sql);
-
 $sqlu = "SELECT * FROM tb_member WHERE id LIKE '%$ida%' ORDER BY id ASC";
 $resultu = mysqli_query($connect, $sqlu);
 $rowu = mysqli_fetch_array($resultu, MYSQLI_BOTH);
 
-$count = mysqli_num_rows($result);
+$count = count($agearr_value)+count($genderarr_value)+count($careerarr_value);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -110,10 +108,22 @@ $count = mysqli_num_rows($result);
                 </tr>
             </thead>
             <tbody>
-            <?php while($row = mysqli_fetch_array($result, MYSQLI_BOTH)) { ?>
+            <?php for($row=0;$row < count($agearr_key);$row++) { ?>
                 <tr>
-                    <td class="border border-gray-300 px-4 py-2 text-center"><?php echo $row["member_type"] ?></td>
-                    <td class="border border-gray-300 px-4 py-2 text-center"><?php echo $row["Count"]?></td>
+                    <td class="border border-gray-300 px-4 py-2 text-center"><?php echo "อายุ ".$agearr_key[$row]; ?></td>
+                    <td class="border border-gray-300 px-4 py-2 text-center"><?php echo $agearr_value[$row]; ?></td>
+                </tr>
+            <?php } ?>
+            <?php for($row=0;$row < count($genderarr_key);$row++) { ?>
+                <tr>
+                    <td class="border border-gray-300 px-4 py-2 text-center"><?php echo "เพศ ".$genderarr_key[$row]; ?></td>
+                    <td class="border border-gray-300 px-4 py-2 text-center"><?php echo $genderarr_value[$row]; ?></td>
+                </tr>
+            <?php } ?>
+            <?php for($row=0;$row < count($careerarr_key);$row++) { ?>
+                <tr>
+                    <td class="border border-gray-300 px-4 py-2 text-center"><?php echo "อาชีพ ".$careerarr_key[$row]; ?></td>
+                    <td class="border border-gray-300 px-4 py-2 text-center"><?php echo $careerarr_value[$row]; ?></td>
                 </tr>
             <?php } ?>
             </tbody>
