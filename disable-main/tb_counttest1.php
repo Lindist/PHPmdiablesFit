@@ -1,29 +1,57 @@
-<!-- <?php 
-
-// require('dbconnect.php');
-// $sql11 = "SELECT count(*) as total from tb_member";
-// $result11=mysql_query($connect,$sql11);
-// $data=mysql_fetch_assoc($result11);
-// echo $data['total'];
-
-?> -->
 <?php
 // เชื่อมต่อกับฐานข้อมูล
 require('connect.php');
 
-$sql11 = "SELECT COUNT(*) as total FROM tb_member";
+$genders = $conn->query("SELECT gender, COUNT(*) as gender FROM tb_member GROUP BY gender");
+$ages = $conn->query("SELECT age, COUNT(*) as age FROM tb_member GROUP BY age");
+$career = $conn->query("SELECT detail_occ, COUNT(*) as career FROM tb_detail GROUP BY detail_occ");
 
-// ดำเนินการคำสั่ง SQL
-$result11 = $conn->query($sql11);
-
+$stmt = $conn->query("SELECT * FROM tb_member GROUP BY gender");
+$stmt1 = $conn->query("SELECT * FROM tb_member GROUP BY age");
+$stmt2 = $conn->query("SELECT * FROM tb_detail GROUP BY detail_occ");
 // ดึงข้อมูลเป็นแถว associative array
-while($data = $result11->fetch(PDO::FETCH_ASSOC))
+
+while($data = $stmt1->fetch(PDO::FETCH_ASSOC))
 {
     // แสดงจำนวน
-    echo $data['total'];
+    echo $data['age']." | ";
 }
 
+echo "<br>";
 
-// ปิดการเชื่อมต่อ
-// $connect->close();
+while($data = $ages->fetch(PDO::FETCH_ASSOC))
+{
+    // แสดงจำนวน
+    echo $data['age']."---";
+}
+echo "<br>";
+
+while($data = $stmt->fetch(PDO::FETCH_ASSOC))
+{
+    // แสดงจำนวน
+    echo $data['gender']." | ";
+}
+
+echo "<br>";
+
+while($data = $genders->fetch(PDO::FETCH_ASSOC))
+{
+    // แสดงจำนวน
+    echo $data['gender']."---";
+}
+echo "<br>";
+while($data = $stmt2->fetch(PDO::FETCH_ASSOC))
+{
+    // แสดงจำนวน
+    echo $data['detail_occ']." | ";
+}
+
+echo "<br>";
+
+while($data = $career->fetch(PDO::FETCH_ASSOC))
+{
+    // แสดงจำนวน
+    echo $data['career']."---";
+}
+
 ?>
