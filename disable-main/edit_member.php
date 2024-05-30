@@ -7,7 +7,9 @@ if(isset($_POST['ida'])) {
 } else {
     $ida = $id;
 }
-
+if(isset($_POST['admin_id'])){
+    $admin_id = $_POST['admin_id'];
+}
 $sqlu = "SELECT * FROM tb_member WHERE id LIKE '%$ida%' ORDER BY id ASC";
 $resultu = mysqli_query($connect, $sqlu);
 $rowu = mysqli_fetch_array($resultu, MYSQLI_BOTH);
@@ -31,11 +33,21 @@ $result = mysqli_query($connect, $sql);
 
 if($result) {
     if ($rowu["urole"] == 'admin') {
-        echo "<script>";
-        echo "alert('อัปเดตข้อมูลเสร็จสิ้น!');";
-        echo "location.href='member_tb.php?admin_id='+ ".$ida;
-    // echo "<script src='backpages.js'></script>";
-        echo "</script>";
+        if($admin_id == 1)
+        {
+            echo "<script>";
+            echo "alert('อัปเดตข้อมูลเสร็จสิ้น!');";
+            echo "location.href='member_tb.php?admin_id='+ ".$ida;
+        // echo "<script src='backpages.js'></script>";
+            echo "</script>";
+        }
+        else{
+            echo "<script>";
+            echo "alert('อัปเดตข้อมูลเสร็จสิ้น!');";
+            echo "location.href='homeadmin.php?admin_id='+ ".$ida;
+        // echo "<script src='backpages.js'></script>";
+            echo "</script>";
+        }
     } else {
         echo "<script>";
         echo "alert('อัปเดตข้อมูลเสร็จสิ้น!');";
