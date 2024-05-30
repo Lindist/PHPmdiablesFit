@@ -44,6 +44,17 @@ $rowu = mysqli_fetch_array($resultu, MYSQLI_BOTH);
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script src="https://cdn.datatables.net/2.0.8/js/dataTables.js"></script>
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.0.8/css/dataTables.dataTables.css">
+    <script>
+        $(document).ready( function () {
+            $('#myTable').DataTable();
+        } );
+        let table = new DataTable('#myTable', {
+            responsive: true
+        });
+    </script>
   </head>
   <body class="">
     <div class="sidebar">
@@ -109,15 +120,15 @@ $rowu = mysqli_fetch_array($resultu, MYSQLI_BOTH);
         <h1 class="text-center text-2xl font-medium">ตารางผู้ใช้</h1>
         <hr class="my-4">
         <div class="mb-3">
-            <form action="searchmember.php" class="flex space-x-2" method="POST">
-                <input type="hidden" value="<?php echo $row["id"]; ?>" name="id"> <!-- hide id -->
+            <!-- <form action="searchmember.php" class="flex space-x-2" method="POST">
+                <input type="hidden" value="<?php echo $row["id"]; ?>" name="id">
                 <input type="hidden" value="<?php echo $ida ?>" name="ida">
                 <input class="flex-grow p-2 border border-gray-300 rounded" type="search" name="firstname" placeholder="ป้อนชื่อจริง">
                 <button class="rounded p-2 bg-blue-500 text-white" type="submit">Search</button>
-            </form>
+            </form> -->
         </div>
         <?php if ($count>0) { ?>
-        <table class="table-auto w-full border-collapse border border-gray-300">
+        <table class="table-auto w-full border-collapse border border-gray-300" id="myTable">
             <thead>
                 <tr class="bg-gray-200">
                     <th class="border border-gray-300 px-4 py-2 text-center">ไอดี</th>

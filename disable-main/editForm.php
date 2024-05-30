@@ -160,8 +160,6 @@ $rowr = mysqli_fetch_array($resultr, MYSQLI_BOTH);
                 </div>
             <?php } ?>
 
-            <?php //if ($row['detail_care'] == "มี") { ?>
-                <!-- <input class="form-checkbox h-6 w-6" type="checkbox" style="display:none" name="detail_care" value="1" checked> -->
                 <div class="answer mb-4">
                     <label for="detail_care_name" class="block font-medium text-gray-700">ชื่อผู้ดูแล</label>
                     <input type="text" name="detail_care_name" class="mt-1 p-2 bg-white text-1xl border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md focus:ring-1" value="<?php echo $row["detail_care_name"]; ?>">
@@ -174,9 +172,6 @@ $rowr = mysqli_fetch_array($resultr, MYSQLI_BOTH);
                     <label for="detail_care_tel" class="block font-medium text-gray-700">เบอร์โทรผู้ดูแล</label>
                     <input type="text" name="detail_care_tel" class="mt-1 p-2 bg-white text-1xl border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md focus:ring-1" value="<?php echo $row["detail_care_tel"]; ?>">
                 </div>
-            <?php //} else { ?>
-                <!-- <p>echo "ไม่มี";</p> -->
-            <?php //} ?>
  
             <div class="flex items-center space-x-2 mt-4">
                 <input type="submit" value="บันทึกข้อมูล" class="bg-green-500 text-white rounded inline-block p-2">

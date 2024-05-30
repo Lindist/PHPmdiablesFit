@@ -215,7 +215,8 @@
     width: 50px;
     background: none;
   }
-  .home-section{
+  .home-section,
+  .home-section-result {
     position: relative;
     background: #E2E8F0;
     min-height: 100vh;
@@ -225,11 +226,13 @@
     transition: all 0.5s ease;
     z-index: 2;
   }
-  .sidebar.open ~ .home-section{
+  .sidebar.open ~ .home-section
+  .sidebar.open ~ .home-section-result {
     left: 250px;
     width: calc(100% - 250px);
   }
-  .home-section .text{
+  .home-section .text
+  .home-section-result .text {
     display: inline-block;
     color: #11101d;
     font-size: 25px;

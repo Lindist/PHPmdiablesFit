@@ -93,6 +93,16 @@ $stmt = $con->query("SELECT * FROM tb_member GROUP BY gender");
       </ul>
     </div>
     <section class="home-section p-3 bg-slate-200">
+        <nav class="bg-blue-500 p-4">
+            <div class="flex items-center justify-center">
+                <div class="text-white text-2xl font-bold"></div>
+                <ul class="">
+                    <li><a href="#" class="text-white mx-10">Home</a></li>
+                    <li><a href="#" class="text-white">Home</a></li>
+                    <li><a href="#" class="text-white">Home</a></li>
+                </ul>
+            </div>
+        </nav>
         <?php
         
         while ($row1 = mysqli_fetch_array($stmt)) {
