@@ -28,7 +28,61 @@ $count = count($agearr_value)+count($genderarr_value)+count($careerarr_value);
             font-family: "Kanit", sans-serif;
             font-weight: 300;
             font-style: normal;
+       }
+       /* .tabs{
+          display: flex;
+          flex-wrap: wrap;
+
         }
+
+        .tabs__label{
+          padding: 10px 16px;
+          cursor: pointer;
+        }
+
+        .tabs__radio{
+          display:none;
+        }
+
+        .tab__content1{
+          order:1;
+          width: 100%;
+          border-bottom:3px solid #ddd;
+          line-height:1.5;
+          font-size: 0.9rem;
+          display:none;
+        }
+        .tab__content2{
+          order:1;
+          width: 100%;
+          border-bottom:3px solid #ddd;
+          line-height:1.5;
+          font-size: 0.9rem;
+          display:none;
+        }
+        .tab__content3{
+          order:1;
+          width: 100%;
+          border-bottom:3px solid #ddd;
+          line-height:1.5;
+          font-size: 0.9rem;
+          display:none;
+        }
+        .tabs__radio:checked+.tabs__label{
+          font-weight:bold;
+          color:#009578;
+          border-bottom:2px solid #009578;
+        }
+
+        .tabs__radio:checked+.tabs__label+.tab__content1{
+          display:initial;
+        }
+        .tabs__radio:checked+.tabs__label+.tab__content2{
+          display:initial;
+        }
+        .tabs__radio:checked+.tabs__label+.tab__content3{
+          display:initial;
+        } */
     </style>
     <link href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -42,6 +96,7 @@ $count = count($agearr_value)+count($genderarr_value)+count($careerarr_value);
         let table = new DataTable('#myTable', {
             responsive: true
         });
+
     </script>
 
   </head>
@@ -101,53 +156,78 @@ $count = count($agearr_value)+count($genderarr_value)+count($careerarr_value);
       </ul>
     </div>
     <section class="home-section p-3 bg-slate-200">
-    <div class="container mx-auto overflow-x-auto p-6 bg-white rounded shadow-md">
+      <div class="container mx-auto overflow-x-auto p-6 bg-white rounded shadow-md">
         <h1 class="text-center text-2xl font-medium">ตารางผู้พิการ</h1>
         <hr class="my-4">
-        <!-- <div class="mb-3">
-            <form action="tb_countsearch.php" class="flex space-x-2" method="POST">
-                <input class="flex-grow p-2 border border-gray-300 rounded" type="search" name="search" placeholder="ป้อนประเภท">
+          <!-- <div class="tabs">
+              <input type="radio" class="tabs__radio" name="tabs-example" id="tab1" checked>
+              <label for="tab1" class="tabs__label">อายุ</label>
+              <div class="tab__content1">
+                1
+              </div>
+              <input type="radio" class="tabs__radio" name="tabs-example" id="tab2">
+              <label for="tab2" class="tabs__label">เพศ</label>
+              <div class="tab__content2">
+                  2
+
+              </div>
+              <input type="radio" class="tabs__radio" name="tabs-example" id="tab3">
+              <label for="tab3" class="tabs__label">อาชีพ</label>
+              <div class="tab__content3">
+                 3
+
+              </div>
+          </div> -->
+        <div class="flex flex-warp gap-1">
+            <button class="p-4 rounded-lg text-gray-700 font-bold flex-grow w-80 hover:bg-gray-300 hover:bg-spacity-40" id="btn1">อายุ</button>
+            <button class="p-4 rounded-lg text-gray-700 font-bold flex-grow w-80 hover:bg-gray-300 hover:bg-spacity-40" id="btn2">เพศ</button>
+            <button class="p-4 rounded-lg text-gray-700 font-bold flex-grow w-80 hover:bg-gray-300 hover:bg-spacity-40" id="btn3">อาชีพ</button>
+        </div>
+              <!-- <div class="mb-3">
+                <form action="tb_countsearch.php" class="flex space-x-2" method="POST">
+                  <input class="flex-grow p-2 border border-gray-300 rounded" type="search" name="search" placeholder="ป้อนประเภท">
                 <input type="hidden" name="ida" value = "<?php //echo $ida; ?>">
                 <button class="rounded p-2 bg-blue-500 text-white" type="submit">Search</button>
             </form>
         </div> -->
         <?php if ($count>0) { ?>
-        <table class="table-auto w-full border-collapse border border-gray-300" id="myTable">
+        <table class="table-auto w-full border-collapse border border-gray-300"><!-- id="myTable" --> 
             <thead>
                 <tr class="bg-gray-200">
                     <th class="border border-gray-300 px-4 py-2 text-center">ประเภท</th>
                     <th class="border border-gray-300 px-4 py-2 text-center">จำนวน</th>
-                </tr>
+                  </tr>
             </thead>
             <tbody>
-            <?php for($row=0;$row < count($agearr_key);$row++) { ?>
-                <tr>
-                    <td class="border border-gray-300 px-4 py-2 text-center"><?php echo "อายุ ".$agearr_key[$row]; ?></td>
-                    <td class="border border-gray-300 px-4 py-2 text-center"><?php echo $agearr_value[$row]; ?></td>
-                </tr>
-            <?php } ?>
-            <?php for($row=0;$row < count($genderarr_key);$row++) { ?>
-                <tr>
-                    <td class="border border-gray-300 px-4 py-2 text-center"><?php echo "เพศ ".$genderarr_key[$row]; ?></td>
-                    <td class="border border-gray-300 px-4 py-2 text-center"><?php echo $genderarr_value[$row]; ?></td>
-                </tr>
-            <?php } ?>
-            <?php for($row=0;$row < count($careerarr_key);$row++) { ?>
-                <tr>
-                    <td class="border border-gray-300 px-4 py-2 text-center"><?php echo "อาชีพ ".$careerarr_key[$row]; ?></td>
-                    <td class="border border-gray-300 px-4 py-2 text-center"><?php echo $careerarr_value[$row]; ?></td>
-                </tr>
-            <?php } ?>
-            </tbody>
-        </table>
+                <?php for($row=0;$row < count($agearr_key);$row++) { ?>
+                  <tr id="taba">
+                      <td class="border border-gray-300 px-4 py-2 text-center" ><?php echo "อายุ ".$agearr_key[$row]."ปี"; ?></td>
+                      <td class="border border-gray-300 px-4 py-2 text-center" ><?php echo $agearr_value[$row]; ?></td>
+                  </tr>
+                  <?php } ?>
+                <?php for($row=0;$row < count($genderarr_key);$row++) { ?>
+                  <tr id="tabg">
+                        <td class="border border-gray-300 px-4 py-2 text-center"><?php echo "เพศ ".$genderarr_key[$row]; ?></td>
+                        <td class="border border-gray-300 px-4 py-2 text-center"><?php echo $genderarr_value[$row]; ?></td>
+                    </tr>
+                <?php } ?>
+                <?php for($row=0;$row < count($careerarr_key);$row++) { ?>
+                    <tr id="tabc">
+                        <td class="border border-gray-300 px-4 py-2 text-center"><?php echo "อาชีพ ".$careerarr_key[$row]; ?></td>
+                        <td class="border border-gray-300 px-4 py-2 text-center"><?php echo $careerarr_value[$row]; ?></td>
+                    </tr>
+                    <?php } ?>
+                  </tbody>
+                </table>
+              </div>
         <?php } else { ?>
             <div class="text-center p-3 mt-4 bg-red-100 text-red-500 border border-red-300 rounded">
-                <b>ไม่มีข้อมูล!!</b>
+              <b>ไม่มีข้อมูล!!</b>
                 <?php $btn2 = 1; ?>
             </div>
         <?php } ?>
 
-</div>
+      
     </section>
     <script src="logout.js"></script>
     <script>
