@@ -1,22 +1,22 @@
 <?php
+// เชื่อมต่อฐานข้อมูล
 $con = mysqli_connect("localhost", "root", "", "database_disables");
 
+// ตรวจสอบการเชื่อมต่อ
+if (!$con) {
+    die("Connection failed: " . mysqli_connect_error());
+}
+
 // Query เพื่อดึงจำนวนสมาชิกแยกตามเพศ
-$query = "SELECT gender, count(*) AS gender from tb_member GROUP BY gender";
-$result = $con->query($query);
+$query1 = "SELECT age, count(*) AS count FROM tb_member GROUP BY age";
+$result1 = $con->query($query1);
 
-// Query เพื่อดึงข้อมูลทั้งหมดจากตาราง tb_member แยกตามเพศ
-$stmt = $con->query("SELECT * FROM tb_member GROUP BY gender");
-// while ($row1 = mysqli_fetch_array($stmt)) {
-//     echo $row1["gender"] . " | ";
-// }
+$query2 = "SELECT gender, count(*) AS count FROM tb_member GROUP BY gender";
+$result2 = $con->query($query2);
 
-// echo "<br>";
+$query3 = "SELECT detail_occ, count(*) AS count FROM tb_detail GROUP BY detail_occ";
+$result3 = $con->query($query3);
 
-// Print out result
-// while ($row = mysqli_fetch_array($result)) {
-//     echo $row['gender'] . "--";
-// }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -105,16 +105,58 @@ $stmt = $con->query("SELECT * FROM tb_member GROUP BY gender");
 
         <div class="mt-4">
             <div class="tab-content text-gray-700 hidden" id="tab1">
-                <h2 class="font-bold mt-9 mb-4 text-2xl">TT1</h2>
-                <p class="text-xl"></p>
+              <table class="table-auto w-full border-collapse border border-gray-300" id="myTable">
+                <thead>
+                  <tr class="bg-gray-200">
+                    <th class="border border-gray-300 px-4 py-2 text-center">ประเภท</th>
+                    <th class="border border-gray-300 px-4 py-2 text-center">จำนวน</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <?php while ($row1 = $result1->fetch_assoc()) { ?>
+                  <tr>
+                    <td class="border border-gray-300 px-4 py-2 text-center">อายุ <?php echo $row1["age"]; ?></td> 
+                    <td class="border border-gray-300 px-4 py-2 text-center"><?php echo $row1["count"]; ?></td> 
+                  </tr>
+                  <?php } ?>
+                </tbody>
+              </table>
             </div>
             <div class="tab-content text-gray-700 hidden" id="tab2">
-                <h2 class="font-bold mt-9 mb-4 text-2xl">TT2</h2>
-                <p class="text-xl"></p>
+            <table class="table-auto w-full border-collapse border border-gray-300" id="myTable">
+              <thead>
+                  <tr class="bg-gray-200">
+                    <th class="border border-gray-300 px-4 py-2 text-center">ประเภท</th>
+                    <th class="border border-gray-300 px-4 py-2 text-center">จำนวน</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <?php while ($row2 = $result2->fetch_assoc()) { ?>
+                  <tr>
+                    <td class="border border-gray-300 px-4 py-2 text-center"><?php echo $row2["gender"]; ?></td> 
+                    <td class="border border-gray-300 px-4 py-2 text-center"><?php echo $row2["count"]; ?></td> 
+                  </tr>
+                  <?php } ?>
+                </tbody>
+              </table>
             </div>
             <div class="tab-content text-gray-700 hidden" id="tab3">
-                <h2 class="font-bold mt-9 mb-4 text-2xl">TT3</h2>
-                <p class="text-xl"></p>
+              <table class="table-auto w-full border-collapse border border-gray-300" id="myTable">
+                <thead>
+                  <tr class="bg-gray-200">
+                    <th class="border border-gray-300 px-4 py-2 text-center">ประเภท</th>
+                    <th class="border border-gray-300 px-4 py-2 text-center">จำนวน</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <?php while ($row3 = $result3->fetch_assoc()) { ?>
+                  <tr>
+                    <td class="border border-gray-300 px-4 py-2 text-center"><?php echo $row3["detail_occ"]; ?></td> 
+                    <td class="border border-gray-300 px-4 py-2 text-center"><?php echo $row3["count"]; ?></td> 
+                  </tr>
+                  <?php } ?>
+                </tbody>
+              </table>
             </div>
         </div>
 
