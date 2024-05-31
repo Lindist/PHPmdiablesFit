@@ -1,21 +1,18 @@
 <?php 
 require('dbconnect.php');
-
+include 'tb_counttest1.php';
+$threshold = 80;
 // if(isset($_GET['admin_id']))
 // {
 $ida = $_POST['ida'];
 // }
 $type = $_POST["search"];
 
-
-$sql = "SELECT * FROM tb_count WHERE member_type LIKE '%$type%' ORDER BY member_type ASC";
-$result = mysqli_query($connect, $sql);
-
 $sqlu = "SELECT * FROM tb_member WHERE id LIKE '%$ida%' ORDER BY id ASC";
 $resultu = mysqli_query($connect, $sqlu);
 $rowu = mysqli_fetch_array($resultu, MYSQLI_BOTH);
 
-$count = mysqli_num_rows($result);
+$count = count($agearr_value)+count($genderarr_value)+count($careerarr_value);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -36,6 +33,17 @@ $count = mysqli_num_rows($result);
     </style>
     <link href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script src="https://cdn.datatables.net/2.0.8/js/dataTables.js"></script>
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.0.8/css/dataTables.dataTables.css">
+    <script>
+        $(document).ready( function () {
+            $('#myTable').DataTable();
+        } );
+        let table = new DataTable('#myTable', {
+            responsive: true
+        });
+    </script>
   </head>
   <body>
     <div class="sidebar">
@@ -112,10 +120,25 @@ $count = mysqli_num_rows($result);
                 </tr>
             </thead>
             <tbody>
-            <?php while($row = mysqli_fetch_array($result, MYSQLI_BOTH)) { ?>
+            <?php for($row=0;$row < count($agearr_key);$row++) { ?>
                 <tr>
-                    <td class="border border-gray-300 px-4 py-2 text-center"><?php echo $row["member_type"] ?></td>
-                    <td class="border border-gray-300 px-4 py-2 text-center"><?php echo $row["Count"]?></td>
+                    <td class="border border-gray-300 px-4 py-2 text-center"><?php echo "อายุ ".$agearr_key[$row]." ปี" ; ?></td>
+                    <td class="border border-gray-300 px-4 py-2 text-center"><?php echo $agearr_value[$row]; ?></td>
+                </tr>
+
+            <?php } ?>
+            <?php for($row=0;$row < count($genderarr_key);$row++) { ?>
+
+                <tr>
+                    <td class="border border-gray-300 px-4 py-2 text-center"><?php echo "เพศ ".$genderarr_key[$row]; ?></td>
+                    <td class="border border-gray-300 px-4 py-2 text-center"><?php echo $genderarr_value[$row]; ?></td>
+                </tr>
+            <?php } ?>
+            <?php for($row=0;$row < count($careerarr_key);$row++) { ?>
+
+                <tr>
+                    <td class="border border-gray-300 px-4 py-2 text-center"><?php echo "อาชีพ ".$careerarr_key[$row]; ?></td>
+                    <td class="border border-gray-300 px-4 py-2 text-center"><?php echo $careerarr_value[$row]; ?></td>
                 </tr>
             <?php } ?>
             </tbody>
