@@ -136,7 +136,7 @@ $rowr = mysqli_fetch_array($resultr, MYSQLI_BOTH);
                 }
             </style>
             
-            <?php if ($rowr["urole"] == 'admin') { ?>
+            <?php //if ($rowr["urole"] == 'admin') { ?>
                 <div class="question mb-3 flex items-center">
                     <label for="detail_care" class="font-medium text-gray-700 mr-2">คุณมีผู้ดูแลรึเปล่า?</label>
                     <?php
@@ -148,17 +148,17 @@ $rowr = mysqli_fetch_array($resultr, MYSQLI_BOTH);
                     ?>
                     <label for="detail_care" class="font-medium text-gray-700 ml-3">มี</label>
                 </div>
-            <?php } else { ?>
-                <div class="question hidden">
+            <?php //} else { ?>
+                <!-- <div class="question hidden"> -->
                 <?php
-                if ($row['detail_care'] == "มี") {
-                    echo '<input class="form-checkbox h-6 w-6" type="checkbox" name="detail_careu" value="1" checked>';
-                } else {
-                    echo '<input class="form-checkbox h-6 w-6" type="checkbox" name="detail_careu" value="1">';
-                }
+                // if ($row['detail_care'] == "มี") {
+                //     echo '<input class="form-checkbox h-6 w-6" type="checkbox" name="detail_careu" value="1" checked>';
+                // } else {
+                //     echo '<input class="form-checkbox h-6 w-6" type="checkbox" name="detail_careu" value="1">';
+                // }
                 ?>
-                </div>
-            <?php } ?>
+                <!-- </div> -->
+            <?php //} ?>
 
                 <div class="answer mb-4">
                     <label for="detail_care_name" class="block font-medium text-gray-700">ชื่อผู้ดูแล</label>

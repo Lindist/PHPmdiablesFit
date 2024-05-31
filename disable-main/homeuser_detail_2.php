@@ -101,7 +101,7 @@ $rowu = mysqli_fetch_array($resultu, MYSQLI_BOTH);
                 <p class="">เบอร์โทรผู้ดูแล : <?php echo $row["detail_care_tel"] ?></p>
                 </div>
             </div>
-            <a href="editForm.php?user_id=<?php echo $user_id; ?>" class="text-xl bg-yellow-400 text-black rounded inline-block mt-18 mb-24 px-8 py-2">แก้ไขข้อมูล</a>
+            <a href="editdetail_careForm.php?user_id=<?php echo $user_id; ?>" class="text-xl bg-yellow-400 text-black rounded inline-block mt-18 mb-24 px-8 py-2">แก้ไขข้อมูล</a>
             <?php ?>
             <?php } else { ?>
                 <div class="text-center p-3 mt-10 bg-red-100 text-red-500 border border-red-300 rounded">
