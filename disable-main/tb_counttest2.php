@@ -93,28 +93,68 @@ $stmt = $con->query("SELECT * FROM tb_member GROUP BY gender");
       </ul>
     </div>
     <section class="home-section p-3 bg-slate-200">
-        <nav class="bg-blue-500 p-4">
-            <div class="flex items-center justify-center">
-                <div class="text-white text-2xl font-bold"></div>
-                <ul class="">
-                    <li><a href="#" class="text-white mx-10">Home</a></li>
-                    <li><a href="#" class="text-white">Home</a></li>
-                    <li><a href="#" class="text-white">Home</a></li>
-                </ul>
+
+    <div class="tab-section bg-gray-100 rounded-lg p-5 border-2 border-indigo-200 w-[1200px] min-h-[400px] backdrop-blur-lg bg-opacity-40">
+        <div class="flex flex-warp gap-1">
+            <button class="p-4 rounded-lg text-gray-700 font-bold flex-grow w-80 hover:bg-gray-300 hover:bg-spacity-40" data-tab-target="#tab1">อายุ</button>
+            <button class="p-4 rounded-lg text-gray-700 font-bold flex-grow w-80 hover:bg-gray-300 hover:bg-spacity-40" data-tab-target="#tab2">เพศ</button>
+            <button class="p-4 rounded-lg text-gray-700 font-bold flex-grow w-80 hover:bg-gray-300 hover:bg-spacity-40" data-tab-target="#tab3">อาชีพ</button>
+        </div>
+
+        <div class="mt-4">
+            <div class="tab-content text-gray-700 hidden" id="tab1">
+                <h2 class="font-bold mt-9 mb-4 text-2xl">TT1</h2>
+                <p class="text-xl"></p>
             </div>
-        </nav>
+            <div class="tab-content text-gray-700 hidden" id="tab2">
+                <h2 class="font-bold mt-9 mb-4 text-2xl">TT2</h2>
+                <p class="text-xl"></p>
+            </div>
+            <div class="tab-content text-gray-700 hidden" id="tab3">
+                <h2 class="font-bold mt-9 mb-4 text-2xl">TT3</h2>
+                <p class="text-xl"></p>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+
+        const tabs = document.querySelectorAll('[data-tab-target]');
+        const activeClass= 'bg-indigo-200';
+
+        tabs[0].classList.add(activeClass);
+        document.querySelector('#tab1').classList.remove('hidden');
+
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                const targetContent = document.querySelector(tab.dataset.tabTarget);
+                // console.log(targetContent);
+
+                document.querySelectorAll('.tab-content').forEach(content => content.classList.add('hidden'));
+
+                targetContent.classList.remove('hidden');
+
+                document.querySelectorAll('.bg-indigo-200').forEach(activeTab => activeTab.classList.remove(activeClass));
+
+                tab.classList.add(activeClass);
+            })
+        })
+
+    </script>
+
         <?php
         
-        while ($row1 = mysqli_fetch_array($stmt)) {
-            echo $row1["gender"] . " | ";
-        }
+        // while ($row1 = mysqli_fetch_array($stmt)) {
+        //     echo $row1["gender"] . " | ";
+        // }
         
-        echo "<br>";
+        // echo "<br>";
         
-        // Print out result
-        while ($row = mysqli_fetch_array($result)) {
-            echo $row['gender'] . "--";
-        }
+        // // Print out result
+        // while ($row = mysqli_fetch_array($result)) {
+        //     echo $row['gender'] . "--";
+        // }
         
         ?>
     </section>
