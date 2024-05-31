@@ -178,10 +178,10 @@ $count = count($agearr_value)+count($genderarr_value)+count($careerarr_value);
 
               </div>
           </div> -->
-        <div class="flex flex-warp gap-1">
-            <button class="p-4 rounded-lg text-gray-700 font-bold flex-grow w-80 hover:bg-gray-300 hover:bg-spacity-40" id="btn1">อายุ</button>
-            <button class="p-4 rounded-lg text-gray-700 font-bold flex-grow w-80 hover:bg-gray-300 hover:bg-spacity-40" id="btn2">เพศ</button>
-            <button class="p-4 rounded-lg text-gray-700 font-bold flex-grow w-80 hover:bg-gray-300 hover:bg-spacity-40" id="btn3">อาชีพ</button>
+          <div class="flex flex-warp gap-1">
+            <button class="p-4 rounded-lg text-gray-700 font-bold flex-grow w-80 hover:bg-gray-300 hover:bg-spacity-40" data-tab-target="#tab1">อายุ</button>
+            <button class="p-4 rounded-lg text-gray-700 font-bold flex-grow w-80 hover:bg-gray-300 hover:bg-spacity-40" data-tab-target="#tab2">เพศ</button>
+            <button class="p-4 rounded-lg text-gray-700 font-bold flex-grow w-80 hover:bg-gray-300 hover:bg-spacity-40" data-tab-target="#tab3">อาชีพ</button>
         </div>
               <!-- <div class="mb-3">
                 <form action="tb_countsearch.php" class="flex space-x-2" method="POST">
@@ -191,6 +191,7 @@ $count = count($agearr_value)+count($genderarr_value)+count($careerarr_value);
             </form>
         </div> -->
         <?php if ($count>0) { ?>
+          <div class="tab-content text-gray-700 hidden" id="tab1">
         <table class="table-auto w-full border-collapse border border-gray-300"><!-- id="myTable" --> 
             <thead>
                 <tr class="bg-gray-200">
@@ -205,12 +206,36 @@ $count = count($agearr_value)+count($genderarr_value)+count($careerarr_value);
                       <td class="border border-gray-300 px-4 py-2 text-center" ><?php echo $agearr_value[$row]; ?></td>
                   </tr>
                   <?php } ?>
+                  </tbody>
+                </table>
+                </div>
+                <div class="tab-content text-gray-700 hidden" id="tab2">
+                <table class="table-auto w-full border-collapse border border-gray-300"><!-- id="myTable" --> 
+            <thead>
+                <tr class="bg-gray-200">
+                    <th class="border border-gray-300 px-4 py-2 text-center">ประเภท</th>
+                    <th class="border border-gray-300 px-4 py-2 text-center">จำนวน</th>
+                  </tr>
+            </thead>
+            <tbody>
                 <?php for($row=0;$row < count($genderarr_key);$row++) { ?>
                   <tr id="tabg">
                         <td class="border border-gray-300 px-4 py-2 text-center"><?php echo "เพศ ".$genderarr_key[$row]; ?></td>
                         <td class="border border-gray-300 px-4 py-2 text-center"><?php echo $genderarr_value[$row]; ?></td>
                     </tr>
                 <?php } ?>
+                  </tbody>
+                </table>
+                </div>
+                <div class="tab-content text-gray-700 hidden" id="tab3">
+                <table class="table-auto w-full border-collapse border border-gray-300"><!-- id="myTable" --> 
+            <thead>
+                <tr class="bg-gray-200">
+                    <th class="border border-gray-300 px-4 py-2 text-center">ประเภท</th>
+                    <th class="border border-gray-300 px-4 py-2 text-center">จำนวน</th>
+                  </tr>
+            </thead>
+            <tbody>
                 <?php for($row=0;$row < count($careerarr_key);$row++) { ?>
                     <tr id="tabc">
                         <td class="border border-gray-300 px-4 py-2 text-center"><?php echo "อาชีพ ".$careerarr_key[$row]; ?></td>
@@ -219,7 +244,7 @@ $count = count($agearr_value)+count($genderarr_value)+count($careerarr_value);
                     <?php } ?>
                   </tbody>
                 </table>
-              </div>
+                </div>
         <?php } else { ?>
             <div class="text-center p-3 mt-4 bg-red-100 text-red-500 border border-red-300 rounded">
               <b>ไม่มีข้อมูล!!</b>
@@ -229,6 +254,30 @@ $count = count($agearr_value)+count($genderarr_value)+count($careerarr_value);
 
       
     </section>
+    <script>
+
+const tabs = document.querySelectorAll('[data-tab-target]');
+const activeClass= 'bg-indigo-200';
+
+tabs[0].classList.add(activeClass);
+document.querySelector('#tab1').classList.remove('hidden');
+
+tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+        const targetContent = document.querySelector(tab.dataset.tabTarget);
+        // console.log(targetContent);
+
+        document.querySelectorAll('.tab-content').forEach(content => content.classList.add('hidden'));
+
+        targetContent.classList.remove('hidden');
+
+        document.querySelectorAll('.bg-indigo-200').forEach(activeTab => activeTab.classList.remove(activeClass));
+
+        tab.classList.add(activeClass);
+    })
+})
+
+</script>
     <script src="logout.js"></script>
     <script>
         let sidebar = document.querySelector(".sidebar");
