@@ -108,16 +108,16 @@ $rowu = mysqli_fetch_array($resultu, MYSQLI_BOTH);
         </li>
       </ul>
     </div>
-    <section class="home-section">
+    <section class="home-section p-3 bg-slate-200">
     <div class="container mx-auto overflow-x-auto p-6 bg-white rounded shadow-md">
         <h1 class="text-center text-2xl font-medium">ตารางผู้ดูแล</h1>
         <hr class="my-4">
-        <div class="mb-3">
-            <!-- <form action="searchdetail_tb2.php" class="flex space-x-2" method="POST">
+        <!-- <div class="mb-3">
+            <form action="searchdetail_tb2.php" class="flex space-x-2" method="POST">
                 <input class="flex-grow p-2 border border-gray-300 rounded" type="search" name="detail_care_name" placeholder="ป้อนชื่อทีม">
                 <button class="rounded p-2 bg-blue-500 text-white" type="submit">Search</button>
-            </form> -->
-        </div>
+            </form>
+        </div> -->
         <?php if ($count>0) { ?>
         <table class="table-auto w-full border-collapse border border-gray-300" id="myTable">
             <thead>

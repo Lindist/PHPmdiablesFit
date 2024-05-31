@@ -111,7 +111,7 @@ $rowu = mysqli_fetch_array($resultu, MYSQLI_BOTH);
         </li>
       </ul>
     </div>
-    <section class="home-section">
+    <section class="home-section p-3 bg-slate-200">
       <!-- <?php
       echo $id;
       echo $ida;

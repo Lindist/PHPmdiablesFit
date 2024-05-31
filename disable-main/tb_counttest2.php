@@ -94,7 +94,9 @@ $stmt = $con->query("SELECT * FROM tb_member GROUP BY gender");
     </div>
     <section class="home-section p-3 bg-slate-200">
 
-    <div class="tab-section bg-gray-100 rounded-lg p-5 border-2 border-indigo-200 w-[1200px] min-h-[400px] backdrop-blur-lg bg-opacity-40">
+    <div class="container mx-auto overflow-x-auto p-6 bg-white rounded shadow-md">
+      <h1 class="text-center text-2xl font-medium">ตารางสรุปผลผู้ใช้</h1>
+          <hr class="my-4">
         <div class="flex flex-warp gap-1">
             <button class="p-4 rounded-lg text-gray-700 font-bold flex-grow w-80 hover:bg-gray-300 hover:bg-spacity-40" data-tab-target="#tab1">อายุ</button>
             <button class="p-4 rounded-lg text-gray-700 font-bold flex-grow w-80 hover:bg-gray-300 hover:bg-spacity-40" data-tab-target="#tab2">เพศ</button>
