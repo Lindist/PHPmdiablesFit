@@ -4,11 +4,13 @@ body{
     padding: 0;
     background: #fff;
     font-family: "Kanit", sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
-
 .banner{
-    width: 100%;
+    width: 100vw;
     height: 100vh;
     background-image: linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.75)),url(https://earth-ism.jp/wp-content/uploads/2022/02/AdobeStock_433865355-2048x1365.jpeg);
     background-size: cover;
@@ -148,29 +150,31 @@ body{
 }
 
 button{
-    text-align: center;
-    width: 100%;
-    margin-top: 2rem;
-    background-color: #070F2B;
-    color: #fff;
-    padding: 0.5rem 1rem;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    width: 50%;
+    background-color: white;
+    color: black;
+    padding: 1rem 1.5rem;
     border-radius: 25px;
     font-weight: bold;
-    border: 2px solid #1B1A55;
+    /* border: 2px solid #1B1A55; */
     cursor: pointer;
-    background: transparent;
-    position: relative;
     overflow: hidden;
-    transition: 0.5s; 
+    transition: 0.5s;
 }
 
 button:hover{
-    transition: 0.5s;
-    color: #fff;
-    background: #1B1A55;
-    width: 100%;
-    
-} 
+    color: #000;
+    background-color: white;
+    animation: animatebtn .4s linear infinite alternate;
+}
+@keyframes animatebtn {
+    from{background-color: white;}
+    to{background-color: #333;}
+}
 
 footer{
     height: 100%;
@@ -209,7 +213,6 @@ footer .copy{
 
 
 @media screen and (min-width:850px){
-    
     .nav {
         display: flex;
         color: #fff;
@@ -302,43 +305,31 @@ footer .copy{
     button{
         width: 25%;
         margin-top: 2rem;
-        background-color: #070F2B;
-        color: #fff;
+        display: flex;
+        justify-content: center;
+        background-color: white;
+        color: black;
         padding: 0.5rem 1rem;
         border-radius: 25px;
         font-weight: bold;
-        border: 2px solid #1B1A55;
+        /* border: 2px solid #1B1A55; */
         cursor: pointer;
-        background: transparent;
         position: relative;
         overflow: hidden;
-        transition: 0.5s;
     }
-    /* button{
-        background: #1B1A55;
-        height: 100%;
-        width: 0;
-        border-radius: 25px;
-        position: absolute;
-        left: 0;
-        bottom: 0;
-        z-index: -1;
-        transition: 0.5s;
-
-    } */
-
     
-
     button:hover{
-        transition: 0.5s;
-        color: #fff;
-        background: #1B1A55;
-        width: 100%;
-        
+        color: #000;
+        background-color: white;
+        animation: animatebtn .4s linear infinite alternate;
+    }
+    @keyframes animatebtn {
+        from{background-color: white;}
+        to{background-color: #333;}
     }
 
     .banner{
-        width: 100%;
+        width: 100vw;
         height: 100vh;
         background-image: linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.75)),url(https://earth-ism.jp/wp-content/uploads/2022/02/AdobeStock_433865355-2048x1365.jpeg);
         background-size: cover;
