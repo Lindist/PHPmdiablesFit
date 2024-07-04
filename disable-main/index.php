@@ -66,9 +66,6 @@ $value = 0;
 </head>
 <body class="p-3 mb-2">
     <div class="container">
-        <!-- <div align = "right">
-            <a href="http://localhost:8080/PHPmdiablesFit/logout.php" target="_self" class="btn btn-danger">Logout</a>
-        </div> -->
         <div class="sidebar">
       <div class="logo-details">
         <i class="bx bxs-layer icon"></i>

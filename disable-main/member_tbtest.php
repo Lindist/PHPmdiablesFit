@@ -60,11 +60,6 @@ try {
     </thead>
     <tbody>
 <?php
-    // $stmt = $conn->query("SELECT * FROM tb_member");
-    // $stmt->execute();
-
-    // $users = $stmt->fetchAll();
-    // foreach ($users as $user) {
     while($row = mysqli_fetch_array($result, MYSQLI_BOTH)) {
 ?>
         <tr>

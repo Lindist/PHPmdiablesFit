@@ -1,14 +1,12 @@
-<?php 
+<?php
 
 require('dbconnect.php');
 session_start();
 $detail_id = $_GET['detail_id'];
-$id=$_GET['user_id'];
-if(isset($_GET['admin']))
-{
+$id = $_GET['user_id'];
+if (isset($_GET['admin'])) {
     $admin = $_GET['admin'];
-}else
-{
+} else {
     $admin = 0;
 }
 
@@ -16,15 +14,14 @@ $sql = "DELETE FROM tb_detail WHERE detail_id = $detail_id";
 
 $result = mysqli_query($connect, $sql);
 
-if($result) {
-    if($admin == 1)
-    {
+if ($result) {
+    if ($admin == 1) {
         echo "<script>";
         echo "alert('ลบข้อมูลเสร็จสิ้น!');";
         // echo "window.location = 'index.php';";
-        echo "location.href='detail_tb1.php?admin_id='+ ".$id;
+        echo "location.href='detail_tb1.php?admin_id='+ " . $id;
         echo "</script>";
-    }else{
+    } else {
 
         // echo "ลบข้อมูลเรียบร้อย";
         // echo "<a href='index.php'>กลับหน้าแรก<a>";
@@ -35,5 +32,3 @@ if($result) {
 } else {
     echo mysqli_error($connect);
 }
-
-?>

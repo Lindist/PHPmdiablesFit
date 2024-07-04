@@ -165,7 +165,6 @@ $rowu = mysqli_fetch_array($resultu, MYSQLI_BOTH);
                 <b>ไม่มีข้อมูล!!</b>
             </div>
         <?php } ?>
-        <!-- <a href="http://localhost:8080/PHPmdiablesFit/signupForm.php" class="bg-green-500 text-white rounded inline-block mt-4 p-2 mr-1">เพิ่มข้อมูล</a> -->
     </div>
     </section>
     <script src="logout.js"></script>

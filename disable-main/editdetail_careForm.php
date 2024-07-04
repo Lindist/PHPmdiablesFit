@@ -30,9 +30,6 @@ $row = mysqli_fetch_array($result, MYSQLI_BOTH);
 </head>
 <body class="p-3 mb-2 bg-gray-100">
     <div class="container mx-auto overflow-x-auto p-6 bg-white rounded shadow-md">
-        <!-- <div align = "right">
-            <a href="http://localhost:8080/PHPmdiablesFit/logout.php" target="_self" class="bg-red-500 text-white rounded inline-block p-2">Logout</a>
-        </div> -->
         <h2 class="text-center text-2xl font-bold">แบบฟอร์มแก้ไขข้อมูลผู้ดูแล</h2>
         <hr class="my-4">
         <form action="update_detail.php" method="POST">
