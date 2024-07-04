@@ -1,8 +1,7 @@
-<?php 
+<?php
 
-    session_start();
-    unset($_SESSION['user_login']);
-    unset($_SESSION['admin_login']);
+    session_start();    
+    session_destroy();
     header('location: signinForm.php');
 
 ?>
