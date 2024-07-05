@@ -91,7 +91,7 @@ $row = mysqli_fetch_array($result, MYSQLI_BOTH);
       </ul>
     </div>
     <section class="home-section p-3 bg-slate-200">
-        <div class="mx-auto overflow-x-auto p-6 bg-white rounded-3xl shadow-md text-center items-center h-full">
+        <div class="mx-auto overflow-x-auto p-6 bg-white rounded-3xl shadow-md text-center items-center">
             
             <h1 class="text-center text-3xl font-medium my-14">ข้อมูลผู้ใช้</h1>
             <?php if ($count>0) { ?>
