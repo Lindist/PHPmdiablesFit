@@ -1,7 +1,13 @@
 <?php
 
-require('dbconnect.php');
 session_start();
+
+if (!isset($_SESSION['admin_login'])) {
+    header("Location: ../index.html");
+    exit();
+  }
+require('dbconnect.php');
+
 $detail_id = $_GET['detail_id'];
 $id = $_GET['user_id'];
 if (isset($_GET['admin'])) {

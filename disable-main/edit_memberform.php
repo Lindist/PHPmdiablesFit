@@ -111,17 +111,13 @@ $rowu = mysqli_fetch_array($resultu, MYSQLI_BOTH);
                 <?php
                 
                 if ($rowu["urole"] == 'admin') {
-                    echo '<a href="homeadmin.php?admin_id=' .$ida. '" class="bg-blue-500 text-white rounded inline-block p-2">กลับหน้าแรก</a>';
+                    // echo "admin";
+                    echo '<a href="member_tb.php?admin_id=' .$ida. '" class="bg-blue-500 text-white rounded inline-block p-2">กลับหน้าแรก</a>';
                 } else {
+                    // echo "user";
                     echo '<a href="homeuser_member.php?user_id=' .$ida. '" class="bg-blue-500 text-white rounded inline-block p-2">กลับหน้าแรก</a>';
-                    // if ($rowu["urole"] == 'admin') {
-                    //     echo '<a href="homeadmin.php?admin_id=' .$id. '" class="bg-blue-500 text-white rounded inline-block p-2">กลับหน้าแรก</a>';
-                    // } else
-                    //     echo '<a href="homeuser_member.php?user_id=' .$id. '" class="bg-blue-500 text-white rounded inline-block p-2">กลับหน้าแรก</a>';
                 }
-
                 ?>
-                <!-- <a href="homeuser_member.php?user_id=<?php echo $id; ?>" class="bg-blue-500 text-white rounded inline-block p-2">กลับหน้าแรก</a> -->
             </div>
         </form>
     </div>

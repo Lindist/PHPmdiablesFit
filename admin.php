@@ -28,7 +28,6 @@
                 $stmt = $conn->query("SELECT * FROM tb_member WHERE id = $admin_id");
                 $stmt->execute();
                 $row = $stmt->fetch(PDO::FETCH_ASSOC);
-                // header('location: disable-main/index.php');
 
                 echo "<input type='hidden'  name='sendadminid' value='$admin_id' id='admin_id'>";
                 echo "<script>";

@@ -162,13 +162,11 @@ $rowr = mysqli_fetch_array($resultr, MYSQLI_BOTH);
                 <?php
                 
                 if ($rowr["urole"] == 'admin') {
-                    echo '<a href="detail_tb1.php?admin_id=<?php echo $ida; ?>" class="bg-blue-500 text-white rounded inline-block p-2">กลับหน้าแรก</a>';
+                    echo '<a href="detail_tb1.php?admin_id=' . $ida . '" class="bg-blue-500 text-white rounded inline-block p-2">กลับหน้าแรก</a>';
                 } else {
-                    echo '<a href="homeuser_detail_1.php?user_id=<?php echo $ida; ?>" class="bg-blue-500 text-white rounded inline-block p-2">กลับหน้าแรก</a>';
+                    echo '<a href="homeuser_detail_1.php?user_id=' . $ida . '" class="bg-blue-500 text-white rounded inline-block p-2">กลับหน้าแรก</a>';
                 }
-                
                 ?>
-                <!-- <a href="homeuser_detail_1.php?user_id=<?php echo $id; ?>" class="bg-blue-500 text-white rounded inline-block p-2">กลับหน้าแรก</a> -->
             </div>
         </form>
     </div>
