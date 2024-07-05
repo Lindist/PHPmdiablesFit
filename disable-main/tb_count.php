@@ -2,7 +2,7 @@
 require('connect.php');
 session_start();
 if (!isset($_SESSION['user_login']) && !isset($_SESSION['admin_login'])) {
-  header("Location: ../index.html");
+  header("Location: ../index.php");
   exit();
 }
 if(isset($_GET['admin_id']))

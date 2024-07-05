@@ -3,7 +3,7 @@
 require('dbconnect.php');
 session_start();
 if (!isset($_SESSION['user_login']) && !isset($_SESSION['admin_login'])) {
-  header("Location: ../index.html");
+  header("Location: ../index.php");
   exit();
 }
 $detail_id = $_POST['detail_id'];

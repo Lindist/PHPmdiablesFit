@@ -92,9 +92,8 @@ require_once 'connect.php';
 <body class="">
     <div id="inout">
         <a href="signinForm.php" class="btn btn-outline-primary">เข้าสู่ระบบ</a>
-        <a href="signupForm.php" class="btn btn-primary">สมัครสมาชิก</a>
         <div class="btn btn-dark">
-            <a href="index.html" class="back"><span>กลับ</span></a>
+            <a href="index.php" class="back"><span>กลับ</span></a>
         </div>
     </div>
     <script type="text/javascript">
