@@ -47,10 +47,9 @@
         } else {
             try {
 
-                $check_data = $conn->prepare("SELECT * FROM tb_member WHERE number = :number");
-                $check_data->bindParam(":number", $number);
-                $check_data->execute();
-                $row = $check_data->fetch(PDO::FETCH_ASSOC);
+                $check_data = $conn->prepare("SELECT * FROM tb_member WHERE number = ?");
+                $check_data->execute([$number]);
+                $row = $check_data->fetch();
 
                 if ($check_data->rowCount() > 0) {
                     if ($number == $row['number']) {

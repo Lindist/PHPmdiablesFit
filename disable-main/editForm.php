@@ -1,6 +1,13 @@
 <?php
 
+session_start();
+if (!isset($_SESSION['user_login']) && !isset($_SESSION['admin_login'])) {
+  header("Location: ../index.html");
+  exit();
+}
+
 require('dbconnect.php');
+require('connect.php');
 // $detail_id = $_GET["detail_id"];
 $id = $_GET["user_id"];
 
@@ -8,16 +15,6 @@ $sql = "SELECT * FROM tb_detail WHERE id = $id";
 $result = mysqli_query($connect, $sql);
 $row = mysqli_fetch_array($result, MYSQLI_BOTH);
 
-$servername = "localhost";
-$username = "root";
-$password = "";
-
-try {
-$conn = new PDO("mysql:host=$servername;dbname=database_disables", $username, $password);
-$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-} catch(PDOException $e) {
-echo "Connection failed: " . $e->getMessage();
-}
 $all = $conn->query("SELECT * FROM tb_member");
 
 $all->execute();

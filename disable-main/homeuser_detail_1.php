@@ -1,5 +1,11 @@
 <?php 
 
+session_start();
+if (!isset($_SESSION['user_login']) && !isset($_SESSION['admin_login'])) {
+  header("Location: ../index.html");
+  exit();
+}
+
 require('dbconnect.php');
 if(isset($_GET['user_id']))
 {
@@ -27,7 +33,7 @@ $rowu = mysqli_fetch_array($resultu, MYSQLI_BOTH);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home Page</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="style.css">
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300&display=swap');

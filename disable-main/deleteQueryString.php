@@ -18,7 +18,6 @@ if ($result) {
     if ($admin == 1) {
         echo "<script>";
         echo "alert('ลบข้อมูลเสร็จสิ้น!');";
-        // echo "window.location = 'index.php';";
         echo "location.href='detail_tb1.php?admin_id='+ " . $id;
         echo "</script>";
     } else {

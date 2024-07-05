@@ -1,5 +1,11 @@
 <?php 
 
+session_start();
+if (!isset($_SESSION['user_login']) && !isset($_SESSION['admin_login'])) {
+  header("Location: ../index.html");
+  exit();
+}
+
 require('dbconnect.php');
 if(isset($_GET['user_id']))
 {
@@ -23,7 +29,7 @@ $row = mysqli_fetch_array($result, MYSQLI_BOTH);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home Page</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="style.css">
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300&display=swap');
@@ -85,7 +91,7 @@ $row = mysqli_fetch_array($result, MYSQLI_BOTH);
       </ul>
     </div>
     <section class="home-section p-3 bg-slate-200">
-        <div class="container mx-auto overflow-x-auto p-6 bg-white rounded-3xl shadow-md text-center items-center mt-6">
+        <div class="mx-auto overflow-x-auto p-6 bg-white rounded-3xl shadow-md text-center items-center h-full">
             
             <h1 class="text-center text-3xl font-medium my-14">ข้อมูลผู้ใช้</h1>
             <?php if ($count>0) { ?>

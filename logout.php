@@ -2,6 +2,6 @@
 
     session_start();    
     session_destroy();
-    header('location: signinForm.php');
+    header('location: index.html');
 
 ?>

@@ -2,6 +2,10 @@
 
 require('dbconnect.php');
 session_start();
+if (!isset($_SESSION['user_login']) && !isset($_SESSION['admin_login'])) {
+  header("Location: ../index.html");
+  exit();
+}
 $detail_id = $_POST['detail_id'];
 $id = $_POST['id'];
 // $admin = $_POST['admin_id'];

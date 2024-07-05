@@ -1,5 +1,10 @@
 <?php 
+
 session_start();
+if (!isset($_SESSION['user_login']) && !isset($_SESSION['admin_login'])) {
+  header("Location: ../index.html");
+  exit();
+}
 require('dbconnect.php');
 
 $id = $_POST['user_id'];

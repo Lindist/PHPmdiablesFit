@@ -1,4 +1,9 @@
 <?php
+session_start();
+if (!isset($_SESSION['user_login']) && !isset($_SESSION['admin_login'])) {
+  header("Location: ../index.html");
+  exit();
+}
 // เชื่อมต่อกับฐานข้อมูล
 require('connect.php');
 

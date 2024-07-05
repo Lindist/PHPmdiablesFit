@@ -1,6 +1,10 @@
 <?php
 require('connect.php');
 session_start();
+if (!isset($_SESSION['user_login']) && !isset($_SESSION['admin_login'])) {
+  header("Location: ../index.html");
+  exit();
+}
 if(isset($_GET['admin_id']))
 {
     $id1 = $_GET['admin_id'];

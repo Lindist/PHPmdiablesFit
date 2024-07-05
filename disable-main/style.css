@@ -219,7 +219,7 @@
   .home-section {
     position: relative;
     background: #E2E8F0;
-    min-height: 100vh;
+    /* min-height: 100vh; */
     top: 0;
     left: 78px;
     width: calc(100% - 78px);
