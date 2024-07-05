@@ -319,7 +319,7 @@
       background-color: #322f61;
     }
     .sidebar.open ul {
-      top: 80px;
+      top: 79px;
       z-index: 2;
     }
     .sidebar ul li .profile-details {
