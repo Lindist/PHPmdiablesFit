@@ -86,19 +86,6 @@ $count = count($agearr_value)+count($genderarr_value)+count($careerarr_value);
     </style>
     <link href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
-    <script src="https://cdn.datatables.net/2.0.8/js/dataTables.js"></script>
-    <link rel="stylesheet" href="https://cdn.datatables.net/2.0.8/css/dataTables.dataTables.css">
-    <script>
-        $(document).ready( function () {
-            $('#myTable').DataTable();
-        } );
-        let table = new DataTable('#myTable', {
-            responsive: true
-        });
-
-    </script>
-
   </head>
   <body>
     <div class="sidebar">
