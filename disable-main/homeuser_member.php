@@ -1,10 +1,12 @@
 <?php 
 
 session_start();
-if (!isset($_SESSION['user_login']) && !isset($_SESSION['admin_login'])) {
+if (!isset($_SESSION['user_login'])) {
   header("Location: ../index.php");
   exit();
 }
+
+// echo $_SESSION['user_login'];
 
 require('dbconnect.php');
 if(isset($_GET['user_id']))

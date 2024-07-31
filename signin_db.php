@@ -57,9 +57,11 @@
                             if ($row['urole'] == 'admin') {
                                 $_SESSION['admin_login'] = $row['id'];
                                 header("location: admin.php");
+                                exit();
                             } else {
                                 $_SESSION['user_login'] = $row['id'];
                                 header("location: user.php");
+                                exit();
                             }
                         } else {
                             $_SESSION['error'] = 'รหัสผ่านผิด';
