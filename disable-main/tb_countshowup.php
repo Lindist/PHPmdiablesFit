@@ -2,6 +2,12 @@
 include 'tb_counttest1.php';
 require('dbconnect.php');
 
+session_start();
+if (!isset($_SESSION['admin_login'])) {
+  header("Location: ../index.php");
+  exit();
+}
+
 if(isset($_GET['admin_id']))
 {
     $ida = $_GET['admin_id'];

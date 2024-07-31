@@ -3,11 +3,10 @@
 require('dbconnect.php');
 
 session_start();
-if (!isset($_SESSION['user_login']) && !isset($_SESSION['admin_login'])) {
+if (!isset($_SESSION['admin_login'])) {
   header("Location: ../index.php");
   exit();
 }
-
 
 $sql = "SELECT * FROM tb_detail ORDER BY detail_id ASC";
 $result = mysqli_query($connect, $sql);
