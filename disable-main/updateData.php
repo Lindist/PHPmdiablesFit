@@ -69,13 +69,13 @@ if($result) {
     if($rowu["urole"] == "admin")
     {
         echo "<script>";
-        echo "alert('อัปเดตข้อมูลเสร็จสิ้น!');";
+        //echo "alert('อัปเดตข้อมูลเสร็จสิ้น!');";
         echo "location.href='detail_tb1.php?admin_id='+ ".$ida;
         echo "</script>";
         
     }else{
         echo "<script>";
-        echo "alert('อัปเดตข้อมูลเสร็จสิ้น!');";
+        //echo "alert('อัปเดตข้อมูลเสร็จสิ้น!');";
         echo "location.href='homeuser_detail_1.php?user_id='+ ".$ida;
         echo "</script>";
     }

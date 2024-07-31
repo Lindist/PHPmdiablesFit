@@ -23,16 +23,16 @@ $result = mysqli_query($connect, $sql);
 if ($result) {
     if ($admin == 1) {
         echo "<script>";
-        echo "alert('ลบข้อมูลเสร็จสิ้น!');";
+        // echo "alert('ลบข้อมูลเสร็จสิ้น!');";
         echo "location.href='detail_tb1.php?admin_id='+ " . $id;
         echo "</script>";
     } else {
 
         // echo "ลบข้อมูลเรียบร้อย";
         // echo "<a href='index.php'>กลับหน้าแรก<a>";
-        echo "<script>";
-        echo "alert('ลบข้อมูลเสร็จสิ้น!');";
-        echo "</script>";
+        // echo "<script>";
+        // echo "alert('ลบข้อมูลเสร็จสิ้น!');";
+        // echo "</script>";
     }
 } else {
     echo mysqli_error($connect);

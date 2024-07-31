@@ -42,21 +42,21 @@ if($result) {
         if($admin_id == 1)
         {
             echo "<script>";
-            echo "alert('อัปเดตข้อมูลเสร็จสิ้น!');";
+            //echo "alert('อัปเดตข้อมูลเสร็จสิ้น!');";
             echo "location.href='member_tb.php?admin_id='+ ".$ida;
         // echo "<script src='backpages.js'></script>";
             echo "</script>";
         }
         else{
             echo "<script>";
-            echo "alert('อัปเดตข้อมูลเสร็จสิ้น!');";
+            //echo "alert('อัปเดตข้อมูลเสร็จสิ้น!');";
             echo "location.href='homeadmin.php?admin_id='+ ".$ida;
         // echo "<script src='backpages.js'></script>";
             echo "</script>";
         }
     } else {
         echo "<script>";
-        echo "alert('อัปเดตข้อมูลเสร็จสิ้น!');";
+        //echo "alert('อัปเดตข้อมูลเสร็จสิ้น!');";
         echo "location.href='homeuser_member.php?user_id='+ ".$ida;
         echo "</script>";
     }
