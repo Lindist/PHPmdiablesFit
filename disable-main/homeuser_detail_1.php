@@ -102,7 +102,7 @@ $rowu = mysqli_fetch_array($resultu, MYSQLI_BOTH);
             <div class="text-center mt-10 mb-10">
                 <div class="inline-block text-2xl text-left leading-10">
                 <?php $row = mysqli_fetch_array($result, MYSQLI_BOTH); ?>
-                <p class="">ว/ด/ป เกิด : <?php echo $row["detail_date"] ?></p>
+                <p class="">ว/ด/ป เกิด : <?php $detailDate = new DateTime($row['detail_date']); echo $detailDate->format('d/m/Y'); ?></p>
                 <p class="">ที่อยู่ : <?php echo $row["detail_address"] ?></p>
                 <p class="">รหัสบัตรประชาชน : <?php echo $row["detail_idp"] ?></p>
                 <p class="">อาชีพ : <?php echo $row["detail_occ"] ?></p>

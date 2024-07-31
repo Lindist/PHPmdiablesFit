@@ -150,7 +150,7 @@ $rowu = mysqli_fetch_array($resultu, MYSQLI_BOTH);
                 <tr>
                   <td class="border border-gray-300 px-4 py-2 text-center"><?php echo $row["detail_id"] ?></td>
                   <td class="border border-gray-300 px-4 py-2 text-center"><?php echo $row["id"] ?></td>
-                  <td class="border border-gray-300 px-4 py-2 text-center"><?php echo $row["detail_date"] ?></td>
+                  <td class="border border-gray-300 px-4 py-2 text-center"><?php $detailDate = new DateTime($row['detail_date']); echo $detailDate->format('d/m/Y'); ?></td>
                   <td class="border border-gray-300 px-4 py-2 text-center"><?php echo $row["detail_address"] ?></td>
                   <td class="border border-gray-300 px-4 py-2 text-center"><?php echo $row["detail_idp"] ?></td>
                   <td class="border border-gray-300 px-4 py-2 text-center"><?php echo $row["detail_occ"] ?></td>
