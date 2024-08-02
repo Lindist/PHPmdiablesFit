@@ -72,7 +72,7 @@ if($result) {
         //echo "alert('อัปเดตข้อมูลเสร็จสิ้น!');";
         echo "location.href='detail_tb1.php?admin_id='+ ".$ida;
         echo "</script>";
-        
+        exit();
     }else{
         echo "<script>";
         //echo "alert('อัปเดตข้อมูลเสร็จสิ้น!');";

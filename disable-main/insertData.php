@@ -56,6 +56,7 @@ if($result) {
         // echo "alert('เพิ่มข้อมูลเสร็จสิ้น!');";
         echo "location.href='detail_tb1.php?admin_id='+ ".$ida;
         echo "</script>";
+        exit();
     }else{
         echo "<script>";
         // echo "alert('เพิ่มข้อมูลเสร็จสิ้น!');";

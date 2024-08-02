@@ -34,6 +34,7 @@ if($result) {
     // echo "alert('อัปเดตข้อมูลเสร็จสิ้น!');";
     echo "location.href='homeuser_detail_2.php?user_id='+ ".$id;
     echo "</script>";
+    exit();
 } else {
     echo mysqli_error($connect);
 }

@@ -26,6 +26,7 @@ if ($result) {
         // echo "alert('ลบข้อมูลเสร็จสิ้น!');";
         echo "location.href='detail_tb1.php?admin_id='+ " . $id;
         echo "</script>";
+        exit();
     } else {
 
         // echo "ลบข้อมูลเรียบร้อย";

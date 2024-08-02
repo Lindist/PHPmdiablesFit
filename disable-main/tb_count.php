@@ -164,6 +164,7 @@ if(isset($_SESSION['refres_page1'])){
     unset($_SESSION['refres_page1']);
     $_SESSION['success'] = "สมัครสมาชิกเรียบร้อยแล้ว! <a href='signinForm.php' class='alert-link'>คลิ๊กที่นี่</a> เพื่อเข้าสู่ระบบ";
     header("location: ../signupForm.php");
+    exit();
 }
 else if(isset($_SESSION['refres_page2']))
 {
@@ -172,6 +173,7 @@ else if(isset($_SESSION['refres_page2']))
     echo "location.href='homeadmin.php?admin_id='+ ".$id1;
     // echo "<script src='backpages.js'></script>";
     echo "</script>";
+    exit();
 }
 else if(isset($_SESSION['refres_page3']))
 {
@@ -179,6 +181,7 @@ else if(isset($_SESSION['refres_page3']))
     echo "<script>";
     echo "location.href='homeuser_member.php?user_id='+ ".$id1;
     echo "</script>";
+    exit();
 }
 else if(isset($_SESSION['refres_page4']))
 {
@@ -186,6 +189,7 @@ else if(isset($_SESSION['refres_page4']))
     echo "<script>";
     echo "location.href='detail_tb1.php?admin_id='+ ".$id1;
     echo "</script>";
+    exit();
 }
 else if(isset($_SESSION['refres_page5']))
 {
@@ -193,6 +197,7 @@ else if(isset($_SESSION['refres_page5']))
     echo "<script>";
     echo "location.href='detail_tb1.php?admin_id='+ ".$id1;
     echo "</script>";
+    exit();
 }
 else if(isset($_SESSION['refres_page6']))
 {
@@ -200,6 +205,7 @@ else if(isset($_SESSION['refres_page6']))
     echo "<script>";
     echo "location.href='homeuser_detail_1.php?user_id='+ ".$id1;
     echo "</script>";
+    exit();
 }
 else if(isset($_SESSION['refres_page7']))
 {
@@ -207,6 +213,7 @@ else if(isset($_SESSION['refres_page7']))
     echo "<script>";
     echo "location.href='detail_tb1.php?admin_id='+ ".$id1;
     echo "</script>";
+    exit();
 }
 else if(isset($_SESSION['refres_page8']))
 {
@@ -214,6 +221,7 @@ else if(isset($_SESSION['refres_page8']))
     echo "<script>";
     echo "location.href='homeuser_detail_1.php?user_id='+ ".$id1;
     echo "</script>";
+    exit();
 }
 
 ?>
