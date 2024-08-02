@@ -88,11 +88,11 @@ $rowu = mysqli_fetch_array($resultu, MYSQLI_BOTH);
                     }
                     if($value == $row["gender"])
                     {
-                        echo "<input class='form-check-input mr-1' type='radio' name='gender' aria-describedby='gender' value='$value' checked >";
+                        echo "<input class='form-check-input mx-1' type='radio' name='gender' aria-describedby='gender' value='$value' checked >";
                         echo "<label for='gender' class='form-check-label'>$gender_thai</label>";
                     }
                     else{
-                        echo "<input class='form-check-input mr-1' type='radio' name='gender' aria-describedby='gender' value='$value'>";
+                        echo "<input class='form-check-input mx-1' type='radio' name='gender' aria-describedby='gender' value='$value'>";
                         echo "<label for='gender' class='form-check-label'>$gender_thai</label>";
                     }
                 }
