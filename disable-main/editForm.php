@@ -64,6 +64,9 @@ $rowr = mysqli_fetch_array($resultr, MYSQLI_BOTH);
             font-style: normal;
         }
     </style>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/th.js"></script>
 </head>
 <body class="p-3 mb-2 bg-gray-100">
     <div class="container mx-auto overflow-x-auto p-6 bg-white rounded shadow-md">
@@ -88,9 +91,20 @@ $rowr = mysqli_fetch_array($resultr, MYSQLI_BOTH);
                 </select>
             </div> -->
             <div class="mb-4">
-                <label for="detail_date" class="block font-medium text-gray-700">ด/ว/ป เกิด</label>
-                <input type="date" name="detail_date" class="mt-1 p-2 bg-white text-1xl border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md focus:ring-1" value="<?php echo $row["detail_date"]; ?>">
+                <label for="detail_date" class="block font-medium text-gray-700">ว/ด/ป เกิด</label>
+                <input type="text" id="datePicker" placeholder="เลือกวันที่" name="detail_date" class="mt-1 p-2 bg-white text-1xl border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md focus:ring-1" value="<?php echo $row["detail_date"]; ?>">
             </div>
+
+            <script>
+                // Initialize flatpickr with Thai localization
+                flatpickr("#datePicker", {
+                    locale: "th",
+                    dateFormat: "Y-m-d", // ตั้งค่า format ที่ต้องการ
+                    // ปรับแต่งเพิ่มเติมสำหรับประสบการณ์ที่ดีขึ้นบนมือถือ
+                    disableMobile: "true"
+                });
+            </script>
+
             <div class="mb-4">
                 <label for="detail_address" class="block font-medium text-gray-700">ที่อยู่</label>
                 <textarea name="detail_address" class="resize-y mt-1 p-2 bg-white text-1xl border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md focus:ring-1 h-11" ><?php echo $row["detail_address"]; ?></textarea>
