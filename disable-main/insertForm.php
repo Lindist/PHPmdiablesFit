@@ -110,7 +110,7 @@ $rowr = mysqli_fetch_array($resultr, MYSQLI_BOTH);
                 <input type="text" name="detail_occ" class="mt-1 p-2 bg-white text-1xl border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md focus:ring-1">
             </div>
             <div class="mb-4">
-                <label for="detail_salary" class="block font-medium text-gray-700">รายได้</label>
+                <label for="detail_salary" class="block font-medium text-gray-700">รายได้ ต่อเดือน</label>
                 <input type="text" name="detail_salary" class="mt-1 p-2 bg-white text-1xl border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md focus:ring-1">
             </div>
             <div class="mb-4">
